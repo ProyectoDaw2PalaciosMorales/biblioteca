@@ -4,7 +4,7 @@ class Actualizar_autores extends CI_Controller{
  
     public function actualizar(){
         session_start();
-        
+         
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
         $id =  isset($_POST['id']) ? $_POST['id'] : null;
         $this->load->model('Actu_autor');
