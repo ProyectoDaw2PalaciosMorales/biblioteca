@@ -10,7 +10,7 @@ class Actualizar_autores extends CI_Controller{
         $this->load->model('Actu_autor');
        
         $datos['autor'] = $this->Actu_autor-> getlautoresById($id);
-     
+     f;
       
       
         $this->load->view('Actualizar_autores',$datos);
