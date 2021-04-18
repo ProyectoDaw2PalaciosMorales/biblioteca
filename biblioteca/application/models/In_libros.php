@@ -10,12 +10,14 @@ class In_libros extends CI_Model{
         session_start();
        
             $_SESSION['idcolorinsercion'] =$titulo;
-        
+      /*      $autores = R::findOne('autores', 'nombre_autor=?', [
+                $autor
+            ]);
           
         
         $libros = R::findOne('libros', 'titulo=?', [
             $titulo
-        ]);
+        ]);*/
         $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
         
         
@@ -31,10 +33,11 @@ class In_libros extends CI_Model{
         
         $row = mysqli_fetch_assoc($resultado);
      
+        $ok = ($libros == null  );
         
-       $ok = ($libros == null );
-        if ($ok) {
-            $autores = R::load('autores', $row['id']);
+
+      /* if ($ok){*/
+           $autores = R::load('autores', $row['id']);
           
             $libros = R::dispense('libros');
             $libros->titulo=$titulo;
@@ -58,12 +61,12 @@ class In_libros extends CI_Model{
             
            
            
-        }else{
+        }/*else{
             redirect(base_url()."/errorcamporepitidos/errorlibro");
-        }
+        }*/
     }
     
-}
+
 
 
 ?>

@@ -22,11 +22,12 @@
     
     
     <form class="form_registr" action="<?=base_url()?>Registrar/registropost" method="post" enctype="multipart/form-data">
-        <h3>Si quieres registrarte rellena los siguientes campos</h3>
-        <br><br>
+       
+        <div>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" required>
-        <br><br>
+        
+        </div>
         <label for="primer_apellido">Primer apellido:</label>
         <input type="text" name="primer_apellido" required>
         <br><br>
