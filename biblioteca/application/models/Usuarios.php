@@ -15,7 +15,7 @@ class Usuarios extends CI_Model{
       
         
        
-        redirect(base_url()."/Administrar_Usuarios/usuarios");
+        redirect(base_url()."usuario/Administrar_Usuarios/usuarios");
        
        
         

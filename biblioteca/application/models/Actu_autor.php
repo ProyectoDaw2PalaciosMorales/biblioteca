@@ -33,7 +33,7 @@ class Actu_autor extends CI_Model{
             
             
             
-             redirect(base_url()."/Mostrarlibros/mostraractualizacionautores");
+             redirect(base_url()."libro/Mostrarlibros/mostraractualizacionautores");
             
             
             

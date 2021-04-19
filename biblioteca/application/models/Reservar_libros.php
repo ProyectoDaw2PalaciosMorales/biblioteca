@@ -29,7 +29,7 @@ class Reservar_libros extends CI_Model{
         
         }
         
-        redirect(base_url()."/Mostrarlibros/mostrarusuario");
+        redirect(base_url()."libro/Mostrarlibros/mostrarusuario");
         
       
   

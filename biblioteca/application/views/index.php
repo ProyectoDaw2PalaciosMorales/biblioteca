@@ -13,7 +13,7 @@
     </head>
     <body id="index">
         <h1>Iniciar sesion</h1>
-        <form action="<?=base_url()?>/login/acceso" method="post">
+        <form action="<?=base_url()?>usuario/login/acceso" method="post">
             <label for="usuario">Usuario:</label>
             <input type="text" name="usuario" required>
             <br><br>
@@ -22,7 +22,7 @@
             <br><br>
             <input type="submit" value="Entrar">
             <br><br><br><br>
-            <a href="<?=base_url()?>Registrar/registro">Si no estas resgistrado pincha aqui.</a>
+            <a href="<?=base_url()?>usuario/Registrar/registro">Si no estas resgistrado pincha aqui.</a>
         </form> 
     </body>
 </html>

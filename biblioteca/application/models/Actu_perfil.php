@@ -9,7 +9,7 @@ class Actu_perfil extends CI_Model{
     
     
    
-    public function actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$password,$comprobacion,$alias,$foto)
+    public function actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto)
         {
            
             
@@ -19,7 +19,7 @@ class Actu_perfil extends CI_Model{
                 $usuarios->nombre=$nombre;
                 $usuarios->primer_apellido=$primer_apellido;
                 $usuarios->segundo_apellido=$segundo_apellido;
-                $usuarios-> fecha_nacimiento=$fechanacimento;
+                $usuarios-> fecha_nacimiento=$ano;
                 $usuarios->email=$email;
                 $usuarios->telefono=$telefono;
                 $usuarios->contrasena=$password;
@@ -46,7 +46,7 @@ class Actu_perfil extends CI_Model{
                     $usuarios->foto = $extension;
                 R::store($usuarios);
                 
-                redirect(base_url()."Bienvenido/Bienvenidos_u");
+                redirect(base_url()."usuario/Bienvenido/Bienvenidos_u");
                 
                 
             }

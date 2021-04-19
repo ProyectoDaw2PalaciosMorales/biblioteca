@@ -44,7 +44,7 @@ class In_autor extends CI_Model{
             
            
            
-            redirect(base_url()."/Mostrarlibros/mostrarautores");
+            redirect(base_url()."libro/Mostrarlibros/mostrarautores");
             
             
            

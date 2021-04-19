@@ -71,7 +71,7 @@ class Actu_libros extends CI_Model{
             
             
             
-            redirect(base_url()."/Mostrarlibros/mostraractualizacion");
+            redirect(base_url()."libro/Mostrarlibros/mostraractualizacion");
             
             
             

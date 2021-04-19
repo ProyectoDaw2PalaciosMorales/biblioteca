@@ -8,7 +8,7 @@ class Bo_libros extends CI_Model{
         
         R::trash(R::load('libros',$id));
      
-        redirect(base_url()."Administrador_mostrarlibros/mostrar_libros");
+        redirect(base_url()."libro/Administrador_mostrarlibros/mostrar_libros");
         
     }
 }

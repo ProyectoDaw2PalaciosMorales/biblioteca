@@ -38,7 +38,7 @@ class Ini_conex_bd extends CI_Model{
             
         }else{
             
-            redirect(base_url()."Bienvenido/Bienvenidos_u");
+            redirect(base_url()."usuario/Bienvenido/Bienvenidos_u");
             
                                   
           
