@@ -10,7 +10,8 @@ $idusuario=$_SESSION['idperfil'];
     <head>
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+         <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
         <script>
 function enviar_formulario(){
    document.formulario1.submit()
@@ -23,7 +24,44 @@ function enviar_formulario2(){
 
     <body>
     
-     <body>
+     
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+     		
+         <div class="col-sm-3 col-md-3">
+  			<a class="navbar-brand" href="#">Tu Biblioteca</a>
+  		</div>
+  		<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+   	 		<span class="navbar-toggler-icon"></span>
+  		</button>-->
+  		<div class="col-sm-3 col-md-3">
+      		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+              	<li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              	</li>
+              	<li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              	</li>
+              	<li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              	</li>    
+              </ul>
+             
+      		</div>
+      	</div>
+      	<div class="col-sm-3 col-md-3"> 
+      			<form class="form-inline" action="/action_page.php">
+            		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
+            		<button class="btn btn-success" type="submit">Search</button>
+         	 	</form>
+        </div>
+        <div class="col-sm-3 col-md-3">
+         	 <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
+        </div>
+      
+</nav>
+ 
+     
   
  
    
