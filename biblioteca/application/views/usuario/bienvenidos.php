@@ -56,7 +56,14 @@ function enviar_formulario2(){
          	 	</form>
         </div>
         <div class="col-sm-3 col-md-3">
-         	 <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
+        
+        
+       <?php if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )):?>
+        <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?=$nombre;?>.png">
+         <?php  else:?>
+         <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
+                    <?php endif;?>
+         	
         </div>
       
 </nav>
