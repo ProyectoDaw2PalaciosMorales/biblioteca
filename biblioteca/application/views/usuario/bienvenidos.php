@@ -71,6 +71,7 @@ function enviar_formulario2(){
 </nav>
     
      
+	    
  <!--     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
      		
          <div class="col-sm-3 col-md-3">
