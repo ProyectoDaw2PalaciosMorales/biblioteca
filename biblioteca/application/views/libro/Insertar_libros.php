@@ -29,11 +29,21 @@
             <input type="text" name="editorial">
             
              <br><br><br>
-            
-               
-            
             <label for="autor">Autor:</label>
-            <input type="text" name="autor"> 
+                <select name="autor">
+         
+       <?php foreach ($autores as $autor):?>
+    
+           
+		<option   value="<?=$autor?>"><?=$autor?></option>
+		
+		
+		<?php endforeach;?>
+		
+     </select>
+           
+           
+           
             <br><br><br>
               <label for="genero_literario">Genero literario preferido:</label>
         <select name="genero_literario">

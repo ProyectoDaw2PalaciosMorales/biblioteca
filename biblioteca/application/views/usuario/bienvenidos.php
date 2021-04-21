@@ -10,8 +10,11 @@ $idusuario=$_SESSION['idperfil'];
     <head>
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
          <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script>
 function enviar_formulario(){
    document.formulario1.submit()
@@ -24,31 +27,72 @@ function enviar_formulario2(){
 
     <body>
     
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>   
+      <li class="nav-item">
+        <form class="form-inline" action="/action_page.php">
+            		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
+            		<button class="btn btn-success" type="submit">Search</button>
+         	 	</form>
+      </li> 
+          <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <?php if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )):?>
+        <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?=$nombre;?>.png">
+         <?php  else:?>
+         <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
+                    <?php endif;?>
+      </a>
+      <div class="dropdown-menu">
+          
+				    <form  name="formulario1" action="<?=base_url()?>usuario/Perfil/perfil_usuario" method="post">
+					<input type="hidden" name="id" value= "<?= $idusuario;?>">
+					<a href='javascript:enviar_formulario()'>Perfil</a>
+				  </form> 						
+			   <a href='<?=base_url()?>usuario/Cerrar_sesion/cerrar'>Cerrar sesion</a>	  		
+      </div>
+      </li> 
+    </ul>
+  </div>  
+</nav>
+    
      
-     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+ <!--     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
      		
          <div class="col-sm-3 col-md-3">
   			<a class="navbar-brand" href="#">Tu Biblioteca</a>
   		</div>
-  		<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-   	 		<span class="navbar-toggler-icon"></span>
-  		</button>-->
-  		<div class="col-sm-3 col-md-3">
-      		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul class="navbar-nav">
-              	<li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              	</li>
-              	<li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              	</li>
-              	<li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              	</li>    
-              </ul>
-             
-      		</div>
-      	</div>
+  		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  		
+      		<ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>    
+             </ul>
+      		
+      	
       	<div class="col-sm-3 col-md-3"> 
       			<form class="form-inline" action="/action_page.php">
             		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
@@ -56,19 +100,35 @@ function enviar_formulario2(){
          	 	</form>
         </div>
         <div class="col-sm-3 col-md-3">
-        
-        
-       <?php if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )):?>
+       <ul class="navbar-nav">
+         	 <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <?php if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )):?>
         <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?=$nombre;?>.png">
          <?php  else:?>
          <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
                     <?php endif;?>
-         	
+      </a>
+      <div class="dropdown-menu">
+          
+				    <form  name="formulario1" action="<?=base_url()?>usuario/Perfil/perfil_usuario" method="post">
+					<input type="hidden" name="id" value= "<?= $idusuario;?>">
+					<a href='javascript:enviar_formulario()'>Perfil</a>
+				  </form> 						
+			   <a href='<?=base_url()?>usuario/Cerrar_sesion/cerrar'>Cerrar sesion</a>	  		
+      </div>
+    </li>
+       
+    </ul>   
+    
+         
         </div>
-      
+        
+        
+      	
 </nav>
  
-     
+   -->  
   
  
    
@@ -93,10 +153,10 @@ function enviar_formulario2(){
                     <br><br>
                     <a href='<?=base_url()?>libro/Generos/genero'>Tus genereros favoritos</a>
                     <br><br>
-                    <form  name="formulario1" action="<?=base_url()?>usuario/Perfil/perfil_usuario" method="post">
+                 <!--   <form  name="formulario1" action="<?=base_url()?>usuario/Perfil/perfil_usuario" method="post">
 					<input type="hidden" name="id" value= "<?= $idusuario;?>">
 					<a href='javascript:enviar_formulario()'>Perfil</a>
-				  </form> 						
+				  </form>-->					
 				       		
                   
                       <form  name="formulario2" action="<?=base_url()?>comentario/Comentarios/comentario" method="post">

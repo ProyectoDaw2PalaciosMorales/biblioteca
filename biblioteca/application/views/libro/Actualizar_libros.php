@@ -34,7 +34,19 @@
                
             
             <label for="autor">Autor:</label>
-            <input type="text" name="autor"value="<?=$libro ->autor->nombre_autor?>"> 
+            
+            
+        <select name="autor">
+         <option select  value="<?=$libro->autor->nombre_autor?>"><?=$libro->autor->nombre_autor?></option>
+       <?php foreach ($autores as $autor):?>
+    
+           <?php if ($autor!=$libro->autor->nombre_autor):?>
+		<option   value="<?=$autor?>"><?=$autor?></option>
+		<?php endif;?>
+		
+		<?php endforeach;?>
+		
+     </select>
            
                 <br><br><br>
                       <label for="genero_literario">Genero literario preferido:</label>

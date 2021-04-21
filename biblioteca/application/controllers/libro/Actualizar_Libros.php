@@ -8,9 +8,10 @@ class Actualizar_Libros extends CI_Controller{
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
         $id =  isset($_POST['id']) ? $_POST['id'] : null;
         $this->load->model('Actu_libros');
-       
+        $this->load->model('Actu_autor');
         $datos['libro'] = $this->Actu_libros->getlibrosById($id);
         $datos['generos'] = $this->Actu_libros->getBo_categoria();
+        $datos['autores'] = $this->Actu_autor->getBo_autores();
      
       
       

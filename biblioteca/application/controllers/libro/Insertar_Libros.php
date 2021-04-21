@@ -7,8 +7,9 @@ class Insertar_Libros extends CI_Controller{
         
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
             $this->load->model('In_libros');
-           
-            $this->load->view('libro/Insertar_libros');
+            $this->load->model('Actu_autor');
+            $datos['autores'] = $this->Actu_autor->getBo_autores();
+            $this->load->view('libro/Insertar_libros',$datos);
             
          
         }
