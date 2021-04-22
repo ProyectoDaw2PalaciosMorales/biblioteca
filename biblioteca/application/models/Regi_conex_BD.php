@@ -47,6 +47,8 @@ class Regi_conex_BD extends CI_Model{
                     $usuarios->foto = $extension;
                 R::store($usuarios);
                 
+                
+           
                 redirect(base_url());
                 
                 
