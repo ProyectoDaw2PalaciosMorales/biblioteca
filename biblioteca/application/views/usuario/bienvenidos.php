@@ -27,29 +27,46 @@ function enviar_formulario2(){
 
     <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>   
-      <li class="nav-item">
+   <nav class="container navbar navbar-expand-sm bg-dark navbar-dark rounded">
+ <a class="navbar-brand" href="<?=base_url()?>">TuBiblioteca</a>
+  <ul class="navbar-nav">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+				BEANS
+			</a>
+
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="<?=base_url()?>">#</a>
+				<a class="dropdown-item" href="<?=base_url()?>">#</a>
+				<a class="dropdown-item" href="<?=base_url()?>">#</a>
+			</div>
+		</li>
+		
+		<li class="nav-item">
+			<a class="nav-link" href="<?=base_url()?>">
+				Link
+			</a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" href="<?=base_url()?>">
+				Link
+			</a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" href="<?=base_url()?>">
+				Link
+			</a>
+		</li>
+		 <li class="nav-item">
         <form class="form-inline" action="/action_page.php">
             		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
             		<button class="btn btn-success" type="submit">Search</button>
          	 	</form>
       </li> 
-          <li class="nav-item">
+
+          <li class="dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           <?php if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )):?>
         <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?=$nombre;?>.png">
@@ -67,8 +84,8 @@ function enviar_formulario2(){
       </div>
       </li> 
     </ul>
-  </div>  
 </nav>
+
     
      
 	    
