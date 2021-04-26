@@ -8,12 +8,12 @@ class Comentarios extends CI_Controller {
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
             $id =  isset($_POST['id']) ? $_POST['id'] : null;
            
-            $this->load->model('Perfilusuarios');
-            $datos['usuario']=$this->Perfilusuarios->getusuaiosById($id);
+            $this->load->model('Usuarios_model');
+            $datos['usuario']=$this->Usuarios_model->getusuaiosById($id);
         
             
             
-            $this->load->view('comentario/Comentarios',$datos);
+            frame($this,'comentario/Comentarios',$datos);
         }
             
             

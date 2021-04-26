@@ -1,16 +1,4 @@
-<?php
 
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
-
-<body>
 
 <div align="center">
 <table border="1" >
@@ -53,7 +41,7 @@
 			
 			<td>
 		   
-		     <form action="<?=base_url()?>libro/Borrarlibros/borrar_libros" method="post">
+		     <form action="<?=base_url()?>libro/Libros/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$libro->id?>">
 				  <button onclick="submit()">
 					<img src="<?=base_url()?>/assets/iconos/basura.png">
@@ -64,7 +52,7 @@
 		     
 		    </td>
 			<td>
-			  	<form action="<?=base_url()?>libro/Actualizar_Libros/actualizar" method="post">
+			  	<form action="<?=base_url()?>libro/Libros/actualizar" method="post">
 				<input type="hidden" name="id" value="<?=$libro->id?>">
 				  <button onclick="submit()">
 					<img src="<?=base_url()?>/assets/iconos/lapiz.png">
@@ -79,8 +67,7 @@
 		<?php endforeach;?>
 </table>
 </div>
-   <a href="<?=base_url()?>libro/Administrador_libros/panel_administrativo">&ltAtras</a>  
-  </body>
-   </html>   
+   <a href="<?=base_url()?>libro/Libros/panel_administrativo">&ltAtras</a>  
+  
         
   

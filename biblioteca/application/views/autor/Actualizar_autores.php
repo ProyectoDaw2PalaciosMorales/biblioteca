@@ -1,17 +1,7 @@
-<?php
-
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
 
 <body>
  <h1>Formulario de Actualizacion</h1>
-        <form action="<?=base_url()?>autor/Actualizar_autores/actualizarpost" method="post">
+        <form action="<?=base_url()?>autor/Autores/actualizarpost" method="post">
           
             <label for="nombre">Nombre autor:</label>
             <input type="text" name="nombre" value="<?=$autor -> nombre_autor?>">
@@ -29,16 +19,13 @@
             <br><br><br>
             
              <input type="submit" value="Actualizar">
-           <button> <a href="<?=base_url()?>autor/Administrador_mostrarautores/mostrar_autores">Volver a la tabla</a> </button>
+           <button> <a href="<?=base_url()?>autor/Autores/mostrar_autoresadninistrador">Volver a la tabla</a> </button>
             <br><br>
-            <a href="<?=base_url()?>libro/Administrador_libros/panel_administrativo">&ltAtras</a>  
+           <a href="<?=base_url()?>libro/Libros/panel_administrativo">Atras</a>
            
 		
         </form>
         <br><br><br>
       
-       
-   </body>     
- </html>
-        
+  
   

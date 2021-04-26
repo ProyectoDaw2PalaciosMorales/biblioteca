@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<title>Registro de la biblioteca</title>
 
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-</head>
-<body>
-<h1>Formulario de borrado</h1>
+<h1>Tabla de usuarios</h1>
 
 <table border="1">
 	<tr>
@@ -67,7 +55,7 @@
 			</td>
 			 <td>
 		   
-		     <form action="<?=base_url()?>usuario/Administrar_Usuarios/borrar" method="post">
+		     <form action="<?=base_url()?>usuario/Usuarios/borraradmin" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
 				  <button onclick="submit()">
 					<img src="<?=base_url()?>/assets/iconos/basura.png">
@@ -86,10 +74,9 @@
 		
 </table>
 
-      <a href="<?=base_url()?>usuario/login/acceso">Home</a>    
+      <a href="<?=base_url()?>usuario/Usuarios/acceso">Home</a>    
         
-  </body>
-</html>        
+    
 
 
 

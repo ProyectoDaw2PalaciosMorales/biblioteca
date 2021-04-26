@@ -1,15 +1,5 @@
-<?php
 
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
-<body>
 <div align="center">
 <table border="1">
  <h1>TABLA DE LIBROS</h1>
@@ -62,9 +52,9 @@
 			
 				<td>
 		
-		     <form action="<?=base_url()?>libro/Reserva_libros/reserva" method="post">
+		     <form action="<?=base_url()?>libro/Libros/reserva" method="post">
 		        <input type="hidden" name="id" value="<?=($libro->id)?>">
-		        <input type="hidden" name="id_usuario" value="<?=$_SESSION['idperfil']?>">
+		        <input type="hidden" name="id_usuario" value="<?=$libro ->autor->id?>">
 		              <input type="hidden" name="titulo" value="<?=($libro->titulo)?>">
 				
 					<input type="hidden" name="cantidad" value="<?=($libro->ejemplares)?>">
@@ -83,10 +73,10 @@
 			   
 		      <?php if ($anulacion->libros_id ==$libro->id ):?>
 		      
-				
-		     <form action="<?=base_url()?>libro/Anularreserva_libros/anularreserva" method="post">
+				  <input type="hidden" name="id_usuario" value="<?=$libro ->autor->id?>">
+		     <form action="<?=base_url()?>libro/libros/anularreserva" method="post">
 		        <input type="hidden" name="id" value="<?=($libro->id)?>">
-		        <input type="hidden" name="id_usuario" value="<?=$_SESSION['idperfil']?>">
+		   
 		              <input type="hidden" name="titulo" value="<?=($libro->titulo)?>">
 				
 					<input type="hidden" name="cantidad" value="<?=($libro->ejemplares)?>">
@@ -118,9 +108,8 @@
 </div>
     
           <?php 
-          $url=base_url()."libro/Administrador_libros/panel_administrativo";
+          $url=base_url()."libro/Libros/panel_administrativo";
           header('refresh:30; url='.$url);?>
-   <a href="<?=base_url()?>usuario/login/acceso">HOME</a>
+   <a href="<?=base_url()?>usuario/Usuarios/acceso">HOME</a>
    
-   </body>     
-   </html>   
+  

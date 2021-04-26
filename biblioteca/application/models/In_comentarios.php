@@ -26,7 +26,7 @@ class In_comentarios extends CI_Model{
             
             
             
-            redirect(base_url()."usuario/Bienvenido/Bienvenidos_u");
+            redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
             
             
             

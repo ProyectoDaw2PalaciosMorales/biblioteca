@@ -1,18 +1,7 @@
-<?php
 
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
-<body>
  <h1>Perfil</h1>
  
-<form action="<?=base_url()?>usuario/Actualizarperfil/actualizar" method="post">
+<form action="<?=base_url()?>usuario/Usuarios/actualizar" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
 			
 				  <button onclick="submit()">
@@ -22,7 +11,7 @@
 				
 			</form>    	        	     
  
-   <form action="<?=base_url()?>usuario/Borrador_perfil/borrar_perfil" method="post">
+   <form action="<?=base_url()?>usuario/Usuarios/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
 				<input type="hidden" name="nombre" value="<?=$usuario->nombre?>">
 				  <button onclick="submit()">
@@ -65,8 +54,6 @@
       <?php endif;?>    
           	<?php endforeach;?>
           	</ol>
-         <a href="<?=base_url()?>usuario/login/acceso">HOME</a>
-   </body>     
- </html>
-        
+         <a href="<?=base_url()?>usuario/Usuarios/acceso">HOME</a>
+
   
