@@ -4,6 +4,7 @@
           <textarea rows="10" cols="25" name="comentarios"></textarea>
            
              <input type="hidden" name="id" value=" <?= $usuario->id ?>">
+               <input type="hidden" name="id_libro" value="1">
              <br>
              <input type="submit" value="Enviar comentario">
         

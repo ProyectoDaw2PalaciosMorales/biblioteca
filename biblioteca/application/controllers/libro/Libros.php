@@ -124,7 +124,7 @@ class Libros extends CI_Controller {
             $datos['libro'] = $this->Libros_model->getlibrosById($id);
             $datos['generos'] = $this->Libros_model->getBo_categoria();
             $datos['autores'] = $this->Autores_model-> select_autores();
-            
+          
             
             
             frame($this,'libro/Actualizar_libros',$datos);}
