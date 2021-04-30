@@ -1,7 +1,7 @@
 
  
  <h1>Formulario de insercion</h1>
-        <form action="<?=base_url()?>libro/Libros/insertarlibrospost" method="post">
+        <form action="<?=base_url()?>libro/Libros/insertarlibrospost" method="post" enctype="multipart/form-data">
             
             <label for="titulo">Titulo:</label>
             <input type="text" name="titulo">
@@ -50,7 +50,15 @@
             <br><br><br>
             <label for="ejemplares">Nº de ejemplares:</label>
             <input type="text" name="ejemplares">
-            <br><br>
+           <br><br>
+              <label for="ejemplares">Introduce la descricion</label>
+           
+            <br>
+             <textarea rows="10" cols="25" name="descricion"></textarea>
+             <br></br>
+             <label for="idp-fo">foto</label>
+		<input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
+		  <br></br>
             <input type="submit" value="Insertar">
             <button><a href="<?=base_url()?>libro/Libros/panel_administrativo">Atras</a></button>
         </form>

@@ -1,7 +1,7 @@
 
 
  <h1>Formulario de Actualizacion</h1>
-        <form action="<?=base_url()?>libro/Libros/actualizarpost" method="post">
+        <form action="<?=base_url()?>libro/Libros/actualizarpost" method="post" enctype="multipart/form-data">
           
             <label for="titulo">Titulo:</label>
             <input type="text" name="titulo" value="<?=$libro -> titulo?>">
@@ -61,6 +61,15 @@
             <label for="ejemplares">Nº de ejemplares:</label>
             <input type="text" name="ejemplares" value="<?=$libro ->ejemplares?>" >
             <br><br>
+              <label for="ejemplares">Introduce la descricion</label>
+           
+            <br>
+             <textarea rows="10" cols="25" name="descricion"><?=$libro ->descricion?></textarea>
+               <br></br>
+             <label for="idp-fo">foto</label>
+		<input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
+		  <br></br>
+             
             <input type="submit" value="Actualizar">
            <button> <a href="<?=base_url()?>libro/Libros/mostrar_libros">Volver a la tabla</a> </button>
             <br><br>

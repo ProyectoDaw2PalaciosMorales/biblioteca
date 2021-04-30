@@ -43,6 +43,7 @@
 		   
 		     <form action="<?=base_url()?>libro/Libros/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$libro->id?>">
+					<input type="hidden" name="titulo" value="<?=$libro->titulo?>">
 				  <button onclick="submit()">
 					<img src="<?=base_url()?>/assets/iconos/basura.png">
 							

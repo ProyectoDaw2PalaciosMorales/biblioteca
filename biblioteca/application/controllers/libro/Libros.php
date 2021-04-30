@@ -1,6 +1,14 @@
 <?php 
         
 class Libros extends CI_Controller {
+    
+    
+    public function  mostrarlibrosampliacion(){
+        $id =  isset($_POST['id']) ? $_POST['id'] : null;
+        $this->load->model('Libros_model');
+        $datos['libro'] = $this->Libros_model->getlibrosById($id);
+        frame($this,'libro/mostrardatoslibro',$datos);
+    }
     public function mostrarlibrosusuarios()
     { session_start();
     
@@ -73,15 +81,25 @@ class Libros extends CI_Controller {
         session_start();
         
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+           
             $titulo =  isset($_POST['titulo']) ? $_POST['titulo'] : null;
             $ano =  isset($_POST['ano']) ? $_POST['ano'] : null;
             $editorial =  isset($_POST['editorial']) ? $_POST['editorial'] : null;
             $autor =  isset($_POST['autor']) ? $_POST['autor'] : null;
             $ejemplares =  isset($_POST['ejemplares']) ? $_POST['ejemplares'] : null;
             $genero_literario =  isset($_POST['genero_literario']) ? $_POST['genero_literario'] : null;
+            $descricion =  isset($_POST['descricion']) ? $_POST['descricion'] : null;
+            $foto = $_FILES["foto"]["name"];
+           
+           $directorio = "assets/fotoslibros/".$titulo.".png";
+            $existefichero = is_file( $directorio );
+           if ( $existefichero==false ) {
+                
+               $this->cargar_archivo($titulo);
+            }
             
             $this->load->model('Libros_model');
-            $this->Libros_model-> insertarlibros($titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario);
+         $this->Libros_model-> insertarlibros($titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto);
            
         }
         else{ $this->load->view('errorurl');}
@@ -144,14 +162,25 @@ class Libros extends CI_Controller {
             $autor =  isset($_POST['autor']) ? $_POST['autor'] : null;
             $ejemplares =  isset($_POST['ejemplares']) ? $_POST['ejemplares'] : null;
             $genero_literario =  isset($_POST['genero_literario']) ? $_POST['genero_literario'] : null;
-            
-            $this->load->model('Libros_model');
-            session_start();
-            if($id!=null){
-                $_SESSION['idcolor'] =$id;
+            $descricion =  isset($_POST['descricion']) ? $_POST['descricion'] : null;
+            $foto = $_FILES["foto"]["name"];
+            $directorio = "assets/fotoslibros/".$titulo.".png";
+            unlink($directorio);
+            $existefichero = is_file( $directorio );
+            if ( $existefichero==false ) {
+                
+                $this->cargar_archivo($titulo);
             }
-            $this->Libros_model-> actualizarlibros($id,$titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario);}
-            else{ $this->load->view('errorurl');}
+            
+           $this->load->model('Libros_model');
+            
+           if($id!=null){
+               $_SESSION['idcolor'] =$id;
+           }
+           $this->Libros_model-> actualizarlibros($id,$titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto);}
+            else{ $this->load->view('errorurl');
+        }
+       
     }
     
     public function borrar(){
@@ -159,7 +188,9 @@ class Libros extends CI_Controller {
         
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
             $id =  isset($_POST['id']) ? $_POST['id'] : null;
-            
+            $titulo =  isset($_POST['titulo']) ? $_POST['titulo'] : null;
+            if (is_file("assets/fotoslibros/".$titulo.".png" )){
+                unlink("assets/fotoslibros/".$titulo.".png");}
             $this->load->model('Libros_model');
             $this->Libros_model->borrarLibros($id);}
             else{ $this->load->view('errorurl');}
@@ -221,5 +252,28 @@ public function anularreserva(){
     }
     else{ $this->load->view('errorurl');}
 }
+
+function cargar_archivo($titulo ) {
+    
+    
+    
+    $mi_archivo = 'foto';
+    
+    $config['upload_path'] = "assets/fotoslibros";
+    
+    $config['file_name'] =$titulo.".png";
+    $config['allowed_types'] = 'png|gif|jpeg|jpg';
+    $config['max_size'] = "50000";
+    $config['max_width'] = "2000";
+    $config['max_height'] = "2000";
+    
+    $this->load->library('upload', $config);
+    
+    if (!$this->upload->do_upload($mi_archivo)) {
+        
+        
+        return;
+    }}
+
 }
 ?>

@@ -61,10 +61,10 @@ class Libros_model extends CI_Model{
     
     
     
-    public function  insertarlibros($titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario)
+    public function  insertarlibros($titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto)
     
     {
-        session_start();
+       session_start();
        
             $_SESSION['idcolorinsercion'] =$titulo;
         
@@ -95,11 +95,29 @@ class Libros_model extends CI_Model{
           
             $libros = R::dispense('libros');
             $libros->titulo=$titulo;
-         //  $libros->autor=$autor;
+         
             $libros->genero_literario=$genero_literario;
             $libros->ano_edicion=$ano;
             $libros->editorial=$editorial;
             $libros->ejemplares=$ejemplares;
+            $libros->descricion=$descricion;
+            $directorio = "assets/fotoslibros/".$titulo.".png";
+            $existefichero = is_file( $directorio );
+            echo $existefichero;
+           if($foto!=null){
+                
+                if ( $existefichero==true ){
+                    $extension="png";
+                }else{
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }}
+                $libros->foto = $extension;
             $libros->autor=$autores;        
       
             
@@ -149,7 +167,7 @@ class Libros_model extends CI_Model{
     
     }
     
-    public function  actualizarlibros($id,$titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario)
+    public function  actualizarlibros($id,$titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto)
     
     {
         
@@ -178,12 +196,29 @@ class Libros_model extends CI_Model{
         
         
         $libros->titulo=$titulo;
-        // $libros->autor=$autor;
+       
         $libros->genero_literario=$genero_literario;
         $libros->ano_edicion=$ano;
         $libros->editorial=$editorial;
         $libros->ejemplares=$ejemplares;
+        $libros->descricion=$descricion;
+        $directorio = "assets/fotoslibros/".$titulo.".png";
+        $existefichero = is_file( $directorio );
         
+        if($foto!=null){
+            
+            if ( $existefichero==true ){
+                $extension="png";
+            }else{
+                
+                
+                
+                
+                
+                
+                
+            }}
+            $libros->foto = $extension;
         $libros->autor=$autores;
         
         
@@ -195,13 +230,14 @@ class Libros_model extends CI_Model{
         
         redirect(base_url()."libro/Libros/mostraractualizacion");
         
+    }
         
         
         
         
         
         
-    } public function  reservalibros($id_usuario,$id,$cantidad,$titulo)
+     public function  reservalibros($id_usuario,$id,$cantidad,$titulo)
     
     {
         $reservado = R::findOne('reservas', 'libros_id=?', [
