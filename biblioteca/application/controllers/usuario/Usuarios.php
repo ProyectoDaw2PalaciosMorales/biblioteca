@@ -173,7 +173,7 @@ class Usuarios extends CI_Controller {
                 
                 $this->load->model('Usuarios_model');
                 
-             $usuario=$this->Usuarios_model->verificarLogin($_SESSION['nombre'], $_SESSION['password']);
+             $this->Usuarios_model->verificarLogin($_SESSION['nombre'], $_SESSION['password']);
                 
        
                

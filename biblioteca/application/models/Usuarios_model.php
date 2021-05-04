@@ -118,7 +118,7 @@ class Usuarios_model extends CI_Model{
             ]);
             $a="";
             $b="";
-            if ($usuario == null) {
+            if ($usuario->nombre!=$nombre) {
             
                $a="no";
             }
@@ -132,6 +132,11 @@ class Usuarios_model extends CI_Model{
                 
                
               
+            }
+            else{
+                session_destroy();
+                redirect(base_url());
+                
             }
             
         }
