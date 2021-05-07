@@ -33,7 +33,7 @@
 			?></td>
 			
 			<td><?=
-			$libro -> autor->nombre_autor;
+			$libro -> autor;
 			?></td>
 			<td><?=
 			$libro -> ejemplares;

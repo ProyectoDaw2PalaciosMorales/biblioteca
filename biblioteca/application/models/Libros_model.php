@@ -73,7 +73,7 @@ class Libros_model extends CI_Model{
         $libros = R::findOne('libros', 'titulo=?', [
             $titulo
         ]);
-        $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
+     /*   $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
         
         
         if (mysqli_connect_errno()) {
@@ -86,16 +86,16 @@ class Libros_model extends CI_Model{
         
         $resultado = mysqli_query($conexion, $comprobar);
         
-        $row = mysqli_fetch_assoc($resultado);
+        $row = mysqli_fetch_assoc($resultado);*/
      
         
        $ok = ($libros == null );
         if ($ok) {
-            $autores = R::load('autores', $row['id']);
+           
           
             $libros = R::dispense('libros');
             $libros->titulo=$titulo;
-         
+            $libros->autor=$autor;   
             $libros->genero_literario=$genero_literario;
             $libros->ano_edicion=$ano;
             $libros->editorial=$editorial;
@@ -118,7 +118,7 @@ class Libros_model extends CI_Model{
                     
                 }}
                 $libros->foto = $extension;
-            $libros->autor=$autores;        
+                 
       
             
             R::store($libros);
@@ -174,7 +174,7 @@ class Libros_model extends CI_Model{
         $libros = R::findOne('libros', 'titulo=?', [
             $titulo
         ]);
-        $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
+    /*    $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
         
         
         if (mysqli_connect_errno()) {
@@ -187,16 +187,16 @@ class Libros_model extends CI_Model{
         
         $resultado = mysqli_query($conexion, $comprobar);
         
-        $row = mysqli_fetch_assoc($resultado);
+        $row = mysqli_fetch_assoc($resultado);*/
         
         
-        $autores = R::load('autores', $row['id']);
+        
         
         $libros = R::load('libros',$id);
         
         
         $libros->titulo=$titulo;
-       
+        $libros->autor=$autor;
         $libros->genero_literario=$genero_literario;
         $libros->ano_edicion=$ano;
         $libros->editorial=$editorial;
@@ -219,7 +219,7 @@ class Libros_model extends CI_Model{
                 
             }}
             $libros->foto = $extension;
-        $libros->autor=$autores;
+     
         
         
         

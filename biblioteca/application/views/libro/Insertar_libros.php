@@ -22,17 +22,9 @@
             
              <br><br><br>
             <label for="autor">Autor:</label>
-                <select name="autor">
+                <input type="text" name="autor">
          
-       <?php foreach ($autores as $autor):?>
-    
-           
-		<option   value="<?=$autor?>"><?=$autor?></option>
-		
-		
-		<?php endforeach;?>
-		
-     </select>
+      
            
            
            

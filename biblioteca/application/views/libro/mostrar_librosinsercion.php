@@ -37,7 +37,7 @@ $color= $_SESSION['idcolorinsercion'];
 			?></td>
 			
 			<td style="background-color:red"><?=
-			$libro -> autor->nombre_autor;
+			$libro -> autor;
 			?></td>
 			
 			<td style="background-color:red"><?=
@@ -59,7 +59,7 @@ $color= $_SESSION['idcolorinsercion'];
 			?></td>
 			
 			<td ><?=
-			$libro ->autor->nombre_autor;
+			$libro ->autor;
 			?></td>
 			
 			<td ><?=

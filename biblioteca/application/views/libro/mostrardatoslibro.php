@@ -4,7 +4,7 @@
   <br>
    <p> <?=$libro -> titulo?> </p>
     <br>
-   <p> <?=$libro -> autor->nombre_autor?> </p>
+   <p> <?=$libro -> autor?> </p>
    <br>
    <?php if ($libro ->foto!=null):?>
 
