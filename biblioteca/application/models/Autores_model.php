@@ -9,26 +9,7 @@ class Autores_model extends CI_Model{
     {
         return R::findAll('autores');
     }
-    public function select_autores()
-    {   $autores=[];
-    $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
     
-    if (mysqli_connect_errno()) {
-        printf("Conexion fallida: %s\n", mysqli_connect_error());
-        exit();
-    }
-    $consulta= "SELECT DISTINCT(nombre_autor) FROM autores
-        ";
-    $datos= mysqli_query($conexion, $consulta);
-    $row = mysqli_fetch_assoc($datos);
-    while($row = mysqli_fetch_assoc($datos)){
-        $row["nombre_autor"];
-        array_push($autores, $row["nombre_autor"]);
-    }
-    
-    return $autores;
-    
-    }
     
     public function  actualizarautores($id,$nombre,$ciudad,$fecha_nacimiento)
     
@@ -121,10 +102,8 @@ class Autores_model extends CI_Model{
             printf("Conexion fallida: %s\n", mysqli_connect_error());
             exit();
         }
-        $consulta= "SELECT *
-    FROM libros
-    JOIN autores ON libros.autor_id =autores.id
-    WHERE `nombre_autor` = '$autor'
+        $consulta= "SELECT autores.*,libros.titulo FROM autores,libros
+           WHERE autores.nombre_autor= libros.autor and autores.nombre_autor='$autor';
           ";
         $datos= mysqli_query($conexion, $consulta);
         
@@ -133,15 +112,13 @@ class Autores_model extends CI_Model{
             
             echo"<table border=1>";
             echo"<tr>";
-            echo"<th>Nombre Autor</th><th>Ciudad</th><th>Fecha de Nacimiento</th><th>Titulo</th>";
+            echo"<th>Nombre Autor</th><th>Titulo</th>";
             while($row = mysqli_fetch_assoc($datos)){
                 echo"<tr>";
                 echo "<td >";
                 echo $row["nombre_autor"]."</td>";
                 
-                echo "<td>".$row["ciudad"]."</td>";
-                
-                echo "<td>".$row["fecha_nacimiento"]."</td>";
+               
                 
                 echo "<td>".$row["titulo"]."</td>";
                 

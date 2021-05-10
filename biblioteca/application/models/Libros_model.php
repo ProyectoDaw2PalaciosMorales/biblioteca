@@ -20,10 +20,7 @@ class Libros_model extends CI_Model{
             exit();
         }
         
-        $consulta= "SELECT *
-    FROM libros
-    JOIN autores ON libros.autor_id =autores.id
-    WHERE `genero_literario` = '$genero'";
+        $consulta="SELECT * FROM libros WHERE genero_literario='$genero'";
         
         $datos= mysqli_query($conexion, $consulta);
         
@@ -32,15 +29,16 @@ class Libros_model extends CI_Model{
             
             echo"<table border=1>";
             echo"<tr>";
-            echo"<th>Nombre</th><th>Titulo</th><th>Genero literario</th><th>Año edicion</th><th>Editorial</th><th>Ejemplares</th>";
+            echo"<th>Nombre</th><th>Titulo</th><th>Genero literario</th><th>Año edicion</th><th>Editorial</th><th>Autor</th><th>Ejemplares</th>";
             while($row = mysqli_fetch_assoc($datos)){
                 echo"<tr>";
                 echo "<td >";
-                echo $row["nombre_autor"]."</td>";
+                echo $row["autor"]."</td>";
                 echo "<td>".$row["titulo"]."</td>";
                 echo "<td>".$row["genero_literario"]."</td>";
                 echo "<td>".$row["ano_edicion"]."</td>";
                 echo "<td>".$row["editorial"]."</td>";
+                echo "<td>".$row["autor"]."</td>";
                 echo "<td>".$row["ejemplares"]."</td>";
                 
                 echo "</tr>";
@@ -73,6 +71,9 @@ class Libros_model extends CI_Model{
         $libros = R::findOne('libros', 'titulo=?', [
             $titulo
         ]);
+        $autores = R::findOne('autores', 'nombre_autor=?', [
+            $autor
+        ]);
      /*   $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
         
         
@@ -103,7 +104,7 @@ class Libros_model extends CI_Model{
             $libros->descricion=$descricion;
             $directorio = "assets/fotoslibros/".$titulo.".png";
             $existefichero = is_file( $directorio );
-            echo $existefichero;
+           
            if($foto!=null){
                 
                 if ( $existefichero==true ){
@@ -122,7 +123,13 @@ class Libros_model extends CI_Model{
       
             
             R::store($libros);
-          
+            if($autores->nombre_autor!=$libros->autor){
+                
+                $autores = R::dispense('autores');
+                $autores->nombre_autor=$autor;
+                
+                R::store($autores);
+            }
            
          
             

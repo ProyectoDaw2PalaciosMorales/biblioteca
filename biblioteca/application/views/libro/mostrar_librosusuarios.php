@@ -23,7 +23,10 @@
       <div class="card-body">
         <h5 class="card-title"><?=$libro->titulo?></h5>
        <?php if ($libro ->descricion!=null):?>
-      <p class="card-text"><?=$libro->descricion?></p>
+        <?php 
+        $resumendescricion = explode(".", $libro ->descricion);?>
+
+      <p class="card-text"><?= $resumendescricion[0]?></p>
       	<?php  else:?>
       	 <p class="card-text">no hay descricion disponible </p>
       	<?php endif;?>	

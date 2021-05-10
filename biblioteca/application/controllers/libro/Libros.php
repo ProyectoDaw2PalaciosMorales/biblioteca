@@ -69,8 +69,8 @@ class Libros extends CI_Controller {
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
           
             $this->load->model('Autores_model');
-            $datos['autores'] = $this->Autores_model->select_autores();
-            frame($this,'libro/Insertar_libros',$datos);
+           
+            frame($this,'libro/Insertar_libros');
             
             
         }
@@ -141,7 +141,7 @@ class Libros extends CI_Controller {
             $this->load->model('Autores_model');
             $datos['libro'] = $this->Libros_model->getlibrosById($id);
             $datos['generos'] = $this->Libros_model->getBo_categoria();
-            $datos['autores'] = $this->Autores_model-> select_autores();
+           
           
             
             

@@ -1,40 +1,50 @@
 <?php 
         
 class Usuarios extends CI_Controller {
+    
+    // cuando se pincha sobre el boton "perfil dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
     public function perfil_usuario()
-    {
-        $id =  isset($_POST['id']) ? $_POST['id'] : null;
-        $this->load->model('Usuarios_model');
-        $datos['usuario']=$this->Usuarios_model->getusuaiosById($id);
-        $datos['reservas']=$this->Usuarios_model->getusuaiosreservas();
+    { //recojo los datos del campo name de el formulario  oculto de la vista bienvenidos.php
         
+        // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
+        $id =  isset($_POST['id']) ? $_POST['id'] : null;
+        //se carga el modelo usuario_model
+        $this->load->model('Usuarios_model');
+        // se crea la array usuario y se se asina la funcion getusuaiosById linea 16  del modelo usuarios_model.php ala que se le añade la variable id
+        $datos['usuario']=$this->Usuarios_model->getusuaiosById($id);
+        // se crea la array reservas y se se asina la funcion getusuaiosreserva linea 10  del modelo usuarios_model.php 
+        $datos['reservas']=$this->Usuarios_model->getusuaiosreservas();
+        // se carga la vista perfil usuario y se le añaden los datos
         frame($this,'usuario/Perfilusuario',$datos);
         
         
     }
     
-    
+    // cuando se pincha sobre el boton "mostrar libros " de la vista bienvenidos.php
     public function mostrar(){
         session_start();
         
-        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+            //se carga el modelo usuarios model
             $this->load->model('Usuarios_model');
+            // se crea la array usuario y se se asina la funcion getUsuarios linea 5  del modelo usuarios_model.php ala que se le añade la variable id
             $datos['usuarios'] = $this->Usuarios_model->getUsuarios();
-            frame($this,'usuario/usuarios',$datos);}
-            else{ $this->load->view('errorurl');}
+            // se carga la vista  usuarios y se le añaden los datos
+            frame($this,'usuario/usuarios',$datos);
+            
             
     }
-  
+    // cuando se pincha sobre el boton "modifar tus datos" de la vista perfilusuario.php 
     public function actualizar(){
-    
+        //recojo los datos del campo name de el formulario  oculto de la vista perfilusuario.php
         
-        
+        // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
             $id =  isset($_POST['id']) ? $_POST['id'] : null;
+            //se carga el modelo usuarios model
             $this->load->model('Usuarios_model');
-            
+            // se crea la array usuario y se se asina la funcion getusuaiosById linea 16  del modelo usuarios_model.php ala que se le añade la variable id
             $datos['usuario'] = $this->Usuarios_model->getusuaiosById($id);
             
-            
+            // se carga la vista actualizarusuario  y se le añaden los datos
             
             
             frame($this,'usuario/actualizarusuario',$datos);
@@ -45,7 +55,9 @@ class Usuarios extends CI_Controller {
     
     public function actulizarperfilpost()
     {
-      
+        //recojo los datos del campo name de el formulario   de la vista actualizarusuario.php
+        
+        // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
         
         $id =  isset($_POST['id']) ? $_POST['id'] : null;
         $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
@@ -60,12 +72,14 @@ class Usuarios extends CI_Controller {
         $comprobacion =  isset($_POST['comprobacion']) ? $_POST['comprobacion'] : null;
         $alias =  isset($_POST['alias']) ? $_POST['alias'] : null;
         $foto = $_FILES['foto']['name'];
-      
+      // se carga el modelo usuarios_model
         $this->load->model('Usuarios_model');
+        // se carga el helper
         $this->load->helper('url');
+        // se verifica que exite la foto en el directorio assets/fotosperfil si exite borra la foto
         $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
         unlink($directorio);
-        
+        // se verifica que exite la foto en el directorio assets/fotosperfil si no exite llama ala funcion cargar archivo
         $existefichero = is_file( $directorio );
 
         if ( $existefichero==false ) {
@@ -76,13 +90,13 @@ class Usuarios extends CI_Controller {
         
           
         }
-           
+           //se carga la funccion actualizarperfil linea 163 del modelo usuarios_model.php
         
         $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto);
         
         
         }
-        
+        // cuando se pincha sobre el boton "Si no estas resgistrado pincha aqui" de la vista index.php muestra la vista de registro.php
         public function registro()
         {
             
@@ -95,7 +109,8 @@ class Usuarios extends CI_Controller {
         
         public function registropost()
         {
-            
+            //recojo los datos del campo name de los input de la vista registro.php
+            // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
             
             $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
             $primer_apellido =  isset($_POST['primer_apellido']) ? $_POST['primer_apellido'] : null;
@@ -110,8 +125,12 @@ class Usuarios extends CI_Controller {
             $comprobacion =  isset($_POST['comprobacion']) ? $_POST['comprobacion'] : null;
             $alias =  isset($_POST['alias']) ? $_POST['alias'] : null;
             $foto = $_FILES["foto"]["name"];
+            //se carga el modelo usuarios_model
             $this->load->model('Usuarios_model');
+            // se carga el helper url
             $this->load->helper('url');
+            //verifico si las fotos exiten en el directorio assets/fotosperfil
+            //si exiten llamo ala funcion del controlador Usuarios.php (este mismo) linea 250
             $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
             $existefichero = is_file( $directorio );
             if ( $existefichero==false ) {
@@ -119,109 +138,100 @@ class Usuarios extends CI_Controller {
                 $this->cargar_archivo($nombre);
             }
             
-            
+            //se carga la funcion crearusuarios del modelo Usuarios_model.php linea  22 y se le pasa todas las variabes
             $this->Usuarios_model->crearusuarios($nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$password,$comprobacion,$alias,$foto);
             
-            $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-            $password = "";
-            //Reconstruimos la contraseña segun la longitud que se quiera
-            for($i=0;$i<=8;$i++) {
-                //obtenemos un caracter aleatorio escogido de la cadena de caracteres
-                $password .= substr($str,rand(0,62),1);
-            }
-            
-            
-            $config = array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'smtp.googlemail.com',
-                'smtp_user' => 'proyectodaw2palaciosmorales@gmail.com', //Su Correo de Gmail Aqui
-                'smtp_pass' => 'proyectoPaMo8', // Su Password de Gmail aqui
-                'smtp_port' => '465',
-                'smtp_crypto' => 'ssl',
-                'mailtype' => 'html',
-                'wordwrap' => TRUE,
-                'charset' => 'utf-8'
-            );
-            
-            $this->load->library('email', $config);
-            $this->email->set_newline("\r\n");
-            $this->email->from('proyectodaw2palaciosmorales@gmail.com');
-            $this->email->subject('Bienvenido a nuestra wed');
-            $this->email->message('<ul>
-                               <li>USUARIO:'.$alias.'</li>
-                               <li>CONTRASEÑA:'.$password.'</li>
-                               </ul>
-            <a href='.base_url().'>Cambiar contraseña</a>');
-            
-            
-            $this->email->to($email);
-            $this->email->send();
+         
             
             
             
         }
         
-     
+     //esta funcion verifica el accesso de un usuario registrado desde la vista index.php
         public function acceso()
         {
+            //recojo los datos del campo name de los input de la vista index.php
+      // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
+            
             $nombre =  isset($_POST['usuario']) ? $_POST['usuario'] : null;
             $password =  isset($_POST['password']) ? $_POST['password'] : null;
+            
             session_start();
+            // se inicia una sesion en la que se almacena el nombre y el password de las variables nombre y password si son distintas de null en caso
+            // de que no sean distintas coje el valor de las variables nombre y password
+            
             if($nombre!=null && $password!=null){
                 $_SESSION['nombre'] =$nombre;
                 $_SESSION['password'] =$password;}
-                
+             //se carga el modelo usuarios_model   
                 $this->load->model('Usuarios_model');
-                
+              //se carga la funcion del modelo verificarlogin del modelo usuarios_model linea 116
+              // y se le pasa la sesiones de nombre y password como parametros
              $this->Usuarios_model->verificarLogin($_SESSION['nombre'], $_SESSION['password']);
                 
        
                
                 
         }
+        //esta funccion muestra un menseje de aviso de que alguno dato se metio mal en en el login
+        public  function errorsesion(){
+            frame($this,'errorriniciosesion');
+            
+        }
         
-        
+        // esta funcion se muestra si los datos del login son correctos
         public function Bienvenidos_u()
         {
-           
+           //inicio sesion
             session_start();
             
            
-                
+                // se carga el modelo usuarios_model
                 $this->load->model('Usuarios_model');
+                //se asigna la sesion nombre a la variable nombre
                 $nombre= $_SESSION['nombre'];
                
-             
+              // se crea la array usuario y se se asina la funcion idperfil linea 154  del modelo usuarios_model.php ala que se le añade la variable nombre
                 $datos['usuario'] = $this->Usuarios_model->idperfil($nombre);
+                // se carga la vista bienvenidos y se le añaden la array datos
                 frame($this,'usuario/bienvenidos',$datos);
                 
                 
                 
                 
             }
-            
+            // cuando se pincha sobre el boton "eliminar tu cuenta" de la vista perfilusuario.php 
             public function borrar(){
                
-         
+                //recojo los datos del campo name de los input de la vista perfilusuario.php
+                // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                     
                     $id =  isset($_POST['id']) ? $_POST['id'] : null;
                     $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
+                    //verifica si la foto exite si exite borrar la imagen del directorio assets/fotosperfil
                     if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )){
                         unlink("assets/fotosperfil/usuario-".$nombre.".png");}
+                        //se carga el modelo 
                     $this->load->model('Usuarios_model');
+                    // se carga la funcion borrar linea 210 del modelo_usuraio.php 
                     $this->Usuarios_model->borrar($id);
                    
             }
-            
+            // cuando se pincha sobre el boton "de la papelera" de la vista usuarios.php
             public function borraradmin(){
                 
+                //recojo los datos del campo name de los input de la vista usuarios.php
+                // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                 
                 
                 $id =  isset($_POST['id']) ? $_POST['id'] : null;
                 $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
+                //verifica si la foto exite si exite borrar la imagen del directorio assets/fotosperfil
                 if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )){
                     unlink("assets/fotosperfil/usuario-".$nombre.".png");}
+                    //se carga el modelo 
                     $this->load->model('Usuarios_model');
+                    // se carga la funcion borraradminidtrador linea 216 del modelo_usuraio.php 
                     $this->Usuarios_model->borraradminidtrador($id);
                     
             }
@@ -232,17 +242,19 @@ class Usuarios extends CI_Controller {
         function cargar_archivo($nombre ) {
           
            
-            
+            //nombre de la foto
             $mi_archivo = 'foto';
-           
+           //ruta de la foto
             $config['upload_path'] = "assets/fotosperfil";
-            
+            //nombre final de la foto
             $config['file_name'] ="usuario-".$nombre.".png";
+            //formato de la foto
             $config['allowed_types'] = 'png|gif|jpeg|jpg';
+            //tamaños maximos permitidos
             $config['max_size'] = "50000";
             $config['max_width'] = "2000";
             $config['max_height'] = "2000";
-            
+            //se carga la libreria upload de redbeans
             $this->load->library('upload', $config);
             
             if (!$this->upload->do_upload($mi_archivo)) {
@@ -253,13 +265,14 @@ class Usuarios extends CI_Controller {
 
 
         }
+        // cuando se pincha sobre el boton "cerrar dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
         public function cerrar()
         {
             
             
-            
+            //se carga el modelo 
             $this->load->model('Usuarios_model');
-            
+            // se carga la funcion cerrarsesion linea 223 del modelo_usuraio.php 
             $this->Usuarios_model->cerrarsesion();}
 
 }

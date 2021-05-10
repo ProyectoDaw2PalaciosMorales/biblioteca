@@ -1,36 +1,37 @@
 <?php
 
 class Usuarios_model extends CI_Model{
-
+    // esta funcion devuelve todos los campos de la tabla usuarios ordenada alfabeticamente por el campo nombre
     public function getUsuarios()
     {
         return R::findAll('usuarios',' ORDER BY nombre');
     }
-    
+    // esta funcion devuelve todos los campos de la tabla reservas
     public function getusuaiosreservas()
     {
         return R::findAll('reservas');
     }
     
-    
+    // esta funcion devuelve todos los campos de la tabla usuarios cuyo id coincida con el que le pase el controlador
     public function getusuaiosById($id)
     {
         return R::load('usuarios', $id);
     }
     
-    
+    // recibe las variables del controlador  Usuarios.php linea 96
     public function crearusuarios($nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$password,$comprobacion,$alias,$foto)
-    {
+    { //busca en la tabla usuarios los campos donde el alias sea igual a admin si no encuentra nada devuelve null
         $usuarios = R::findOne('usuarios', 'alias=?', [
             $alias
         ]);
         
         
-        
+        // ok es igual a true siempre y cuando usuarios sea distinto de null
         $ok = ($usuarios == null  );
         if ($ok) {
-            
+            // crea la tabla usuarios
             $usuarios = R::dispense('usuarios');
+            //crea los campos de la tabla usuarios
             $usuarios->nombre=$nombre;
             $usuarios->primer_apellido=$primer_apellido;
             $usuarios->segundo_apellido=$segundo_apellido;
@@ -41,9 +42,11 @@ class Usuarios_model extends CI_Model{
             $usuarios->contrasena=$password;
             $usuarios->confirmar_contrasena=$comprobacion;
             $usuarios->alias=$alias;
+            //verifico si las fotos exiten en el directorio assets/fotosperfil
+            
             $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
             $existefichero = is_file( $directorio );
-            
+            //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
             if($foto!=null){
                 
                 if ( $existefichero==true ){
@@ -58,6 +61,7 @@ class Usuarios_model extends CI_Model{
                     
                 }}
                 $usuarios->foto = $extension;
+                //almacena los datos en la tabla usuarios
                 R::store($usuarios);
                 
                 
@@ -65,24 +69,24 @@ class Usuarios_model extends CI_Model{
                 redirect(base_url());
                 
                 
-        }else{
-            redirect(base_url()."/errorcamporepitidos/errorusuario");
         }
         
     }
-    
+   //con esta funcion se crea el usuario admin de forma automatica al cargar la aplicacion
     public function crearadmin()
     {
+        //busca en la tabla usuarios los campos donde el alias sea igual a admin si no encuentra nada devuelve null
         $usuarios = R::findOne('usuarios', 'alias=?', [
             "admin"
         ]);
         
         
-        
+        // ok es igual a true siempre y cuando usuarios sea distinto de null
         $ok = ($usuarios == null  );
         if ($ok) {
-            
+            // crea la tabla usuarios
             $usuarios = R::dispense('usuarios');
+            //crea los campos de la tabla usuarios
             $usuarios->nombre="admin";
             $usuarios->primer_apellido="admin";
             $usuarios->segundo_apellido="admin";
@@ -94,6 +98,7 @@ class Usuarios_model extends CI_Model{
             $usuarios->confirmar_contrasena="admin";
             $usuarios->alias="admin";
             $usuarios->foto = null;
+            //almacena los datos en la tabla usuarios
             R::store($usuarios);
             
             
@@ -108,24 +113,28 @@ class Usuarios_model extends CI_Model{
                  
         }
         
-      
+      // recibe las variables nombre y password del controlador usuarios.php linea 165
         
         public function verificarLogin($nombre, $password)
         {
-            
+            //busca en la tabla usuarios los campos donde el nombre sea igual a admin si no encuentra nada devuelve null
             $usuario = R::findOne('usuarios', 'nombre=?', [
                 $nombre
             ]);
             $a="";
             $b="";
+            //comprueba si la variable usuario es distinta al campo nombre almacenado en la base de datos si es asi a octiene el valor="no"
             if ($usuario->nombre!=$nombre) {
             
                $a="no";
             }
+            //comprueba si la variable password es distinta al campo contraseña almacenado en la base de datos si es asi b octiene el valor="no"
             if ($usuario->contrasena!=$password) {
                
               $b="no";
             }
+            // si a y b de los if anteriores son no redirecciona al controlador a la carpeta usuarios dentro de esta carpeta al controlador usuarios.php linea 192
+          
             if($a!="no"&& $b!="no"){
              
                redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
@@ -134,29 +143,31 @@ class Usuarios_model extends CI_Model{
               
             }
             else{
+                // destruyo la sesion de nombre y pasword
                 session_destroy();
-                redirect(base_url());
-                
+                // redirecciona al controlador usuario usuarios.php linea 190 dentro de la carpeta usuario
+                redirect(base_url()."usuario/Usuarios/errorsesion");
             }
             
         }
-        
+        // esta funcion busca el id de un usuario 
         function idperfil($nombre){
-         
+            //busca en la tabla usuarios los campos donde el nombre sea igual a admin si no encuentra nada devuelve null
             $usuario = R::findOne('usuarios', 'nombre=?', [
                 $nombre
             ]);
-            
+            //guardo en una sesion la variable usuario  y se retorna esa variable al controlador Usuarios.php linea 169 dentro de la carpeta usuario
             $_SESSION['idusuario']=$usuario;
             return   $usuario;
         }
+        // recibe las variables id,nombre,primer_apellido,segundo_apellido,ano,email,telefono,password,comprobacion,alias,foto del controlador usuarios.php linea 56
         public function actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto)
         {
             
-            
+            //busca en la tabla usuarios los campos donde el id  sea el que le ha pasado el controlador
             $usuarios = R::load('usuarios',$id);
             
-            
+            //sobreescribe los campos 
             $usuarios->nombre=$nombre;
             $usuarios->primer_apellido=$primer_apellido;
             $usuarios->segundo_apellido=$segundo_apellido;
@@ -166,6 +177,7 @@ class Usuarios_model extends CI_Model{
             $usuarios->contrasena=$password;
             $usuarios->confirmar_contrasena=$comprobacion;
             $usuarios->alias=$alias;
+            //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
             $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
             $existefichero = is_file( $directorio );
             
@@ -185,6 +197,7 @@ class Usuarios_model extends CI_Model{
                     
                 }}
                 $usuarios->foto = $extension;
+                // almacena los datos en la tabla usuarios de la base de datos
                 R::store($usuarios);
                 
                 redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
@@ -193,19 +206,21 @@ class Usuarios_model extends CI_Model{
         }
         
       
-        
+        // recibe la variable id del controlador usuarios.php linea 204
         public function borrar($id){
+            // borra todos los campos del usuario  por el id recibido del controlador
             R::trash(R::load('usuarios',$id));
-            
+            // redirige ala pagina principal
             redirect(base_url());
-                
+            // recibe la variable id del controlador usuarios.php linea 221
         }public function borraradminidtrador($id){
+            // borra todos los campos del usuario  por el id recibido del controlador
             R::trash(R::load('usuarios',$id));
-            
+           
             redirect(base_url()."usuario/Usuarios/mostrar");
             
         }
-        
+        //esta funcion borra todas las seiones
         public function  cerrarsesion()
         
         {
