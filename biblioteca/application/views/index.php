@@ -1,16 +1,48 @@
 
+ <?php foreach ($libros as $libro): ?>
+<div class="card mb-3 mx-auto" style="width:80%">
+  <div class="row ">
+    <div class="col-md-3 offset-md-3 mx-auto">
+      <?php if ($libro ->foto!=null):?>
 
+   <img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/<?=$libro -> titulo;?>.<?=$libro -> foto;?>"
+					  style="width:50%">
+				<?php  else:?>
+	<img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"
+					  style="width:50%">
+			
+					 
+			<?php endif;?>	  
+
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?=$libro->titulo?></h5>
+       <?php if ($libro ->descricion!=null):?>
+        <?php 
+        $resumendescricion = explode(".", $libro ->descricion);?>
+
+      <p class="card-text"><?= $resumendescricion[0]?></p>
+      	<?php  else:?>
+      	 <p class="card-text">no hay descricion disponible </p>
+      	<?php endif;?>	
+      	 <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post">
+				<input type="hidden" name="id" value="<?=$libro->id?>">
+				
+				  <button class="btn btn-primary stretched-link" onclick="submit()">
+					Ver mas
+						
+				 </button>				
+				
+			</form>    	     
+        
+      </div>
+    </div>
+  </div>
+</div>
+ 			
+		<?php endforeach;?>
+ 
 
    
-        <h1>Iniciar sesion</h1>
-        <form action="<?=base_url()?>usuario/Usuarios/acceso" method="post">
-            <label for="usuario">Usuario:</label>
-            <input type="text" name="usuario" required>
-            <br><br>
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" required>
-            <br><br>
-            <input type="submit" value="Entrar">
-            <br><br><br><br>
-            <a href="<?=base_url()?>usuario/Usuarios/registro">Si no estas resgistrado pincha aqui.</a>
-        </form> 
+      

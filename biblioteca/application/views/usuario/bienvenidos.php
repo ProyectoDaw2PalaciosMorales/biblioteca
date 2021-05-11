@@ -35,7 +35,7 @@
 					<input type="hidden" name="id" value= "<?=$usuario -> nombre?>">
 					<a href='javascript:enviar_formulario2()'>Tus comentarios</a>
 				  </form> 		
-                    <a href='<?=base_url()?>usuario/Cerrar_sesion/cerrar'>Cerrar sesion</a>
+                    
                   
                                                         
         

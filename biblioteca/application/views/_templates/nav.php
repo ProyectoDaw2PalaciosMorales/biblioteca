@@ -16,28 +16,38 @@
             		<button class="btn btn-success btn-sm" type="submit">Search</button>
          	 	</form></li>
       <li class="dropdown">
-         <?php if (  isset( $_SESSION['nombre'])):?>            
+         <?php if (  !isset( $_SESSION['nombre'])):?>            
         
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"> </a>
+       
+         <?php  else:?>
+           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           <?php if (is_file("assets/fotosperfil/usuario-".$_SESSION['nombre'].".png" )):?>
         <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?=$_SESSION['nombre']?>.png">
          <?php  else:?>
          <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
                     <?php endif;?>
       </a>
-        <ul class="dropdown-menu">
         
+                    <?php endif;?>
+     
+        <ul class="dropdown-menu">
+        <?php if (  !isset( $_SESSION['nombre'])):?>  
+         <li> <a href='<?=base_url()?>usuario/Usuarios/accesoget'>login</a></li>
+         <?php  else:?>
           <li><form  name="formulario1" action="<?=base_url()?>usuario/Usuarios/perfil_usuario" method="post">
 					<input type="hidden" name="id" value= "1">
+					          
 					<a href='javascript:enviar_formulario()'>Perfil</a>
 				  </form></li>
+				  
           <li> <a href='<?=base_url()?>usuario/Usuarios/cerrar'>Cerrar sesion</a></li>
-         
-        
+         <?php endif;?>
         </ul>
       </li>
-       <?php  else:?>
-        <?php endif;?>
+      
+       
        
     </ul>
   </div>  

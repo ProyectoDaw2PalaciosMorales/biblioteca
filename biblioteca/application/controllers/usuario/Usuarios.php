@@ -3,8 +3,13 @@
 class Usuarios extends CI_Controller {
     
     // cuando se pincha sobre el boton "perfil dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
-    public function perfil_usuario()
-    { //recojo los datos del campo name de el formulario  oculto de la vista bienvenidos.php
+    public function perfil_usuario(){
+         
+           //inicio sesion
+           session_start();
+        //no se permte el accseo desde la url sin estar registrado
+        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+        //recojo los datos del campo name de el formulario  oculto de la vista bienvenidos.php
         
         // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
         $id =  isset($_POST['id']) ? $_POST['id'] : null;
@@ -18,11 +23,15 @@ class Usuarios extends CI_Controller {
         frame($this,'usuario/Perfilusuario',$datos);
         
         
-    }
+        }  else{ $this->load->view('errorurl');}}
     
-    // cuando se pincha sobre el boton "mostrar libros " de la vista bienvenidos.php
+    // cuando se pincha sobre el boton "mostrar usuarios " de la vista bienvenidos.php
     public function mostrar(){
+        //inicio sesion
         session_start();
+        //no se permte el accseo desde la url sin estar registrado
+        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+        
         
             //se carga el modelo usuarios model
             $this->load->model('Usuarios_model');
@@ -32,9 +41,14 @@ class Usuarios extends CI_Controller {
             frame($this,'usuario/usuarios',$datos);
             
             
-    }
+        }else{ $this->load->view('errorurl');}}
+        
     // cuando se pincha sobre el boton "modifar tus datos" de la vista perfilusuario.php 
     public function actualizar(){
+        //inicio sesion
+        session_start();
+        //no se permte el accseo desde la url sin estar registrado
+        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
         //recojo los datos del campo name de el formulario  oculto de la vista perfilusuario.php
         
         // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
@@ -48,13 +62,17 @@ class Usuarios extends CI_Controller {
             
             
             frame($this,'usuario/actualizarusuario',$datos);
-        }
+        }else{ $this->load->view('errorurl');}}
             
             
     
     
     public function actulizarperfilpost()
-    {
+    
+    {    //inicio sesion
+        session_start();
+        //no se permte el accseo desde la url sin estar registrado
+        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
         //recojo los datos del campo name de el formulario   de la vista actualizarusuario.php
         
         // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
@@ -95,7 +113,7 @@ class Usuarios extends CI_Controller {
         $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto);
         
         
-        }
+        }else{ $this->load->view('errorurl');}}
         // cuando se pincha sobre el boton "Si no estas resgistrado pincha aqui" de la vista index.php muestra la vista de registro.php
         public function registro()
         {
@@ -144,6 +162,10 @@ class Usuarios extends CI_Controller {
          
             
             
+        // cuando se pincha sobre el boton "login dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
+        } public function accesoget()
+        {
+            frame($this,'usuario/login');
             
         }
         
@@ -181,10 +203,11 @@ class Usuarios extends CI_Controller {
         
         // esta funcion se muestra si los datos del login son correctos
         public function Bienvenidos_u()
-        {
-           //inicio sesion
+        {//no se permte el accseo desde la url sin estar registrado
+            //inicio sesion
             session_start();
-            
+            if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+                    
            
                 // se carga el modelo usuarios_model
                 $this->load->model('Usuarios_model');
@@ -194,15 +217,18 @@ class Usuarios extends CI_Controller {
               // se crea la array usuario y se se asina la funcion idperfil linea 154  del modelo usuarios_model.php ala que se le añade la variable nombre
                 $datos['usuario'] = $this->Usuarios_model->idperfil($nombre);
                 // se carga la vista bienvenidos y se le añaden la array datos
-                frame($this,'usuario/bienvenidos',$datos);
+                frame($this,'usuario/bienvenidos',$datos);         
+              
+               
                 
-                
-                
-                
-            }
+            }else{ $this->load->view('errorurl');}}
+            
             // cuando se pincha sobre el boton "eliminar tu cuenta" de la vista perfilusuario.php 
             public function borrar(){
-               
+                //inicio sesion
+                session_start();
+                //no se permte el accseo desde la url sin estar registrado
+                if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
                 //recojo los datos del campo name de los input de la vista perfilusuario.php
                 // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                     
@@ -216,17 +242,21 @@ class Usuarios extends CI_Controller {
                     // se carga la funcion borrar linea 210 del modelo_usuraio.php 
                     $this->Usuarios_model->borrar($id);
                    
-            }
+                }else{ $this->load->view('errorurl');}}
+                
             // cuando se pincha sobre el boton "de la papelera" de la vista usuarios.php
             public function borraradmin(){
-                
+                //inicio sesion
+                session_start();
+                //no se permte el accseo desde la url sin estar registrado
+                if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
                 //recojo los datos del campo name de los input de la vista usuarios.php
                 // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                 
                 
                 $id =  isset($_POST['id']) ? $_POST['id'] : null;
                 $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
-                //verifica si la foto exite si exite borrar la imagen del directorio assets/fotosperfil
+              //verifica si exite la fot en asset/fotosperfil si exite la borra
                 if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )){
                     unlink("assets/fotosperfil/usuario-".$nombre.".png");}
                     //se carga el modelo 
@@ -234,7 +264,7 @@ class Usuarios extends CI_Controller {
                     // se carga la funcion borraradminidtrador linea 216 del modelo_usuraio.php 
                     $this->Usuarios_model->borraradminidtrador($id);
                     
-            }
+                }else{ $this->load->view('errorurl');}}
             
         
         
@@ -274,8 +304,10 @@ class Usuarios extends CI_Controller {
             $this->load->model('Usuarios_model');
             // se carga la funcion cerrarsesion linea 223 del modelo_usuraio.php 
             $this->Usuarios_model->cerrarsesion();}
+           
+            
 
-}
+        }
     
 
 
