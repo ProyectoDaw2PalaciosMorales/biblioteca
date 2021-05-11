@@ -5,13 +5,10 @@ class Autores extends CI_Controller{
    public function autor(){
        
        
-        session_start();
         
-        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+            frame($this,'autor/autor_deseado');
         
-            frame($this,'autor/autor_deseado');}
-        
-            else{ $this->load->view('errorurl');}
+            
     }
     
     public function autorpost(){

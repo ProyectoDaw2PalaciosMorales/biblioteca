@@ -1,16 +1,20 @@
   
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
- <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+
+ <div class="navbar-header ">
+ 
+      <a class="navbar-brand" href='<?=base_url()?>'>TU BIBLIOTECA</a>
+    </div>
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse bg-dark"  id="collapsibleNavbar">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ">
    		
-          <li class="nav-link" ><a href="#">Link</a></li>
-          <li class="nav-link"><a href="#">Link</a></li>
-          <li class="nav-link"><a href="#">Link</a></li>
-        
+       
+          <li class="nav-item"> <a class="text-white nav-link" href='<?=base_url()?>autor/Autores/autor'>Elija un autor para ver sus obras</a></li>
+          <li class="nav-item"><a class="text-white nav-link"  href='<?=base_url()?>libro/Libros/genero'>Tus genereros favoritos</a></li>
+       
           <li><form class="form-inline" action="/action_page.php">
             		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
             		<button class="btn btn-success btn-sm" type="submit">Search</button>

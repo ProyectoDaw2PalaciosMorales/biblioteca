@@ -34,21 +34,16 @@ class Libros extends CI_Controller {
     // cuando se pincha sobre el boton "genero deseado" de la vista bienvenidos.php
     public function genero(){
         
-        //inicio sesion
-        session_start();
-        //no se permte el accseo desde la url sin estar registrado
-        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+      
+       
             // se carga la  vista genero deseado
             frame($this,'libro/genero_deseado');}
             
-            else{ $this->load->view('errorurl');}
-    }
+           
+    
     
     public function generopost(){
-        //inicio sesion
-        session_start();
-        //no se permte el accseo desde la url sin estar registrado
-        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+        
             
             //recojo los datos  de el formulario   de la vista genero_deseado.php
            // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
@@ -58,8 +53,8 @@ class Libros extends CI_Controller {
             $this->load->model('Libros_model');
             //se carga la funcion filtro 62 del modelo Libros_model
             $this->Libros_model-> filtro($genero);
-        }
-        else{ $this->load->view('errorurl');}
+        
+       
     }
     // cuando se pincha sobre el boton "Administrar libros" de la vista bienvenidos.php
     public function panel_administrativo()

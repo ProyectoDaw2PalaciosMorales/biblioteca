@@ -18,6 +18,6 @@
        
         <br><br><br>
        
-    <a href="<?=base_url()?>usuario/Usuarios/acceso">Home</a>
+    <a href="<?=base_url()?>">Home</a>
 
 
