@@ -11,3 +11,4 @@
 <br><br><br><br>
 <a href="<?=base_url()?>usuario/Usuarios/registro">Si no estas resgistrado pincha aqui.</a>
 </form>
+<h1>Holaaaaaaa que tal</h1>
