@@ -4,8 +4,10 @@
   <div class="row ">
     <div class="col-md-3 offset-md-3 mx-auto">
       <?php if ($libro ->foto!=null):?>
-
-   <img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/<?=$libro -> titulo;?>.<?=$libro -> foto;?>"
+ <?php 
+ $sustitutuirespaciosblancos = str_replace(" ","_",$libro->titulo)?>
+ 
+   <img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/<?=$sustitutuirespaciosblancos?>.<?=$libro -> foto;?>"
 					  style="width:50%">
 				<?php  else:?>
 	<img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"

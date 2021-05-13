@@ -118,20 +118,22 @@ class Usuarios_model extends CI_Model{
         public function verificarLogin($nombre, $password)
         {
             //busca en la tabla usuarios los campos donde el nombre sea igual a admin si no encuentra nada devuelve null
-            $usuario = R::findOne('usuarios', 'nombre=?', [
+            $usuario = R::findOne('usuarios', 'alias=?', [
                 $nombre
             ]);
             $a="";
             $b="";
-            //comprueba si la variable usuario es distinta al campo nombre almacenado en la base de datos si es asi a octiene el valor="no"
-            if ($usuario->nombre!=$nombre) {
+          echo $usuario->alias;
+          echo $usuario->contrasena;
+            //comprueba si la variable usuario es distinta al campo alias almacenado en la base de datos si es asi a octiene el valor="no"
+            if ($usuario->alias!=$nombre) {
             
-               $a="no";
+                $a="no";
             }
             //comprueba si la variable password es distinta al campo contraseña almacenado en la base de datos si es asi b octiene el valor="no"
             if ($usuario->contrasena!=$password) {
                
-              $b="no";
+             $b="no";
             }
             // si a y b de los if anteriores son no redirecciona al controlador a la carpeta usuarios dentro de esta carpeta al controlador usuarios.php linea 192
           
@@ -139,11 +141,11 @@ class Usuarios_model extends CI_Model{
              
                redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
                 
-               
+              
               
             }
             else{
-                
+               
                 // redirecciona al controlador usuario usuarios.php linea 190 dentro de la carpeta usuario
                 redirect(base_url()."usuario/Usuarios/errorsesion");
             }
@@ -151,8 +153,8 @@ class Usuarios_model extends CI_Model{
         }
         // esta funcion busca el id de un usuario 
         function idperfil($nombre){
-            //busca en la tabla usuarios los campos donde el nombre sea igual a admin si no encuentra nada devuelve null
-            $usuario = R::findOne('usuarios', 'nombre=?', [
+            //busca en la tabla usuarios los campos donde el alias sea igual a lo que recibe del controlaor si no encuentra nada devuelve null
+            $usuario = R::findOne('usuarios', 'alias=?', [
                 $nombre
             ]);
             //guardo en una sesion la variable usuario  y se retorna esa variable al controlador Usuarios.php linea 169 dentro de la carpeta usuario

@@ -98,7 +98,9 @@ class Libros_model extends CI_Model{
             $libros->ejemplares=$ejemplares;
             $libros->descricion=$descricion;
             //verifico si las fotos exiten en el directorio assets/fotoslibros
-            $directorio = "assets/fotoslibros/".$titulo.".png";
+            $sustitutuirespaciosblancos = str_replace(" ","_",$titulo);
+            $directorio = "assets/fotoslibros/".$sustitutuirespaciosblancos.".png";
+           
             $existefichero = is_file( $directorio );
             //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
            if($foto!=null){
@@ -200,7 +202,9 @@ class Libros_model extends CI_Model{
         $libros->ejemplares=$ejemplares;
         $libros->descricion=$descricion;
         //verifico si las fotos exiten en el directorio assets/fotoslibros
-        $directorio = "assets/fotoslibros/".$titulo.".png";
+        $sustitutuirespaciosblancos = str_replace(" ","_",$titulo);
+        $directorio = "assets/fotoslibros/".$sustitutuirespaciosblancos.".png";
+        
         $existefichero = is_file( $directorio );
         //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
         if($foto!=null){

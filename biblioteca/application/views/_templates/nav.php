@@ -14,7 +14,17 @@
        
           <li class="nav-item"> <a class="text-white nav-link" href='<?=base_url()?>autor/Autores/autor'>Elija un autor para ver sus obras</a></li>
           <li class="nav-item"><a class="text-white nav-link"  href='<?=base_url()?>libro/Libros/genero'>Tus genereros favoritos</a></li>
+          
+          <?php if (  !isset( $_SESSION['nombre'])):?>            
        
+           
+               <?php  else:?>
+               <?php if ( $_SESSION['nombre']=="admin"):?>    
+                <li class="nav-item"><a class="text-white nav-link"  href='<?=base_url()?>usuario/Usuarios/Bienvenidos_u'>Panel de control</a></li>
+                 <?php  else:?>
+                  <?php endif;?>
+        <?php endif;?>
+      
           <li><form class="form-inline" action="/action_page.php">
             		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
             		<button class="btn btn-success btn-sm" type="submit">Search</button>
