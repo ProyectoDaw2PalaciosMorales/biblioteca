@@ -1,20 +1,30 @@
+<html>
+    <head>
+        <title>Tu bibioteca</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+         <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  	</head>
+  	
+  	<body style=background-image:url(../../assets/imagenes/fondo_login.jpg);background-repeat:no-repeat;background-size:cover;>
+  	
+  	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-4">
 
-<h1>Iniciar sesion</h1>
-<form action="<?=base_url()?>usuario/Usuarios/acceso" method="post">
-<label for="usuario">Usuario:</label>
-<input type="text" name="usuario" required>
-<br><br>
-<label for="password">Contraseña:</label>
-<input type="password" name="password" required>
-<br><br>
-<input type="submit" value="Entrar">
-<br><br><br><br>
-<a href="<?=base_url()?>usuario/Usuarios/registro">Si no estas resgistrado pincha aqui.</a>
-</form>
+ <div class="navbar-header mx-auto" style=font-family:"Lucida Console", "Courier New", monospace;>
+ 
+      <a class="navbar-brand" style="font-size: 40px"; href='<?=base_url()?>'>TU BIBLIOTECA</a>
+    </div>
+  
+  
+</nav>
 
+  	
 
-<div class="card mx-auto border border-primary bg-dark" style="max-width:319px">
-                <div class="mx-auto mt-3 text-white" style=font-family:"Lucida Console", "Courier New", monospace>
+<div class="card mx-auto border border-primary bg-dark" style="max-width:319px; margin-top:200px">
+                <div class="mx-auto mt-3 text-white" style=font-family:"Lucida Console", "Courier New", monospace;>
                     <h3>Iniciar sesion</h3>
                     
                 </div>
@@ -26,7 +36,7 @@
                                 <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                             </div>
                             <!-- TextBox - Correo -->
-                            <input type="text" name="usuario" class="form-control" placeholder="Corro">
+                            <input type="text" name="usuario" class="form-control" placeholder="Usuario">
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
@@ -47,7 +57,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links text-white">
-                        ¿No tienes una cuenta?<a href="#">Registrate</a>
+                        ¿No tienes una cuenta?<a href="<?=base_url()?>usuario/Usuarios/registro">Registrate</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="Home/pagRecuperar">¿Olvidaste tu contraseña?</a>
@@ -57,4 +67,6 @@
                     </div>
                 </div>
             </div>
+            </body>
+         </html>
         

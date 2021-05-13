@@ -165,7 +165,9 @@ class Usuarios extends CI_Controller {
         // cuando se pincha sobre el boton "login dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
         } public function accesoget()
         {
-            frame($this,'usuario/login');
+            /*frame($this,'usuario/login');*/
+            
+            $this->load->view('usuario/login');
             
         }
         
