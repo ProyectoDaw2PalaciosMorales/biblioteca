@@ -119,9 +119,9 @@ class Usuarios extends CI_Controller {
         {
             
             
-            frame($this,'usuario/registro');
+            //frame($this,'usuario/registro');
             
-            
+            $this->load->view('usuario/registro');
             
         }
         

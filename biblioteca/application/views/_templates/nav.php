@@ -1,9 +1,9 @@
   
-<nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark p-3">
 
- <div class="navbar-header ">
+ <div class="navbar-header  ">
  
-      <a class="navbar-brand" href='<?=base_url()?>'>TU BIBLIOTECA</a>
+      <a class="navbar-brand"  href='<?=base_url()?>'>TU BIBLIOTECA</a>
     </div>
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -12,23 +12,28 @@
     <ul class="navbar-nav ">
    		
        
-          <li class="nav-item"> <a class="text-white nav-link" href='<?=base_url()?>autor/Autores/autor'>Elija un autor para ver sus obras</a></li>
-          <li class="nav-item"><a class="text-white nav-link"  href='<?=base_url()?>libro/Libros/genero'>Tus genereros favoritos</a></li>
+          <li class="nav-item" > <a class="text-white nav-link" style="font-size: 15px;margin-left:9px;" href='<?=base_url()?>autor/Autores/autor'>Elija un autor para ver sus obras</a></li>
+          <li class="nav-item"><a class="text-white nav-link"  style="font-size: 15px;margin-left:9px;"href='<?=base_url()?>libro/Libros/genero'>Tus genereros favoritos</a></li>
           
           <?php if (  !isset( $_SESSION['nombre'])):?>            
        
            
                <?php  else:?>
                <?php if ( $_SESSION['nombre']=="admin"):?>    
-                <li class="nav-item"><a class="text-white nav-link"  href='<?=base_url()?>usuario/Usuarios/Bienvenidos_u'>Panel de control</a></li>
+                <li class="nav-item"><a class="text-white nav-link" style="font-size: 15px;margin-left:9px;" href='<?=base_url()?>usuario/Usuarios/Bienvenidos_u'>Panel de control</a></li>
                  <?php  else:?>
                   <?php endif;?>
         <?php endif;?>
-      
+    
           <li><form class="form-inline" action="/action_page.php">
-            		<input class="form-control-sm input-sm buscar" type="text" placeholder="Search">
-            		<button class="btn btn-success btn-sm" type="submit">Search</button>
-         	 	</form></li>
+    <div class="form-group">
+     
+      <input type="text" class="form-control"  placeholder="buscar" name="" style="margin-top:15px;margin-left:15px">
+    </div>
+    
+   
+    <button type="submit" class="btn btn-default  btn-success btn-sm"style="font-size: 15px;margin-left:9px;margin-top:15px;">Buscador</button>
+  </form></li>
       <li class="dropdown">
          <?php if (  !isset( $_SESSION['nombre'])):?>            
         
@@ -46,17 +51,17 @@
         
                     <?php endif;?>
      
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu bg-dark ">
         <?php if (  !isset( $_SESSION['nombre'])):?>  
-         <li> <a href='<?=base_url()?>usuario/Usuarios/accesoget'>login</a></li>
+         <li> <a class="text-white nav-link" href='<?=base_url()?>usuario/Usuarios/accesoget'>login</a></li>
          <?php  else:?>
           <li><form  name="formulario1" action="<?=base_url()?>usuario/Usuarios/perfil_usuario" method="post">
 					<input type="hidden" name="id" value= "1">
 					          
-					<a href='javascript:enviar_formulario()'>Perfil</a>
+					<a class="text-white text-decoration-none" href='javascript:enviar_formulario()'>Perfil</a>
 				  </form></li>
 				  
-          <li> <a href='<?=base_url()?>usuario/Usuarios/cerrar'>Cerrar sesion</a></li>
+          <li> <a class="text-white  text-decoration-none" href='<?=base_url()?>usuario/Usuarios/cerrar'>Cerrar sesion</a></li>
          <?php endif;?>
         </ul>
       </li>

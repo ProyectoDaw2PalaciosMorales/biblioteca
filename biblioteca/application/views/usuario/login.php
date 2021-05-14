@@ -14,7 +14,7 @@
   	
   	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-4">
 
- <div class="navbar-header mx-auto" style=font-family:"Lucida Console", "Courier New", monospace;>
+ <div class="navbar-header mx-auto" style="font-family:Lucida Console, Courier New, monospace;">
  
       <a class="navbar-brand" style="font-size: 40px"; href='<?=base_url()?>'>TU BIBLIOTECA</a>
     </div>
@@ -25,7 +25,7 @@
   	
 
 <div class="card mx-auto border border-primary bg-dark" style="max-width:319px; margin-top:200px">
-                <div class="mx-auto mt-3 text-white" style=font-family:"Lucida Console", "Courier New", monospace;>
+                <div class="mx-auto mt-3 text-white" style="font-family:Lucida Console, Courier New, monospace;">
                     <h3>Iniciar sesion</h3>
                     
                 </div>
