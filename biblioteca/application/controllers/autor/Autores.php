@@ -14,14 +14,14 @@ class Autores extends CI_Controller{
     public function autorpost(){
         session_start();
         
-        if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+      
             $autor =  isset($_POST['autor']) ? $_POST['autor'] : null;
         
         
         $this->load->model('Autores_model');
         $this->Autores_model-> filtro($autor);
-        }
-        else{ $this->load->view('errorurl');}
+        
+      
     }
     
     
