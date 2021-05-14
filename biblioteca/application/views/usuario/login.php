@@ -5,6 +5,7 @@
         
          <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   	</head>
@@ -33,14 +34,14 @@
                     <form action="<?=base_url()?>usuario/Usuarios/acceso" method="post">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
                             <!-- TextBox - Correo -->
                             <input type="text" name="usuario" class="form-control" placeholder="Usuario">
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
-                                <span class="input-group-text"><i class="fas fa-key" ></i></span>
+                                <span class="input-group-text"><i class="fa fa-key" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
                             <input type="password" name="password" class="form-control" placeholder="Contraseña">

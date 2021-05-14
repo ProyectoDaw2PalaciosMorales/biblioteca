@@ -145,7 +145,7 @@ class Usuarios_model extends CI_Model{
               
             }
             else{
-               
+                session_destroy();
                 // redirecciona al controlador usuario usuarios.php linea 190 dentro de la carpeta usuario
                 redirect(base_url()."usuario/Usuarios/errorsesion");
             }
