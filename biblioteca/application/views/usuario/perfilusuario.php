@@ -13,7 +13,7 @@
  
    <form action="<?=base_url()?>usuario/Usuarios/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
-				<input type="hidden" name="nombre" value="<?=$usuario->nombre?>">
+				<input type="hidden" name="alias" value="<?=$usuario->alias?>">
 				  <button onclick="submit()">
 				   Eliminar tu cuenta
 							
@@ -25,9 +25,10 @@
  
       <h2>Tus datos</h2>
      	<?php if ($usuario ->foto!=null):?>
-			
+			  <?php 
+			  $sustitutuirespaciosblancos = str_replace(" ","_",$usuario -> alias)?>
 				<img src="<?=base_url()?>assets/fotosperfil/usuario-<?=
-				$usuario -> nombre;?>.<?=
+				$sustitutuirespaciosblancos;?>.<?=
 			$usuario -> foto;?>"  width="80" height="80">
 		
 			<?php  else:?>

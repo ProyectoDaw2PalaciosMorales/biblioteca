@@ -42,8 +42,10 @@
        
          <?php  else:?>
            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          <?php if (is_file("assets/fotosperfil/usuario-".$_SESSION['nombre'].".png" )):?>
-        <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?=$_SESSION['nombre']?>.png">
+            <?php 
+            $sustitutuirespaciosblancos = str_replace(" ","_",$_SESSION['nombre'])?>
+          <?php if (is_file("assets/fotosperfil/usuario-". $sustitutuirespaciosblancos.".png" )):?>
+        <img class="avatar" src="<?=base_url()?>assets/fotosperfil/usuario-<?= $sustitutuirespaciosblancos?>.png">
          <?php  else:?>
          <img class="avatar" src="<?=base_url()?>assets/fotosperfil/noimagen.jpg">
                     <?php endif;?>
@@ -56,8 +58,11 @@
          <li> <a class="text-white nav-link" href='<?=base_url()?>usuario/Usuarios/accesoget'>login</a></li>
          <?php  else:?>
           <li><form  name="formulario1" action="<?=base_url()?>usuario/Usuarios/perfil_usuario" method="post">
-					<input type="hidden" name="id" value= "1">
-					          
+          <?php if (  isset($usuario)):?>  
+					<input type="hidden" name="id" value=<?=$usuario->id?>>
+				<?php  else:?>	
+				<?php endif;?>
+				          
 					<a class="text-white text-decoration-none" href='javascript:enviar_formulario()'>Perfil</a>
 				  </form></li>
 				  

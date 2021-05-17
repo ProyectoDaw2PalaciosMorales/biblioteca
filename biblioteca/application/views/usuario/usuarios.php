@@ -57,6 +57,7 @@
 		   
 		     <form action="<?=base_url()?>usuario/Usuarios/borraradmin" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
+				<input type="hidden" name="alias" value="<?=$usuario->alias?>">
 				  <button onclick="submit()">
 					<img src="<?=base_url()?>/assets/iconos/basura.png">
 							

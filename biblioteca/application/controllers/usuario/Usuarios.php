@@ -1,7 +1,15 @@
 <?php 
         
 class Usuarios extends CI_Controller {
-    
+    public function  recuperarcontrasena(){
+        frame($this,'usuario/enviocontrasena',);
+        
+    }
+    public function  recuperarcontrasenapost(){
+        $email =  isset($_POST['email']) ? $_POST['email'] : null;
+        $this->load->model('Usuarios_model');
+        $this->Usuarios_model->recuperar($email);
+    }
     // cuando se pincha sobre el boton "perfil dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
     public function perfil_usuario(){
          
@@ -95,13 +103,14 @@ class Usuarios extends CI_Controller {
         // se carga el helper
         $this->load->helper('url');
         // se verifica que exite la foto en el directorio assets/fotosperfil si exite borra la foto
-        $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
+        $sustitutuirespaciosblancos = str_replace(" ","_",$alias);
+        $directorio = "assets/fotosperfil/".$sustitutuirespaciosblancos.".png";
         unlink($directorio);
         // se verifica que exite la foto en el directorio assets/fotosperfil si no exite llama ala funcion cargar archivo
         $existefichero = is_file( $directorio );
 
         if ( $existefichero==false ) {
-            $this->cargar_archivo($nombre);
+            $this->cargar_archivo($alias);
            
         } else {
             
@@ -149,11 +158,12 @@ class Usuarios extends CI_Controller {
             $this->load->helper('url');
             //verifico si las fotos exiten en el directorio assets/fotosperfil
             //si exiten llamo ala funcion del controlador Usuarios.php (este mismo) linea 250
-            $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
+            $sustitutuirespaciosblancos = str_replace(" ","_",$alias);
+            $directorio = "assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png";
             $existefichero = is_file( $directorio );
             if ( $existefichero==false ) {
                 
-                $this->cargar_archivo($nombre);
+                $this->cargar_archivo($alias);
             }
             
             //se carga la funcion crearusuarios del modelo Usuarios_model.php linea  22 y se le pasa todas las variabes
@@ -235,10 +245,12 @@ class Usuarios extends CI_Controller {
                 // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                     
                     $id =  isset($_POST['id']) ? $_POST['id'] : null;
-                    $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
+                    $alias =  isset($_POST['alias']) ? $_POST['alias'] : null;
                     //verifica si la foto exite si exite borrar la imagen del directorio assets/fotosperfil
-                    if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )){
-                        unlink("assets/fotosperfil/usuario-".$nombre.".png");}
+                    $sustitutuirespaciosblancos = str_replace(" ","_",$alias);
+                   
+                    if (is_file("assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png" )){
+                        unlink("assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png");}
                         //se carga el modelo 
                     $this->load->model('Usuarios_model');
                     // se carga la funcion borrar linea 210 del modelo_usuraio.php 
@@ -256,11 +268,13 @@ class Usuarios extends CI_Controller {
                 // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                 
                 
-                $id =  isset($_POST['id']) ? $_POST['id'] : null;
-                $nombre =  isset($_POST['nombre']) ? $_POST['nombre'] : null;
-              //verifica si exite la fot en asset/fotosperfil si exite la borra
-                if (is_file("assets/fotosperfil/usuario-".$nombre.".png" )){
-                    unlink("assets/fotosperfil/usuario-".$nombre.".png");}
+                    $id =  isset($_POST['id']) ? $_POST['id'] : null;
+                    $alias =  isset($_POST['alias']) ? $_POST['alias'] : null;
+                    //verifica si la foto exite si exite borrar la imagen del directorio assets/fotosperfil
+                    $sustitutuirespaciosblancos = str_replace(" ","_",$alias);
+                    
+                    if (is_file("assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png" )){
+                        unlink("assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png");}
                     //se carga el modelo 
                     $this->load->model('Usuarios_model');
                     // se carga la funcion borraradminidtrador linea 216 del modelo_usuraio.php 
@@ -271,7 +285,7 @@ class Usuarios extends CI_Controller {
         
         
         
-        function cargar_archivo($nombre ) {
+        function cargar_archivo($alias) {
           
            
             //nombre de la foto
@@ -279,7 +293,7 @@ class Usuarios extends CI_Controller {
            //ruta de la foto
             $config['upload_path'] = "assets/fotosperfil";
             //nombre final de la foto
-            $config['file_name'] ="usuario-".$nombre.".png";
+            $config['file_name'] ="usuario-".$alias.".png";
             //formato de la foto
             $config['allowed_types'] = 'png|gif|jpeg|jpg';
             //tamaños maximos permitidos

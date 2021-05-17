@@ -61,7 +61,7 @@
                         ¿No tienes una cuenta?<a href="<?=base_url()?>usuario/Usuarios/registro">Registrate</a>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="Home/pagRecuperar">¿Olvidaste tu contraseña?</a>
+                        <a href="<?=base_url()?>usuario/Usuarios/recuperarcontrasena">¿Olvidaste tu contraseña?</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <!--<span>El usuario o la contraseña es incorrecto</span>-->

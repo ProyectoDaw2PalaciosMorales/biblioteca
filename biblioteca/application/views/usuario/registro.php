@@ -75,7 +75,7 @@
     
      <h1  style="font-family:Lucida Console, Courier New, monospace; text-align:center;font-size:15px">Bienvenido a nuestra biblioteca</h1>
     
-    <div class="card mx-auto border border-primary bg-dark" style="max-width:319px; margin-top:10px">
+    <div class="card mx-auto border border-primary bg-dark" style="max-width:395px; margin-top:10px">
                 <div class="mx-auto mt-2 text-white" style="font-family:Lucida Console, Courier New, monospace;">
                     <h3>Registro</h3>
                     
@@ -141,7 +141,7 @@
                                 <span class="input-group-text"><i class="fa fa-key" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="comprobacion" name="password" class="form-control" placeholder="Confirmar contraseña" required>
+                            <input type="password" name="comprobacion" class="form-control" placeholder="Confirmar contraseña" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
@@ -150,7 +150,7 @@
                             <!-- TextBox - Contraseña -->
                             <input type="text" name="alias" class="form-control" placeholder="Alias" required>
                         </div>
-                        <input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" / style=" color: transparent;">
+                        <input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" ">
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
                             <input type="submit" value="Registrar" class="btn float-right login_btn btn btn-primary" ">

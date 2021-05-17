@@ -43,8 +43,9 @@ class Usuarios_model extends CI_Model{
             $usuarios->confirmar_contrasena=$comprobacion;
             $usuarios->alias=$alias;
             //verifico si las fotos exiten en el directorio assets/fotosperfil
-            
-            $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
+            $sustitutuirespaciosblancos = str_replace(" ","_",$alias);
+            $directorio = "assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png";
+           
             $existefichero = is_file( $directorio );
             //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
             if($foto!=null){
@@ -179,7 +180,8 @@ class Usuarios_model extends CI_Model{
             $usuarios->confirmar_contrasena=$comprobacion;
             $usuarios->alias=$alias;
             //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
-            $directorio = "assets/fotosperfil/usuario-".$nombre.".png";
+            $sustitutuirespaciosblancos = str_replace(" ","_",$alias);
+            $directorio = "assets/fotosperfil/usuario-".$sustitutuirespaciosblancos.".png";
             $existefichero = is_file( $directorio );
             
             
@@ -209,6 +211,7 @@ class Usuarios_model extends CI_Model{
       
         // recibe la variable id del controlador usuarios.php linea 204
         public function borrar($id){
+            session_destroy();
             // borra todos los campos del usuario  por el id recibido del controlador
             R::trash(R::load('usuarios',$id));
             // redirige ala pagina principal
@@ -216,6 +219,7 @@ class Usuarios_model extends CI_Model{
             // recibe la variable id del controlador usuarios.php linea 221
         }public function borraradminidtrador($id){
             // borra todos los campos del usuario  por el id recibido del controlador
+          
             R::trash(R::load('usuarios',$id));
             //rdirege al controlador Usuarios/mostrar
             redirect(base_url()."usuario/Usuarios/mostrar");
@@ -244,6 +248,52 @@ class Usuarios_model extends CI_Model{
             
             
         }
+        public function recuperar($email)
+        {
+            
+            $usuarios = R::findOne('usuarios', 'email=?', [
+                $email
+            ]);
+            
+            $ok = ($usuarios != null  );
+            if ($ok) {
+        
+                $config = array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'smtp.googlemail.com',
+                    'smtp_user' => 'proyectodaw2palaciosmorales@gmail.com', //Su Correo de Gmail Aqui
+                    'smtp_pass' => 'proyectoPaMo8', // Su Password de Gmail aqui
+                    'smtp_port' => '465',
+                    'smtp_crypto' => 'ssl',
+                    'mailtype' => 'html',
+                    'wordwrap' => TRUE,
+                    'charset' => 'utf-8'
+                );
+                
+                $this->load->library('email', $config);
+                $this->email->set_newline("\r\n");
+                $this->email->from('proyectodaw2palaciosmorales@gmail.com');
+                $this->email->subject('Tu contraseña es');
+                $this->email->message('<ul>
+                              
+                               <li>CONTRASEÑA:'.$usuarios->contrasena.'</li>
+                               </ul>
+            ');
+                
+                
+                $this->email->to($email);
+                $this->email->send();
+              
+                
+                
+                
+            }else{
+                
+               
+            }
+            }
+        
+        
         }
         
         
