@@ -131,7 +131,7 @@ class Libros_model extends CI_Model{
             }
            
          
-            
+            //rdirege al controlador libros/mostrar
          
             redirect(base_url()."libro/libros/mostrar");
           
@@ -147,7 +147,7 @@ class Libros_model extends CI_Model{
     public function borrarLibros($id){
         
         R::trash(R::load('libros',$id));
-        
+        //rdirege al controlador libros/mostrar_libros
         redirect(base_url()."libro/Libros/mostrar_libros");
         
     }
@@ -228,7 +228,7 @@ class Libros_model extends CI_Model{
         R::store($libros);
         
         
-        
+        //rdirege al controlador libros/mostraractualizacion
         
         redirect(base_url()."libro/Libros/mostraractualizacion");
         
@@ -273,7 +273,7 @@ class Libros_model extends CI_Model{
             
             
         }
-        
+        //rdirege al controlador libros/mostrarlibrosusuarios
         redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
         
         
@@ -313,7 +313,7 @@ class Libros_model extends CI_Model{
         R::store($libros);
         
         
-        
+        //rdirege al controlador libros/mostrarlibrosusuarios
         
         redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
         

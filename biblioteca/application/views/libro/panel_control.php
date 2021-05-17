@@ -4,7 +4,7 @@
     <button><a href="<?=base_url()?>libro/Libros/insertarlibros">Insertar libro</a></button>
   
 <button><a href="<?=base_url()?>libro/Libros/mostrar_libros">Editar libros</a></button>
-      <button><a href="<?=base_url()?>autor/Autores/insertarautor">Insertar Autores</a></button>                          
+                       
     
        <button><a href="<?=base_url()?>autor/Autores/mostrar_autoresadninistrador">Editar Autores</a></button>
         <br><br><br>

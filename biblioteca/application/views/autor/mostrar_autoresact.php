@@ -9,9 +9,8 @@
 <tr>
 
 
-<th>TÍTULO</th>
-<th>AÑO DE EDICIÓN</th>
-<th>EDITORIAL</th>
+<th>Nombre_autor</th>
+
 
 
 
@@ -24,14 +23,8 @@
 			$autor ->nombre_autor;
 			?></td>
 			
-			<td style="background-color:red"><?=
-			$autor -> ciudad ;
-			?></td>
 			
-			<td style="background-color:red"><?=
-			$autor -> fecha_nacimiento ;
-			?></td>
-			
+		
 		
 			
 			
@@ -41,13 +34,6 @@
 			$autor ->nombre_autor;
 			?></td>
 			
-			<td ><?=
-			$autor -> ciudad ;
-			?></td>
-			
-			<td ><?=
-			$autor -> fecha_nacimiento ;
-			?></td>
 			<?php endif;?>
 			
 			

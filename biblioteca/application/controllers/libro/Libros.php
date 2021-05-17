@@ -31,7 +31,7 @@ class Libros extends CI_Controller {
     
     
     
-    // cuando se pincha sobre el boton "genero deseado" de la vista bienvenidos.php
+    // cuando se pincha sobre el boton "genero deseado" 
     public function genero(){
         
       

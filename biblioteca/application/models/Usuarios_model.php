@@ -65,7 +65,7 @@ class Usuarios_model extends CI_Model{
                 R::store($usuarios);
                 
                 
-                
+                //rdirege al controlador principal
                 redirect(base_url());
                 
                 
@@ -138,7 +138,7 @@ class Usuarios_model extends CI_Model{
             // si a y b de los if anteriores son no redirecciona al controlador a la carpeta usuarios dentro de esta carpeta al controlador usuarios.php linea 192
           
             if($a!="no"&& $b!="no"){
-             
+                //rdirege al controlador Usuarios/Bienvenidos_u
                redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
                 
               
@@ -200,7 +200,7 @@ class Usuarios_model extends CI_Model{
                 $usuarios->foto = $extension;
                 // almacena los datos en la tabla usuarios de la base de datos
                 R::store($usuarios);
-                
+                //rdirege al controlador Usuarios/Bienvenidos_u
                 redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
                 
                 
@@ -217,7 +217,7 @@ class Usuarios_model extends CI_Model{
         }public function borraradminidtrador($id){
             // borra todos los campos del usuario  por el id recibido del controlador
             R::trash(R::load('usuarios',$id));
-           
+            //rdirege al controlador Usuarios/mostrar
             redirect(base_url()."usuario/Usuarios/mostrar");
             
         }
@@ -234,7 +234,7 @@ class Usuarios_model extends CI_Model{
             session_destroy();
             
             
-            
+            //rdirege al controlador principal
             redirect(base_url());
             
             

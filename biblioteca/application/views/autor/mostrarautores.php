@@ -7,29 +7,22 @@
 <tr>
 
 <th>NOMBRE AUTOR</th>
-<th>CIUDAD</th>
-<th>FECHA NACIMENTOL</th>
+
+
 <th>ELIMINAR</th>
 <th>MODIFICAR</th>
 </tr>
 
 
 <?php  foreach ($autores as $autor): ?>
-		
-		<tr>
-		    
+	
+		       
 			
 			<td ><?=
 			$autor->nombre_autor;
 			?></td>
 			
-			<td ><?=
-			$autor -> ciudad ;
-			?></td>
 			
-			<td><?=
-			$autor -> fecha_nacimiento ;
-			?></td>
 			<td>
 		   
 		     <form action="<?=base_url()?>autor/Autores/borrar" method="post">
@@ -53,9 +46,9 @@
 			</form>    	        
 			</td>
 		</tr>
+			<?php endforeach;?>
 			
-					
-		<?php endforeach;?>
+			
 </table>
 </div>
    <a href="<?=base_url()?>libro/Libros/panel_administrativo">&ltAtras</a>  
