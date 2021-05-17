@@ -1,11 +1,4 @@
 
-
-    
-   
-
-
-    
-    
          <h1 align="center">Genero deseado</h1>
         <form  onchange="generoselegidos(this.value)" method="post">           
             

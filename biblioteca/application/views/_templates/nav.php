@@ -3,7 +3,7 @@
 
  <div class="navbar-header  ">
  
-      <a class="navbar-brand"  href='<?=base_url()?>'>TU BIBLIOTECA</a>
+      <a class="navbar-brand col-sm"  href='<?=base_url()?>'>TU BIBLIOTECA</a>
     </div>
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -12,8 +12,8 @@
     <ul class="navbar-nav ">
    		
        
-          <li class="nav-item" > <a class="text-white nav-link" style="font-size: 15px;margin-left:9px;" href='<?=base_url()?>autor/Autores/autor'>Elija un autor para ver sus obras</a></li>
-          <li class="nav-item"><a class="text-white nav-link"  style="font-size: 15px;margin-left:9px;"href='<?=base_url()?>libro/Libros/genero'>Tus genereros favoritos</a></li>
+          <li class="nav-item col-sm " > <a class="text-white nav-link" style="font-size: 15px;margin-left:9px;" href='<?=base_url()?>autor/Autores/autor'>Elija un autor para ver sus obras</a></li>
+          <li class="nav-item col-sm "><a class="text-white nav-link"  style="font-size: 15px;margin-left:9px;"href='<?=base_url()?>libro/Libros/genero'>Tus genereros favoritos</a></li>
           
           <?php if (  !isset( $_SESSION['nombre'])):?>            
        

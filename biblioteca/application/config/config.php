@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+//Puerto de Lucia, para vosotros quitar este base url porque vuestro puerto es el 8080
+$config['base_url'] = 'http://localhost:81/biblioteca/biblioteca/';
 
 
 /*

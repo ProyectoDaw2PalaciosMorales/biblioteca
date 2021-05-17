@@ -1,6 +1,6 @@
 
  <?php foreach ($libros as $libro): ?>
-<div class="card mb-3 mx-auto" style="width:80%">
+<div class="card mb-3 mx-auto" style="width:80%; margin-top:15px; background: #eee;">
   <div class="row ">
     <div class="col-md-3 offset-md-3 mx-auto">
       <?php if ($libro ->foto!=null):?>
