@@ -5,10 +5,12 @@ class Libros extends CI_Controller {
     
     public function  mostrarlibrosampliacion(){
        
-        
+       
         $id =  isset($_POST['id']) ? $_POST['id'] : null;
         $this->load->model('Libros_model');
+        $this->load->model('Usuarios_model');
         $datos['libro'] = $this->Libros_model->getlibrosById($id);
+        $datos['usuario'] = $this->Usuarios_model->getusuaiosById($id);
         frame($this,'libro/mostrardatoslibro',$datos);
         }  
         

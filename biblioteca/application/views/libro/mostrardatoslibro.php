@@ -16,10 +16,14 @@
               			<p style="margin-bottom: 15px;"> <?=$libro -> descricion?></p>
 						<form action="<?=base_url()?>libro/Libros/reserva" method="post">
 							<input type="hidden" name="id" value="<?=$libro->id?>">
-						
+						<input type="hidden" name="id_usuario" value="<?=$_SESSION['idusuario']?>">
 							<input type="hidden" name="titulo" value="<?=$libro->titulo?>">
 							<input type="hidden" name="cantidad" value="<?=$libro->ejemplares?>">
+							
+						  <?php if (isset( $_SESSION['nombre'])!=null):?>  
 							<button class="btn btn-primary" onclick="submit()">Reserva</button>	
+							<?php  else:?>
+							<?php endif;?>
 						</form>
             		</div>
 						

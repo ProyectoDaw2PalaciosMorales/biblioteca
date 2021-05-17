@@ -159,7 +159,7 @@ class Usuarios_model extends CI_Model{
                 $nombre
             ]);
             //guardo en una sesion la variable usuario  y se retorna esa variable al controlador Usuarios.php linea 169 dentro de la carpeta usuario
-            $_SESSION['idusuario']=$usuario;
+            $_SESSION['idusuario']=$usuario->id;
             return   $usuario;
         }
         // recibe las variables id,nombre,primer_apellido,segundo_apellido,ano,email,telefono,password,comprobacion,alias,foto del controlador usuarios.php linea 56

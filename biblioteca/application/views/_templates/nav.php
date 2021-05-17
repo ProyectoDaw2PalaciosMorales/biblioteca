@@ -59,7 +59,7 @@
          <?php  else:?>
           <li><form  name="formulario1" action="<?=base_url()?>usuario/Usuarios/perfil_usuario" method="post">
 
-					<input type="hidden" name="id" value="<?= $_SESSION['idusuario']?>">
+					<input type="hidden" name="id" value="<?=$_SESSION['idusuario']?>">
 								          
 					<a class="text-white text-decoration-none" href='javascript:enviar_formulario()'>Perfil</a>
 				  </form></li>
