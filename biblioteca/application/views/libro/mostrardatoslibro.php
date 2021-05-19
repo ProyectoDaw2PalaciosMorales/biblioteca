@@ -16,15 +16,30 @@
               			<p style="margin-bottom: 15px;"> <?=$libro -> descricion?></p>
 						<form action="<?=base_url()?>libro/Libros/reserva" method="post">
 							<input type="hidden" name="id" value="<?=$libro->id?>">
-						<input type="hidden" name="id_usuario" value="<?=$_SESSION['idusuario']?>">
+							<?php if (isset( $_SESSION['nombre'])!=null):?>  
+							<input type="hidden" name="id_usuario" value="<?=$_SESSION['idusuario']?>">
+							<?php  else:?>
+							<?php endif;?>
 							<input type="hidden" name="titulo" value="<?=$libro->titulo?>">
+						
 							<input type="hidden" name="cantidad" value="<?=$libro->ejemplares?>">
 							
 						  <?php if (isset( $_SESSION['nombre'])!=null):?>  
+						  
 							<button class="btn btn-primary" onclick="submit()">Reserva</button>	
 							<?php  else:?>
 							<?php endif;?>
 						</form>
+						
+							
+	  						
+	<form action="<?=base_url()?>libro/Libros/confirmacion" method="post">	
+	<input type="hidden" name="id" value="<?=$libro->id?>">				
+<input type="submit" name="confirmar" value="confirmar">
+</form>	
+				 
+							
+						
             		</div>
 						
 				</div>
@@ -33,3 +48,4 @@
 	</div>
 </body>
 <button type="button" class="btn btn-dark" onclick="window.location.href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'"> Volver</button>
+ 

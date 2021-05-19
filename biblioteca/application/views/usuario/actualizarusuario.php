@@ -38,7 +38,7 @@
         <input type="password" name="password" value="<?=$usuario -> contrasena?>">
         <br><br>
         <label for="comprobacion">Confirma su contraseña:</label>
-        <input for="password" name="comprobacion" value="<?=$usuario -> confirmar_contrasena?>">
+        <input type="password" name="comprobacion" value="<?=$usuario -> confirmar_contrasena?>">
         <br><br>
         <label for="alias">Nombre de usuario</label>
         <input type="text" name="alias" value="<?=$usuario -> alias?>">

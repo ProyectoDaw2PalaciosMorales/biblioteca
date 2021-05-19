@@ -14,6 +14,7 @@ class Home extends CI_Controller {
         //se carga la vista index.php
                 // se crea la array libros y se se asina la funcion getBo_libros linea 8  del modelo libros_model_model.php
         $datos['libros'] = $this->Libros_model->getBo_libros();
+       
         frame($this,'index',$datos);
         
     }

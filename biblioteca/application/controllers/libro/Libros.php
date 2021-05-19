@@ -11,6 +11,8 @@ class Libros extends CI_Controller {
         $this->load->model('Usuarios_model');
         $datos['libro'] = $this->Libros_model->getlibrosById($id);
         $datos['usuario'] = $this->Usuarios_model->getusuaiosById($id);
+     
+        $this->Libros_model->anulacion($id);
         frame($this,'libro/mostrardatoslibro',$datos);
         }  
         
@@ -269,7 +271,7 @@ public function reserva(){
     session_start();
     //no se permte el accseo desde la url sin estar registrado
     if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
-        //recojo los datos  de el formulario   de la vista 
+        //recojo los datos  de el formulario   de la vista
         // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
         $id=isset($_POST['id']) ? $_POST['id'] : null;
         $id_usuario=isset($_POST['id_usuario']) ? $_POST['id_usuario'] : null;
@@ -283,6 +285,36 @@ public function reserva(){
     }
     else{ $this->load->view('errorurl');}
 }
+
+public function confirmacion(){
+    //inicio sesion
+    session_start();
+    //no se permte el accseo desde la url sin estar registrado
+    if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+        //recojo los datos  de el formulario   de la vista
+        // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
+        $id=isset($_POST['id']) ? $_POST['id'] : null;
+       
+     
+        //se carga el modelo libros_model
+        $this->load->model('Libros_model');
+        if(isset($_POST["confirmar"]))
+        {
+            $confimacion="si";
+        }else{
+            $confimacion="no";
+        }
+        
+        // se carga la funcion confirma linea 383 del modelolibros.php
+       $this->Libros_model->confirmar($id, $confimacion);
+        
+        
+        
+    }
+    else{ $this->load->view('errorurl');}
+}
+
+
 //al pulsar el boton anular de la vista
 public function anularreserva(){
     //inicio sesion

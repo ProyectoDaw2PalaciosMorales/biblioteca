@@ -241,16 +241,16 @@ class Libros_model extends CI_Model{
       // esta funcion lo que hace es qeu cuando se pulse sobre el boton
       // reste una unidad a los ejempleres del libro
       // y crea una nueva tabla llamada reservas
-     public function  reservalibros($id_usuario,$id,$cantidad,$titulo)
+    public function  reservalibros($id_usuario,$id,$cantidad,$titulo)
     
     {  // busca todos los campos de la tabla reservas por el campo libros_id cuyo id es el que recibe del controlador
-        $reservado = R::findOne('reservas', 'libros_id=?', [
-            $id
-        ]);
-        
+      $reservado = R::findOne('reservas', 'libros_id=?', [
+          $id
+     ]);
+       
         // ok es igual a true siempre y cuando reservas sea distinto de null
    
-        $ok = ($reservado == null  );
+     $ok = ($reservado == null  );
         if ($ok) {
             //creo la tabla reservas
             $reservas = R::dispense('reservas');
@@ -262,7 +262,7 @@ class Libros_model extends CI_Model{
             $reservas->reserva=$usuario;
             //creo un campo en el que se relaciona el id de libro con la tabla reservas
             $reservas->libros=$libros;
-         // recoje la fecha del sistema
+                    // recoje la fecha del sistema
             $reservas->fecha=date('Y-m-d');
             //almaceno los datos en la tabla reservas de la base de datos
             R::store($reservas);
@@ -270,11 +270,15 @@ class Libros_model extends CI_Model{
             $libros->ejemplares=$cantidad-1;
             // almceno los datos en la tabla libros 
             R::store($libros);
-            
+           
+            //-------------------------------------------//
             
         }
-        //rdirege al controlador libros/mostrarlibrosusuarios
-        redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
+        //erdirege al controlador libros/mostrarlibrosusuarios
+        //---------------------------------------------//
+        //dias sumados descartaria fines de semana
+      
+    redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
         
         
         
@@ -332,7 +336,64 @@ class Libros_model extends CI_Model{
         
         
     }
+    
+    public function  anulacion($id){
+       
+        $reservado = R::findOne('reservas', 'libros_id=?', [
+            $id
+        ]);
+        
+        
+        // ok es igual a true siempre y cuando reservas sea distinto de null
+        $ok = ($reservado!= null  );
+        if ($ok) {
+        if($reservado->confirmacion=="no"){
+       
+        if ($ok) {
+           //descarta fines de semana
+            $sumarDias=2;
+           
+            //fecha de la reserva
+            $datestart= strtotime(date($reservado->fecha));
+            $datesuma = 15 * 86400;
+            $diasemana = date('N',$datestart);
+            $totaldias = $diasemana+$sumarDias;
+            $findesemana = intval( $totaldias/5) *2 ;
+            $diasabado = $totaldias % 5 ;
+            if ($diasabado==6) $findesemana++;
+            if ($diasabado==0) $findesemana=$findesemana-2;
+            
+            $total = (($sumarDias+$findesemana) * 86400)+$datestart ;
+            $fechafinal = date('Y-m-d', $total);
+          
+            
+            $fecha_actual = strtotime(date("Y-m-d"));
+            $fecha_entrada = strtotime($fechafinal);
+          
+           
+            //se cuneta aptr del dia siguente es decir si se reserva un dia 19 la reserva se anula el dia 22
+           if($fecha_actual >$fecha_entrada){
+            
+                R::trash(R::load('reservas',$reservado->id));
+                
+            }    
+            
+        
+           
+    
+        }}}}
+public function  confirmar($id, $confimacion){
+
+$reservas= R::findOne('reservas', 'libros_id=?', [
+        $id
+    ]);
+
+    $reservas = R::load('reservas',$reservas->id);
+    $reservas->confirmacion=$confimacion;
+    R::store($reservas);
+    redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
 }
 
+    }
 
 ?>

@@ -1,13 +1,21 @@
 <?php 
         
 class Usuarios extends CI_Controller {
+    //cuando se pinca sobre "¿Olvidaste tu contraseña?" de la vista login.php
     public function  recuperarcontrasena(){
         frame($this,'usuario/enviocontrasena',);
+      
         
     }
+    
     public function  recuperarcontrasenapost(){
+        //recojo los datos del campo name de el formulario   de la vista login.php
+        
+        // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
         $email =  isset($_POST['email']) ? $_POST['email'] : null;
+        //se carga el modelo usuarios_model
         $this->load->model('Usuarios_model');
+        //se carga lia funcion del modelo usuarios_model.php linea 252
         $this->Usuarios_model->recuperar($email);
     }
     // cuando se pincha sobre el boton "perfil dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
