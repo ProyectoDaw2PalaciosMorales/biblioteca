@@ -25,15 +25,15 @@
                   <?php endif;?>
         <?php endif;?>
     
-          <li><form class="form-inline" action="/action_page.php">
-    <div class="form-group">
-     
-      <input type="text" class="form-control"  placeholder="buscar" name="" style="margin-top:15px;margin-left:15px">
-    </div>
+          <li class="form-group">
     
-   
+     <form class="form-inline" action="/action_page.php">
+      <input type="text" class="form-control"  placeholder="buscar" name="" style="margin-top:15px;margin-left:15px">
     <button type="submit" class="btn btn-default  btn-success btn-sm"style="font-size: 15px;margin-left:9px;margin-top:15px;">Buscador</button>
-  </form></li>
+    </form>
+   
+    
+  </li>
       <li class="dropdown">
          <?php if (  !isset( $_SESSION['nombre'])):?>            
         
