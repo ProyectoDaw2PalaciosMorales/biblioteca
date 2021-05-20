@@ -10,9 +10,9 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   	</head>
   	
-  	<body style=background-image:url(../../assets/imagenes/fondo_login.jpg);background-repeat:no-repeat;background-size:cover;>
+  	<body style=background-image:url(../../assets/imagenes/fondo_login.jpeg);background-repeat:no-repeat;background-size:cover;>
   	
-  	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-4">
+  	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1">
 
  <div class="navbar-header mx-auto" style="font-family:Lucida Console, Courier New, monospace;">
  
@@ -24,7 +24,7 @@
 
   	
 
-<div class="card mx-auto border border-primary bg-dark" style="max-width:319px; margin-top:200px">
+<div class="card mx-auto border border-primary bg-dark" style="max-width:319px; margin-top:150px">
                 <div class="mx-auto mt-3 text-white" style="font-family:Lucida Console, Courier New, monospace;">
                     <h3>Iniciar sesion</h3>
                     
