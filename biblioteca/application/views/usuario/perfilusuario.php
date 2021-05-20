@@ -1,60 +1,59 @@
-
- <h1>Perfil</h1>
- 
-<form action="<?=base_url()?>usuario/Usuarios/actualizar" method="post">
+<div class="profile">
+				<?php if ($usuario ->foto!=null):?>
+			  	<?php 
+			  	$sustitutuirespaciosblancos = str_replace(" ","_",$usuario -> alias)?>
+				<img src="<?=base_url()?>assets/fotosperfil/usuario-<?=
+				$sustitutuirespaciosblancos;?>.<?=
+				$usuario -> foto;?>"  style="width:100%">
+				<?php  else:?>
+				<img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg" style="width:100%">
+				<?php endif;?>
+				
+  <h1>	<?=$usuario -> nombre?> <?=$usuario ->primer_apellido ?> <?=$usuario -> segundo_apellido?>.</h1>
+  
+  <ul>
+	<li>
+		<p>Fecha de registro: <?=$usuario -> fecha_de_registro?> </p>
+	</li>
+    <li>
+		<p>Email: <?=$usuario -> email?> </p>
+	</li>
+	<li>
+        <p>Telefono: <?=$usuario -> telefono?> </p>
+	</li>
+	<li>
+        <p>Alias: <?=$usuario -> alias?> </p>
+	</li>
+  	<li>
+		<p>
+		<form action="<?=base_url()?>usuario/Usuarios/actualizar" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
-			
-				  <button onclick="submit()">
-				  modicar tus datos
-						
+				 <button onclick="submit()" class="enlace"> <a><i class="fas fa-user"></i> Editar</a>
 				 </button>				
 				
-			</form>    	        	     
- 
-   <form action="<?=base_url()?>usuario/Usuarios/borrar" method="post">
+			</form>    
+		</p>
+	</li>
+						
+ 	<li><p><a><i class="fas fa-book"></i> Reservas</a></p></li>
+	 <li>
+	 
+       AddREs
+          
+	 </li>
+	
+  <li><p><form action="<?=base_url()?>usuario/Usuarios/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$usuario->id?>">
 				<input type="hidden" name="alias" value="<?=$usuario->alias?>">
-				  <button onclick="submit()">
+				  <button onclick="submit()" class="btn btn-danger  btn-lg ">
 				   Eliminar tu cuenta
 							
 				 </button>				
 				
-			</form>    	        	     
- 
+			</form>    	</p></li></ul>
+</div>
+<button type="button" class="btn btn-dark" onclick="window.location.href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'"> Volver</button>
 
- 
-      <h2>Tus datos</h2>
-     	<?php if ($usuario ->foto!=null):?>
-			  <?php 
-			  $sustitutuirespaciosblancos = str_replace(" ","_",$usuario -> alias)?>
-				<img src="<?=base_url()?>assets/fotosperfil/usuario-<?=
-				$sustitutuirespaciosblancos;?>.<?=
-			$usuario -> foto;?>"  width="80" height="80">
-		
-			<?php  else:?>
-	
-			<img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"
-					  width="80" height="80">
-					 
-			<?php endif;?>
-       <p>Nombre: <?=$usuario -> nombre?> </p>
-        <p>Primer apellido: <?=$usuario ->primer_apellido ?> </p>
-        <p>Segundo apellido: <?=$usuario -> segundo_apellido?> </p>
-        <p>Fecha nacimento: <?=$usuario -> fecha_nacimiento?> </p>
-          <p>Fecha de registro: <?=$usuario -> fecha_de_registro?> </p>
-        <p>Email: <?=$usuario -> email?> </p>
-        <p>Telefono: <?=$usuario -> telefono?> </p>
-        <p>Alias: <?=$usuario -> alias?> </p>
-          <p>Tus reservas: </p>
-          
-           <ol>
-        <?php foreach ($reservas as $reserva): ?>
-       	<?php if ($reserva->reserva->id==$usuario->id):?>
-        <li> <?=$reserva->libros->titulo?></li>
-<?php  else:?>
-      <?php endif;?>    
-          	<?php endforeach;?>
-          	</ol>
-         <a href="<?=base_url()?>usuario/Usuarios/acceso">HOME</a>
+
 
   
