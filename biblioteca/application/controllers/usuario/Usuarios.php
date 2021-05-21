@@ -3,7 +3,7 @@
 class Usuarios extends CI_Controller {
     //cuando se pinca sobre "¿Olvidaste tu contraseña?" de la vista login.php
     public function  recuperarcontrasena(){
-        frame($this,'usuario/enviocontrasena',);
+        frame($this,'usuario/enviocontrasena');
       
         
     }

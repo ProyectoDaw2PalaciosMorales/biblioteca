@@ -63,24 +63,20 @@
   	
   	<body style=background-image:url(../../assets/imagenes/registro.jpg);background-repeat:no-repeat;background-size:cover;>
   	
-  	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1">
+  	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1 mb-5">
 
  <div class="navbar-header mx-auto" style="font-family:Lucida Console, Courier New, monospace;">
  
-      <a class="navbar-brand  mx-auto" style="font-size: 15px;" href='<?=base_url()?>'>TU BIBLIOTECA</a>
-  
-    
-          </div>
-  
+      <a class="navbar-brand" style="font-size: 40px"; href='<?=base_url()?>'>TU BIBLIOTECA</a>
+    </div>
   
   
 </nav>
+     <h4 class="mx-auto mt-1 text-white mb-5" style="font-family:Lucida Console, Courier New, monospace; text-align:center;">Bienvenido a tu  biblioteca</h4>
     
-     <h1 class="mx-auto mt-1 text-white" style="font-family:Lucida Console, Courier New, monospace; text-align:center;font-size:12px">Bienvenido a tu  biblioteca</h1>
-    
-    <div class="card mx-auto border border-primary bg-dark" style="max-width:395px; ">
-                <div class="mx-auto mt-1 text-white" style="font-family:Lucida Console, Courier New, monospace;">
-                    <h3 style="font-size:15px">Registro</h3>
+    <div class="card mx-auto" style="max-width:395px; opacity:75%; background-color:#fc9e49; border-radius:25px ">
+                <div class="mx-auto mt-3 mb-3 text-white " style="font-family:Lucida Console, Courier New, monospace;">
+                    <h5 style="">Registro</h5>
                     
                 </div>
                 <div class="card-body "style="max-width:395px; margin-top:-25px">
@@ -98,14 +94,14 @@
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="primer_apellido" class="form-control" placeholder="Primer_apellido" required>
+                            <input type="text" name="primer_apellido" class="form-control" placeholder="Primer apellido" required>
                         </div>
                       <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="segundo_apellido" class="form-control" placeholder="Segundo_apellido" required>
+                            <input type="text" name="segundo_apellido" class="form-control" placeholder="Segundo apellido" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
@@ -153,7 +149,7 @@
                             <!-- TextBox - Contraseña -->
                             <input type="text" name="alias" class="form-control" placeholder="Alias" required>
                         </div>
-                        <input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" ">
+                        <input  class="text-white" id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg">
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
                             <input type="submit" value="Registrar" class="btn float-right login_btn btn btn-primary" ">
