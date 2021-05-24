@@ -102,7 +102,7 @@
                                 <span class="input-group-text"><i class="fa fa-calendar" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input style="width:100px; " type="date" name="ano" placeholder="<?=$usuario ->fecha_nacimiento?>" required>
+                             <input style="width:310px; " type="date" name="ano" placeholder="<?=$usuario ->fecha_nacimiento?>" required>
                             
                         </div>
                         
@@ -143,14 +143,16 @@
                             <input type="text" name="alias" class="form-control" placeholder="<?=$usuario ->alias?>" required>
                         </div>
                         <p>foto antigua</p> 
-        				<?php if ($usuario ->foto!=null):?>
-						<img src="<?=base_url()?>assets/fotosperfil/usuario-<?=
-				        $usuario -> nombre;?>.<?=
-			            $usuario -> foto;?>"  width="80" height="80">
-						<?php  else:?>
-						<img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"
-					 	 width="80" height="80">
-					 	<?php endif;?>
+        			  <?php 
+            $sustitutuirespaciosblancos = str_replace(" ","_",$_SESSION['nombre'])?>
+          <?php if (is_file("assets/fotosperfil/usuario-". $sustitutuirespaciosblancos.".png" )):?>
+        <img  src="<?=base_url()?>assets/fotosperfil/usuario-<?= $sustitutuirespaciosblancos?>.png"style="height: 100px;width: auto;">
+         <?php  else:?>
+         <img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"style="height: 100px;width: auto;">
+                    <?php endif;?>
+      </a>
+        
+                    
 			  <br><br>
         
 		<input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
