@@ -1,7 +1,7 @@
 
 <h1>Tabla de usuarios</h1>
 
-<table border="1">
+<table class="table table-dark" border="1">
 	<tr>
 		
 		
