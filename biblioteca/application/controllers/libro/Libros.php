@@ -9,9 +9,10 @@ class Libros extends CI_Controller {
         $id =  isset($_POST['id']) ? $_POST['id'] : null;
         $this->load->model('Libros_model');
         $this->load->model('Usuarios_model');
+        $this->load->model('In_comentarios');
         $datos['libro'] = $this->Libros_model->getlibrosById($id);
-        $datos['usuario'] = $this->Usuarios_model->getusuaiosById($id);
-     
+        $datos['usuarios'] = $this->Usuarios_model->getUsuarios();
+        $datos['comentarios']=$this->In_comentarios-> findByIdLibro();
         $this->Libros_model->anulacion($id);
         frame($this,'libro/mostrardatoslibro',$datos);
         }  
@@ -128,8 +129,10 @@ class Libros extends CI_Controller {
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
             //se carga el modelo Libros_model
             $this->load->model('Libros_model');
+            
             // se crea la array libros y se se asina la funcion getBo_libros linea 8  del modelo libros_model_model.php 
             $datos['libros'] = $this->Libros_model->getBo_libros();
+           
             //se carga la vista mostralibrosadminitrador.php y se le pasan los datos 
             frame($this,'libro/mostrarlibrosadministrador',$datos);}
             else{ $this->load->view('errorurl');}

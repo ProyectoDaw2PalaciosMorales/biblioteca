@@ -11,6 +11,7 @@
                   		<img  width= "100%" src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"/>
                       	<?php endif;?>	  
 					</div>
+
 					<div class=" col-sm">
               			<h3 class="product-title" style="text-transform: UPPERCASE; font-weight: bold;  margin-bottom: 15px;  margin-top: 0;"><?=$libro -> titulo?> ,  <?=$libro -> autor?></h3>
               			<p style="margin-bottom: 15px;"> <?=$libro -> descricion?></p>
@@ -24,24 +25,59 @@
 						
 							<input type="hidden" name="cantidad" value="<?=$libro->ejemplares?>">
 							
-						  <?php if (isset( $_SESSION['nombre'])!=null):?>  
+						  	<?php if (isset( $_SESSION['nombre'])!=null):?>  
 						  
 							<button class="btn btn-primary" onclick="submit()">Reserva</button>	
 							<?php  else:?>
 							<?php endif;?>
 						</form>
+						<?php if (isset( $_SESSION['nombre'])!=null):?>  
+							<div class="widget-area no-padding blank">
+									<div class="status-upload">
+										<form action="<?=base_url()?>comentario/Comentarios/comentariopost" method="post">
+											<textarea placeholder="¿Qué te ha parecido este libro?" name="comentarios"></textarea>
+											<input type="hidden" name="id" value="<?=$_SESSION['idusuario']?>">
+										
+											<input type="hidden" name="id_libro" value="<?=$libro->id?>">
+											<br>
+											<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+										</form>
+									</div><!-- Status Upload  -->
+							</div><!-- Widget Area -->
+					
 						
-							
-	  						
-	<form action="<?=base_url()?>libro/Libros/confirmacion" method="post">	
+<?php endif;?>
+<div class="page-header">
+                    <h1><small class="pull-right"></small></h1>
+                  </div> 
+                   <div class="comments-list">
+				   <?php foreach ($comentarios as $coment): ?>
+					<?php if(($libro->id)==($coment->libros_id)):?>
+                       <div class="media">
+                           <p class="pull-right"><small></small></p>
+                            <a class="media-left" href="#">
+                             
+                            </a>
+                            <div class="media-body">
+							<p>	</p>
+						
+                              <h4 class="media-heading user_name" >
+							  <?php foreach($usuarios as $usuario):?>
+							  <?php if(($usuario->id)== ($coment->usuario_id)):?><?=$usuario->nombre?><?php endif;?><?php endforeach;?>
+							  </h4>
+                              <?=$coment->comentario?>
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+              <?php endif;?>
+	<!--<form action="<?=base_url()?>libro/Libros/confirmacion" method="post">	
 	<input type="hidden" name="id" value="<?=$libro->id?>">				
 <input type="submit" name="confirmar" value="confirmar">
-</form>	
-				 
-							
-						
-            		</div>
-						
+</form>	-->
+<?php endforeach;?>
+         		</div>
+				 </div>
 				</div>
 			</div>
 		</div>

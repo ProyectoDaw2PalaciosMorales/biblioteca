@@ -4,7 +4,7 @@
         <title>Tu bibioteca</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-         <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
+         <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/estilos.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link href="../../assets/FontAwesome/css/all.css" rel="stylesheet"> <!--load all styles -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

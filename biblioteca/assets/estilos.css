@@ -68,3 +68,10 @@ text-align: left;}
     color: rgba(255,255,255,.5);
   /*  margin-top: 15px;*/
 }
+.user_name{
+  font-size:14px;
+  font-weight: bold;
+}
+.comments-list .media{
+  border-bottom: 1px dotted #ccc;
+}
