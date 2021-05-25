@@ -150,7 +150,7 @@
          <?php  else:?>
          <img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"style="height: 100px;width: auto;">
                     <?php endif;?>
-      </a>
+      
         
                     
 			  <br><br>

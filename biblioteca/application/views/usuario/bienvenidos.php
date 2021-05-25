@@ -60,10 +60,7 @@
             	
 				       		
                   
-                      <form  name="formulario2" action="<?=base_url()?>comentario/Comentarios/comentario" method="post">
-					<input type="hidden" name="id" value= "<?=$usuario -> nombre?>">
-					<a class=" text-white"href='javascript:enviar_formulario2()'>Tus comentarios</a>
-				  </form> 		
+                    
     </div>
     <div class="col col-lg-9 p-0"   >
      <?php if ($usuario -> nombre=="admin"):?>

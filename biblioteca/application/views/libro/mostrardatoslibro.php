@@ -64,7 +64,8 @@
                               <h4 class="media-heading user_name" >
 							  <?php foreach($usuarios as $usuario):?>
 							  <?php if(($usuario->id)== ($coment->usuario_id)):?><?=$usuario->nombre?><?php endif;?><?php endforeach;?>
-							  </h4>
+							  </h4> 
+							  <?=$coment->fecha?>
                               <?=$coment->comentario?>
                               
                               <p><small><a href="">Like</a> - <a href="">Share</a></small></p>

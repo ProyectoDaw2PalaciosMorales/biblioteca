@@ -53,20 +53,21 @@
         <ul class="dropdown-menu bg-dark text-md-left ">
         <?php if (  !isset( $_SESSION['nombre'])):?>  
 
+
          <li> <a   style="margin-left:12px;" class="text-white nav-link" href='<?=base_url()?>usuario/Usuarios/accesoget'>Iniciar sesion</a></li>
 
          <?php  else:?>
-          <li><form style="margin-left:12px;" name="formulario1" action="<?=base_url()?>usuario/Usuarios/perfil_usuario" method="post">
+          <li><form  name="formulario1" action="<?=base_url()?>usuario/Usuarios/perfil_usuario" method="post">
 
 					<input type="hidden" name="id" value="<?=$_SESSION['idusuario']?>">
 								          
-					<a class="text-white text-decoration-none" href='javascript:enviar_formulario()'>  Perfil</a>
+					<a style="margin-left:12px;" class="text-white text-decoration-none" href='javascript:enviar_formulario()'>Perfil</a>
 				  </form></li>
 				  
 
- 
-          <li> <a  style="margin-left:12px;" class="text-white  text-decoration-none" href='<?=base_url()?>usuario/Usuarios/cerrar'>Cerrar sesion</a></li>
+          <li> <a style="margin-left:12px;" class="text-white  text-decoration-none" href='<?=base_url()?>usuario/Usuarios/cerrar'>Cerrar sesion</a></li>
 
+ 
          <?php endif;?>
         </ul>
       </li>
