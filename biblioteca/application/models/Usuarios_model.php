@@ -203,7 +203,8 @@ class Usuarios_model extends CI_Model{
                 // almacena los datos en la tabla usuarios de la base de datos
                 R::store($usuarios);
                 //rdirege al controlador Usuarios/Bienvenidos_u
-                redirect(base_url()."usuario/Usuarios/Bienvenidos_u");
+                
+                redirect(base_url()."usuario/Usuarios/perfil_usuario");
                 
                 
         }

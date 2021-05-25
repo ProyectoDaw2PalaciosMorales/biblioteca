@@ -32,7 +32,7 @@ class Usuarios extends CI_Controller {
         //se carga el modelo usuario_model
         $this->load->model('Usuarios_model');
         // se crea la array usuario y se se asina la funcion getusuaiosById linea 16  del modelo usuarios_model.php ala que se le añade la variable id
-        $datos['usuario']=$this->Usuarios_model->getusuaiosById($id);
+        $datos['usuario']=$this->Usuarios_model->getusuaiosById($_SESSION['idusuario']);
         // se crea la array reservas y se se asina la funcion getusuaiosreserva linea 10  del modelo usuarios_model.php 
         $datos['reservas']=$this->Usuarios_model->getusuaiosreservas();
         // se carga la vista perfil usuario y se le añaden los datos
@@ -129,7 +129,7 @@ class Usuarios extends CI_Controller {
         
         $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto);
         
-        
+       
         }else{ $this->load->view('errorurl');}}
         // cuando se pincha sobre el boton "Si no estas resgistrado pincha aqui" de la vista index.php muestra la vista de registro.php
         public function registro()
@@ -306,8 +306,8 @@ class Usuarios extends CI_Controller {
             $config['allowed_types'] = 'png|gif|jpeg|jpg';
             //tamaños maximos permitidos
             $config['max_size'] = "50000";
-            $config['max_width'] = "2000";
-            $config['max_height'] = "2000";
+            $config['max_width'] = "5000";
+            $config['max_height'] = "5000";
             //se carga la libreria upload de redbeans
             $this->load->library('upload', $config);
             

@@ -350,8 +350,8 @@ function cargar_archivo($titulo ) {
     $config['file_name'] =$titulo.".png";
     $config['allowed_types'] = 'png|gif|jpeg|jpg';
     $config['max_size'] = "50000";
-    $config['max_width'] = "2000";
-    $config['max_height'] = "2000";
+    $config['max_width'] = "5000";
+    $config['max_height'] = "5000";
     
     $this->load->library('upload', $config);
     

@@ -74,7 +74,7 @@
                 </div>
                 <div class="card-body "style="max-width:395px; margin-top:-25px">
                     <!-- FORMULARIO -->
-                   <form class="form_registr" action="<?=base_url()?>usuario/Usuarios/registropost" method="post" enctype="multipart/form-data">
+                   <form class="form_registr" action="<?=base_url()?>usuario/Usuarios/actulizarperfilpost" method="post" enctype="multipart/form-data">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
