@@ -6,9 +6,17 @@
       <?php if ($libro ->foto!=null):?>
  <?php 
  $sustitutuirespaciosblancos = str_replace(" ","_",$libro->titulo)?>
- 
-   <img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/<?=$sustitutuirespaciosblancos?>.<?=$libro -> foto;?>"
-					  style="width:50%">
+  <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post" >
+				<input type="hidden" name="id" value="<?=$libro->id?>">
+				
+				 
+					<img onclick="submit()" class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/<?=$sustitutuirespaciosblancos?>.<?=$libro -> foto;?>"
+					  style="width:50%;">
+						
+				 			
+				
+			</form>    	     
+   
 				<?php  else:?>
 	<img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"
 					  style="width:50%">

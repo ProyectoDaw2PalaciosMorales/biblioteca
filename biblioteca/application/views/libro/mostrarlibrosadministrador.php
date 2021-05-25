@@ -1,9 +1,9 @@
 
 
-<div align="center">
-<table border="1" >
-<h1>TABLA DE LIBROS</h1>
-<tr>
+
+<table border="1" class="table table-dark" >
+<h1 style="text-align:center">TABLA DE LIBROS</h1>
+<tr style="text-align:center">
 
 <th>TÍTULO</th>
 <th>AÑO DE EDICIÓN</th>
@@ -20,26 +20,26 @@
 		<tr>
 		    
 			
-			<td><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> titulo;
 			?></td>
 			
-			<td><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> ano_edicion ;
 			?></td>
 			
-			<td><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> editorial ;
 			?></td>
 			
-			<td><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> autor;
 			?></td>
-			<td><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> ejemplares;
 			?></td>
 			
-			<td>
+			<td style="text-align:center">
 		   
 		     <form action="<?=base_url()?>libro/Libros/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$libro->id?>">
@@ -52,7 +52,7 @@
 			</form>    	        	     
 		     
 		    </td>
-			<td>
+			<td style="text-align:center">
 			  	<form action="<?=base_url()?>libro/Libros/actualizar" method="post">
 				<input type="hidden" name="id" value="<?=$libro->id?>">
 				  <button onclick="submit()">
@@ -67,7 +67,7 @@
 					
 		<?php endforeach;?>
 </table>
-</div>
+
    <a href="<?=base_url()?>libro/Libros/panel_administrativo">&ltAtras</a>  
   
         

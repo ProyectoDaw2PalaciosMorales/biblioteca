@@ -74,19 +74,19 @@ class Autores_model extends CI_Model{
         $datos= mysqli_query($conexion, $consulta);
         // se genera el html que se muestra
         if (mysqli_num_rows($datos) > 0){
-            echo "<div id='tabla' align='center'>";
+            echo "<div id='tabla'>";
             
-            echo"<table border=1>";
-            echo"<tr>";
-            echo"<th>Nombre Autor</th><th>Titulo</th>";
+            echo"<table class='table table-dark' border=1>";
+            echo"<tr style='text-align:center'>";
+            echo"<th  >Nombre Autor</th><th>Titulo</th>";
             while($row = mysqli_fetch_assoc($datos)){
                 echo"<tr>";
-                echo "<td >";
+                echo "<td  style='vertical-align: middle;text-align:center'>";
                 echo $row["nombre_autor"]."</td>";
                 
                
                 
-                echo "<td>".$row["titulo"]."</td>";
+                echo "<td  style='vertical-align: middle;text-align:center'>".$row["titulo"]."</td>";
                 
                 echo "</tr>";
             }

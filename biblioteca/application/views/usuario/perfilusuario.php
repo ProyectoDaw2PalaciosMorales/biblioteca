@@ -1,17 +1,24 @@
 <div class="profile">
 				<?php if ($usuario ->foto!=null):?>
-			  	<?php 
-			  	$sustitutuirespaciosblancos = str_replace(" ","_",$usuario -> alias)?>
-				<img src="<?=base_url()?>assets/fotosperfil/usuario-<?=
+                  <?php 
+                  $sustitutuirespaciosblancos = str_replace(" ","_",$usuario -> alias)?>
+          <?php if (is_file("assets/fotosperfil/usuario-". $sustitutuirespaciosblancos.".png" )):?>
+       <img src="<?=base_url()?>assets/fotosperfil/usuario-<?=
 				$sustitutuirespaciosblancos;?>.<?=
 				$usuario -> foto;?>"  style="width:100%">
-				<?php  else:?>
-				<img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg" style="width:100%">
-				<?php endif;?>
+         <?php  else:?>
+         <img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg" style="width:100%">
+                    <?php endif;?>
+      </a>
+        <?php endif;?>
+			
 				
   <h1>	<?=$usuario -> nombre?> <?=$usuario ->primer_apellido ?> <?=$usuario -> segundo_apellido?>.</h1>
   
   <ul>
+       <li>
+		<p>Fecha de nacimiento: <?=$usuario -> fecha_nacimiento?> </p>
+	</li>
 	<li>
 		<p>Fecha de registro: <?=$usuario -> fecha_de_registro?> </p>
 	</li>
