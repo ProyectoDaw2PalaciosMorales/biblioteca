@@ -138,7 +138,7 @@
         				<?php $sustitutuirespaciosblancos = str_replace(" ","_",$libro->titulo)?>
                   		<img class="card-img mx-auto" style="height: 100px;width: auto;"  src="<?=base_url()?>assets/fotoslibros/<?=$sustitutuirespaciosblancos?>.<?=$libro -> foto;?>"/>
                         <?php  else:?>
-                  		<img  width= "100%" src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"/>
+                  		<img  style="height: 100px;width: auto;"  src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"/>
                       	<?php endif;?>	  
 						<input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
                        

@@ -30,21 +30,21 @@ class Libros_model extends CI_Model{
         $datos= mysqli_query($conexion, $consulta);
         // se genera el html que se muestra
         if (mysqli_num_rows($datos) > 0){
-            echo "<div id='tabla' align='center'>";
+            echo "<div id='tabla'>";
             
-            echo"<table border=1>";
-            echo"<tr>";
+            echo"<table  class='table table-dark' border=1>";
+            echo"<tr style='text-align:center'>";
             echo"<th>Nombre</th><th>Titulo</th><th>Genero literario</th><th>Año edicion</th><th>Editorial</th><th>Autor</th><th>Ejemplares</th>";
             while($row = mysqli_fetch_assoc($datos)){
                 echo"<tr>";
-                echo "<td >";
+                echo "<td style='vertical-align: middle;text-align:center'>";
                 echo $row["autor"]."</td>";
-                echo "<td>".$row["titulo"]."</td>";
-                echo "<td>".$row["genero_literario"]."</td>";
-                echo "<td>".$row["ano_edicion"]."</td>";
-                echo "<td>".$row["editorial"]."</td>";
-                echo "<td>".$row["autor"]."</td>";
-                echo "<td>".$row["ejemplares"]."</td>";
+                echo "<td style='vertical-align: middle;text-align:center'>".$row["titulo"]."</td>";
+                echo "<td style='vertical-align: middle;text-align:center'>".$row["genero_literario"]."</td>";
+                echo "<td style='vertical-align: middle;text-align:center'>".$row["ano_edicion"]."</td>";
+                echo "<td style='vertical-align: middle;text-align:center'>".$row["editorial"]."</td>";
+                echo "<td style='vertical-align: middle;text-align:center'>".$row["autor"]."</td>";
+                echo "<td style='vertical-align: middle;text-align:center'>".$row["ejemplares"]."</td>";
                 
                 echo "</tr>";
             }

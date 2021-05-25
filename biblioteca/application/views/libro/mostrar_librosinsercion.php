@@ -3,12 +3,12 @@ $color= $_SESSION['idcolorinsercion'];
 
 ?>
 
-<div align="center">
-<table border="1">
- <h1>TABLA DE LIBROS</h1>
 
-  <p><b>La inserccion se realizo correctamente</b></p>
-<tr>
+<table border="1" class="table table-dark">
+ <h1 style="text-align:center">TABLA DE LIBROS</h1>
+
+  <p style="text-align:center"><b>La inserccion se realizo correctamente</b></p>
+<tr style="text-align:center">
 
 
 <th>TÍTULO</th>
@@ -24,45 +24,45 @@ $color= $_SESSION['idcolorinsercion'];
 		<tr>
 	   <?php if ($color==$libro->titulo):?>
 		 	
-			<td style="background-color:red"><?=
+			<td style="background-color:red; vertical-align: middle;text-align:center"><?=
 			$libro -> titulo;
 			?></td>
 			
-			<td style="background-color:red"><?=
+			<td style="background-color:red;vertical-align: middle;text-align:center "><?=
 			$libro -> ano_edicion ;
 			?></td>
 			
-			<td style="background-color:red"><?=
+			<td style="background-color:red;vertical-align: middle;text-align:center"><?=
 			$libro -> editorial ;
 			?></td>
 			
-			<td style="background-color:red"><?=
+			<td style="background-color:red;vertical-align: middle;text-align:center"><?=
 			$libro -> autor;
 			?></td>
 			
-			<td style="background-color:red"><?=
+			<td style="background-color:red;vertical-align: middle;text-align:center"><?=
 			$libro -> ejemplares;
 			?></td>
 			
 			
 			<?php  else:?>
-			<td ><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> titulo;
 			?></td>
 			
-			<td ><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro -> ano_edicion ;
 			?></td>
 			
-			<td ><?=
+			<td style="vertical-align: middle;text-align:center" ><?=
 			$libro -> editorial ;
 			?></td>
 			
-			<td ><?=
+			<td style="vertical-align: middle;text-align:center"><?=
 			$libro ->autor;
 			?></td>
 			
-			<td ><?=
+			<td style="vertical-align: middle;text-align:center" ><?=
 			$libro -> ejemplares;
 			?></td>
 			<?php endif;?>
@@ -73,7 +73,7 @@ $color= $_SESSION['idcolorinsercion'];
 		<?php endforeach;?>
 		
 </table>
-</div>
+
             
           <?php 
           $url=base_url()."libro/libros/panel_administrativo";

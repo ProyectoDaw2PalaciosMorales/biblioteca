@@ -1,10 +1,10 @@
 
 
 
-<div align="center">
-<table border="1" >
-<h1>TABLA DE AUTORES</h1>
-<tr>
+
+<table class="table table-dark" border="1" >
+<h1 style="text-align:center">TABLA DE AUTORES</h1>
+<tr style="text-align:center">
 
 <th>NOMBRE AUTOR</th>
 
@@ -18,12 +18,12 @@
 	
 		       
 			
-			<td ><?=
+			<td style="vertical-align: middle;text-align:center" ><?=
 			$autor->nombre_autor;
 			?></td>
 			
 			
-			<td>
+			<td style="text-align:center">
 		   
 		     <form action="<?=base_url()?>autor/Autores/borrar" method="post">
 				<input type="hidden" name="id" value="<?=$autor->id?>">
@@ -34,8 +34,8 @@
 				
 			</form>    	        	     
 		     
-		    </td>
-			<td>
+		    </td >
+			<td style="text-align:center">
 			  	<form action="<?=base_url()?>autor/Autores/actualizar" method="post">
 				<input type="hidden" name="id" value="<?=$autor->id?>">
 				  <button onclick="submit()">
@@ -50,7 +50,7 @@
 			
 			
 </table>
-</div>
+
    <a href="<?=base_url()?>libro/Libros/panel_administrativo">&ltAtras</a>  
  
         
