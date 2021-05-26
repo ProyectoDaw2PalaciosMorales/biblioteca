@@ -57,24 +57,28 @@
          <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/estilos.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+        
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   	</head>
   	
-  	<body style=background-image:url(../../assets/imagenes/registro.jpg);background-repeat:no-repeat;background-size:cover;>
+  	<body style=background-image:url(../../assets/imagenes/fondo_login_3.jpg);background-repeat:no-repeat;background-size:cover;>
   	
   	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1 mb-5">
 
- <div class="navbar-header mx-auto" style="font-family:Lucida Console, Courier New, monospace;">
+ <div class="navbar-header mx-auto" style="font-family:'Pattaya', sans-serif;">
  
-      <a class="navbar-brand" style="font-size: 40px"; href='<?=base_url()?>'>TU BIBLIOTECA</a>
+      <a class="navbar-brand" style="font-size: 40px"; href='<?=base_url()?>'>TuBiblioteca</a>
     </div>
   
   
 </nav>
      <h4 class="mx-auto mt-1 text-white mb-5" style="font-family:Lucida Console, Courier New, monospace; text-align:center;">Bienvenido a tu  biblioteca</h4>
     
-    <div class="card mx-auto" style="max-width:395px; opacity:75%; background-color:#fc9e49; border-radius:25px ">
+    <div class="card mx-auto" style="max-width:410px; opacity:75%; background-color:#fc9e49; border-radius:25px ">
                 <div class="mx-auto mt-3 mb-3 text-white " style="font-family:Lucida Console, Courier New, monospace;">
                     <h5 style="">Registro</h5>
                     

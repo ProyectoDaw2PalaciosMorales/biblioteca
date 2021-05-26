@@ -10,7 +10,7 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   	</head>
   	
-  	<body style=background-image:url(../../assets/imagenes/fondo_login.jpeg);background-repeat:no-repeat;background-size:cover;>
+  	<body style=background-image:url(../../assets/imagenes/fondo_login_3.jpg);background-repeat:no-repeat;background-size:cover;>
   	
   	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1">
 

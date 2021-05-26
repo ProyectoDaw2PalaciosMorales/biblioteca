@@ -1,11 +1,15 @@
 
 <html>
     <head>
-        <title>Tu bibioteca</title>
+        <title>Tu biblioteca</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
          <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/estilos.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+        
         <link href="../../assets/FontAwesome/css/all.css" rel="stylesheet"> <!--load all styles -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
