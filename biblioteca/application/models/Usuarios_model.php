@@ -302,11 +302,13 @@ class Usuarios_model extends CI_Model{
                 $contraseña->confirmar_contrasena=password_hash($pass, PASSWORD_DEFAULT);
                 R::store($contraseña);
            
+                //rdirege al controlador principal
+                redirect(base_url());
                 
-            }else{
+            }
                 
                
-            }
+            
             }
         
         
