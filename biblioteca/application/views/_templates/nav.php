@@ -21,8 +21,8 @@
     
           <li class="form-group">
     
-     <form class="form-inline" action="/action_page.php">
-      <input type="text" class="form-control"  placeholder="buscar" name="" style="margin-top:25px;">
+     <form class="form-inline" method="post" action="<?=base_url()?>Home/searcher">
+      <input type="text" class="form-control"  placeholder="buscar" name="search" style="margin-top:25px;">
     <button type="submit" class="btn btn-default  btn-success btn-sm"style="font-size: 15px;margin-left:9px;margin-top:25px;">Buscador</button>
     </form>
    

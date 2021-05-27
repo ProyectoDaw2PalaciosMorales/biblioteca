@@ -18,6 +18,16 @@ class Home extends CI_Controller {
         frame($this,'index',$datos);
         
     }
+    public function searcher(){
+        $search =  isset($_POST['search']) ? $_POST['search'] : null;
+        
+        $this->load->model('Libros_model');
+       
+        $datos['libros'] =  $this->Libros_model->get_AutoresNombre($search);
+        
+        frame($this,'libro/libros_Search',$datos);
+
+    }
    
     }
 

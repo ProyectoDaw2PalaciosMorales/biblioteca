@@ -11,6 +11,15 @@ class Libros_model extends CI_Model{
     {
         return R::findAll('libros',' ORDER BY titulo');
     }
+    public function get_AutoresNombre($search)
+    {
+       
+       
+        return  R::getAll('SELECT * FROM libros WHERE autor LIKE :autor  OR titulo LIKE :titulo OR genero_literario LIKE :genero',
+        array(':autor' => '%'.$search.'%' ,':titulo' => '%'.$search.'%' ,':genero' => '%'.$search.'%' )
+      );
+        
+    }
     // esta funcion una vez ha recibido por el campo genero del controlador libros.php linea 52
     // realiza una busqueda y genera un codigo html que mostrara esta funcion se realiza por ajax 
     // esta funcion esta en head.php linea 40 dentro de la carpeta _templates
