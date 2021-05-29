@@ -1,58 +1,33 @@
+<div class="row  m-1">
+	<div class="card col-sm m-1" style="width:80%; margin-top:15px; background: #eee;">
+		
+			<h4 class="text-center">Nuestro catálogo:</h4>
+			<div class="row">
+			<button class="btn btn-primary col-sm m-1">Ciencia Ficción</button><button class="btn btn-primary col-sm  m-1">Infantil</button>
+			</div>
+			<div class="row">
+			<button class="btn btn-primary col-sm  m-1">Novela romantica</button><button class="btn btn-primary col-sm  m-1">Comics</button>
+			</div>
+	</div>
+	<div class="card col-sm  m-1" style="width:80%; margin-top:15px; background: #eee;">
+		
+			<h4>Talleres infantiles</h4>
+		<p>Talleres infantiles relacionados con el arte, la ciencia y robótica, ilustración, cómic, medio ambiente, etc.
 
- <?php foreach ($libros as $libro): ?>
-<div class="card mb-3 mx-auto" style="width:80%; margin-top:15px; background: #eee;">
-  <div class="row ">
-    <div class="col-md-3 offset-md-3 mx-auto">
-      <?php if ($libro ->foto!=null):?>
- <?php 
- $sustitutuirespaciosblancos = str_replace(" ","_",$libro->titulo)?>
-  <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post" >
-				<input type="hidden" name="id" value="<?=$libro->id?>">
-				
-				 
-					<img onclick="submit()" class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/<?=$sustitutuirespaciosblancos?>.<?=$libro -> foto;?>"
-					  style="width:50%;">
-						
-				 			
-				
-			</form>    	     
-   
-				<?php  else:?>
-	<img class="card-img mx-auto" src="<?=base_url()?>assets/fotoslibros/nodisponible.jpg"
-					  style="width:50%">
-			
-					 
-			<?php endif;?>	  
-
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?=$libro->titulo?></h5>
-       <?php if ($libro ->descricion!=null):?>
-        <?php 
-        $resumendescricion = explode(".", $libro ->descricion);?>
-
-      <p class="card-text"><?= $resumendescricion[0]?></p>
-      	<?php  else:?>
-      	 <p class="card-text">no hay descricion disponible </p>
-      	<?php endif;?>	
-      	 <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post">
-				<input type="hidden" name="id" value="<?=$libro->id?>">
-				
-				  <button class="btn btn-primary stretched-link" onclick="submit()">
-					Ver mas
-						
-				 </button>				
-				
-			</form>    	     
-        
-      </div>
-    </div>
-  </div>
+Para asistir a esta actividad es necesario realizar la inscripción los días previos de manera presencial, llamando al teléfono 91 627 8200 (Extensión 1300)</p>
+	</div>
 </div>
- 			
-		<?php endforeach;?>
- 
-
-   
+<div class="row  m-1">
+	<div class="card col-sm  m-1" style="width:80%; margin-top:15px; background: #eee;">
+		
+			<h4>Prueba col</h4>
+	
+	</div>
+	<div class="card col-sm  m-1" style="width:80%; margin-top:15px; background: #eee;">
+		
+			<h4>Prueba col</h4>
+		
+	</div>
+</div>
+  
       

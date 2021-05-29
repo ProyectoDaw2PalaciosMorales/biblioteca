@@ -231,13 +231,15 @@ class Usuarios extends CI_Controller {
            
                 // se carga el modelo usuarios_model
                 $this->load->model('Usuarios_model');
+                $this->load->model('Libros_model');
                 //se asigna la sesion nombre a la variable nombre
                 $nombre= $_SESSION['nombre'];
                
               // se crea la array usuario y se se asina la funcion idperfil linea 154  del modelo usuarios_model.php ala que se le añade la variable nombre
                 $datos['usuario'] = $this->Usuarios_model->idperfil($nombre);
+                
                 // se carga la vista bienvenidos y se le añaden la array datos
-                frame($this,'usuario/bienvenidos',$datos);         
+                frame($this,'index',$datos);         
               
                
                 

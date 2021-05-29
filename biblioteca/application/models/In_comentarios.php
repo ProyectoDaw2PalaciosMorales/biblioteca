@@ -12,7 +12,7 @@ class In_comentarios extends CI_Model{
         $comentario->comentario=$comentarios;
         $comentario->usuario=$usuario;
         $comentario->libros=$libros;
-        $comentario->fecha=date('Y-m-d');;
+        $comentario->fecha=  new DateTime('NOW');
         R::store($comentario);
         $this->load->model('Libros_model');
         $this->load->model('Usuarios_model');

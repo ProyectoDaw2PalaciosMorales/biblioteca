@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse bg-dark"  id="collapsibleNavbar" >
   
     <ul class="navbar-nav " style="display: flex; justify-content: space-around; width:100%;">
-   		
+    <li class="nav-item"><a class="text-white nav-link" style="font-size: 15px;margin-top:25px ;" href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'>Todos los libros</a></li>
        
           <?php if (isset( $_SESSION['nombre'])!=null):?>    
                 <li class="nav-item"><a class="text-white nav-link" style="font-size: 15px;margin-top:25px ;" href='<?=base_url()?>usuario/Usuarios/Bienvenidos_u'>Menu principal</a></li>

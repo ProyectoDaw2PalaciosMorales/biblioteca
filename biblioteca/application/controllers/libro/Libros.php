@@ -29,7 +29,7 @@ class Libros extends CI_Controller {
         // se crea la array anulaciones y se se asina la funcion mostrarboton linea 248  del modelo libros_model_model.php 
         $datos['anulaciones'] = $this->Libros_model-> mostrarboton();
         // se carga la vista mostrar_librosusuarios.php y se le añaden los datos
-        frame($this,'index',$datos);
+        frame($this,'libro/Todos_Libros',$datos);
         
     }
     

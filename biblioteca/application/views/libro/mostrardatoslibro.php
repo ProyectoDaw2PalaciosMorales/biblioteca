@@ -54,21 +54,22 @@
 				   <?php foreach ($comentarios as $coment): ?>
 					<?php if(($libro->id)==($coment->libros_id)):?>
                        <div class="media">
-                           <p class="pull-right"><small></small></p>
+					   
                             <a class="media-left" href="#">
                              
                             </a>
                             <div class="media-body">
 							<p>	</p>
 						
-                              <h4 class="media-heading user_name" >
+                              <h5 class="float-left" >
 							  <?php foreach($usuarios as $usuario):?>
 							  <?php if(($usuario->id)== ($coment->usuario_id)):?><?=$usuario->nombre?><?php endif;?><?php endforeach;?>
-							  </h4> 
-							  <?=$coment->fecha?>
+							  </h5> 
+							  <p class="float-right"><small><?=$coment->fecha?></small></p>
+							  <br>
                               <?=$coment->comentario?>
                               
-                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                              <p><small><a href="">Editar </a> - <a href="">Borrar</a></small></p>
                             </div>
                           </div>
               <?php endif;?>
