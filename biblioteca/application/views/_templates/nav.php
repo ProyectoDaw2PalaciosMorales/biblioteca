@@ -1,8 +1,8 @@
   
-<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1" >
+<nav class="navbar navbar-expand-md  navbar-dark p-1 mb-5" style="background-color:#00a3d1; opacity: 80%;" >
 
  
- <div style="font-family:'Pattaya', sans-serif;"><a class="navbar-brand pl-3"  style="margin-top:-20px; width:200px; font-size:40px;"  href='<?=base_url()?>'>TuBiblioteca</a></div>
+ <div style="font-family:'Pattaya', sans-serif;"><a class="navbar-brand pl-3"  style="margin-top:-20px; width:300px; font-size:40px;"  href='<?=base_url()?>'>TuBiblioteca</a></div>
       
     
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
