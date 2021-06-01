@@ -65,22 +65,22 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   	</head>
   	
-  	<body style=background-image:url(../../assets/imagenes/fondo_login_3.jpg);background-repeat:no-repeat;background-size:cover;>
+  	<body style=background-image:url(../../assets/imagenes/registro_1.jpg);background-repeat:no-repeat;background-size:cover;>
   	
-  	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-1 mb-5">
+  	<nav class="navbar navbar-expand-md  navbar-dark p-1 mb-5" style="background-color:#00a3d1; opacity: 80%;">
 
  <div class="navbar-header mx-auto" style="font-family:'Pattaya', sans-serif;">
  
-      <a class="navbar-brand" style="font-size: 40px"; href='<?=base_url()?>'>TuBiblioteca</a>
+      <a class="navbar-brand" style="font-size: 40px; opacity: 100%"; href='<?=base_url()?>'>TuBiblioteca</a>
     </div>
   
   
 </nav>
-     <h4 class="mx-auto mt-1 text-white mb-5" style="font-family:Lucida Console, Courier New, monospace; text-align:center;">Bienvenido a tu  biblioteca</h4>
+     <h3 class="mx-auto mt-1 text-white mb-5" style="font-family:Times New Roman, Times, serif; text-align:center;">Bienvenido a tu  biblioteca</h3>
     
     <div class="card mx-auto" style="max-width:410px; opacity:75%; background-color:#fc9e49; border-radius:25px ">
-                <div class="mx-auto mt-3 mb-3 text-white " style="font-family:Lucida Console, Courier New, monospace;">
-                    <h5 style="">Registro</h5>
+                <div class="mx-auto mt-3 mb-3 text-white " style="font-family:Times New Roman, Times, serif;">
+                    <h3 style="">Registro</h3>
                     
                 </div>
                 <div class="card-body "style="max-width:395px; margin-top:-25px">
@@ -156,7 +156,7 @@
                         <input  class="text-white" id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg">
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
-                            <input type="submit" value="Registrar" class="btn float-right login_btn btn btn-primary" ">
+                            <input type="submit" value="Registrar" class="btn float-right login_btn btn" style="background-color:#00a3d1; opacity: 100%;font-weight: ;color:white;">
                         </div>
                     </form>
                     <!-- FORMULARIO -->
