@@ -68,9 +68,11 @@
 							  <p class="float-right"><small><?=$coment->fecha?></small></p>
 							  <br>
                               <?=$coment->comentario?>
-                              
-                              <p><small><a href="">Editar </a> - <a href="">Borrar</a></small></p>
-                            </div>
+                              <?php if ($coment->usuario_id==$usuario->id):?>
+							 <?php if((isset( $_SESSION['nombre'])!=null)==($usuario->nombre)):?>
+                              <form method="POST" action="<?=base_url()?>comentario/Comentarios/editar"><input type="text" hidden name="id_coment" value="<?=$coment->id?>"><button class="btn btn-info">Editar</button></form><form method="POST" action="<?=base_url()?>comentario/Comentarios/borrar"><input type="text" hidden name="id_coment" value="<?=$coment->id?>"><button class="btn btn-danger">Eliminar</button></form>
+								<?php endif;endif;?>
+							</div>
                           </div>
               <?php endif;?>
 	<!--<form action="<?=base_url()?>libro/Libros/confirmacion" method="post">	

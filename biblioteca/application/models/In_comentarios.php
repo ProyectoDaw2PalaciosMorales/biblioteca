@@ -31,7 +31,37 @@ class In_comentarios extends CI_Model{
         
         
     }
+    public function getComentarioById($id)
+    {
+        return R::load('comentarios', $id);
+    }
   
+    public function borrar($id){
+        //borra todos los campos cuyo id recibe del controlador
+        R::trash(R::load('comentarios',$id));
+        //redirigo al controlador autor/Autores/mostrar_autoresadninistrador
+        
+        redirect(base_url());
+        
+    }
+    public function  editar($id,$comentario)
+    
+    {
+        //busca en la tabla autores todos los campos y los busca por el id que recibe del controlador
+        
+        $coment = R::load('comentarios',$id);
+        //anado la varaible nombre al campo nombre_autor de la tabla autores
+        $coment->comentario=$comentario;
+        $coment->fecha=  new DateTime('NOW');
+        //almaceno los datos en la tabla autores de la base de datos
+        
+        R::store($coment);
+        
+        //redirigo al controlador autor/Autores/mostraractualizacionautores
+        redirect(base_url());
+        
+    }  
+    
 
 }
     
