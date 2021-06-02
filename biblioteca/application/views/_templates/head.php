@@ -9,6 +9,8 @@
 		<script src="<?=base_url()?>assets/calendario/calendar.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 		<link href="<?=base_url()?>assets/calendario/calendar.min.css" rel="stylesheet">
+		
+		<!--<link href="../../assets/estilos.css" rel="stylesheet">-->
         
         
          <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/estilos.css">
