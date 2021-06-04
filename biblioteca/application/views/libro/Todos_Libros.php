@@ -1,6 +1,6 @@
 
  <?php foreach ($libros as $libro): ?>
-<div class="card mb-3 mx-auto" style="width:80%; margin-top:15px; background: #eee;">
+<div class="card cuerpo mb-3 mx-auto" style=" background: #eee;">
   <div class="row ">
     <div class="col-md-3 offset-md-3 mx-auto">
       <?php if ($libro ->foto!=null):?>
@@ -26,8 +26,8 @@
 
     </div>
     <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?=$libro->titulo?></h5>
+      <div class="card-body titulo_libro">
+        <h4 class="card-title"><?=$libro->titulo?></h4>
        <?php if ($libro ->descricion!=null):?>
         <?php 
         $resumendescricion = explode(".", $libro ->descricion);?>
@@ -36,13 +36,10 @@
       	<?php  else:?>
       	 <p class="card-text">no hay descricion disponible </p>
       	<?php endif;?>	
-      	 <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post">
-				<input type="hidden" name="id" value="<?=$libro->id?>">
+      	 <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post" >
+				<input type="hidden" name="id" value="<?=$libro->id?>" />
 				
-				  <button class="btn btn-primary stretched-link" onclick="submit()">
-					Ver mas
-						
-				 </button>				
+				  <input type="button" class="boton3 stretched-link" onclick="submit()" value="Ver mas">
 				
 			</form>    	     
         

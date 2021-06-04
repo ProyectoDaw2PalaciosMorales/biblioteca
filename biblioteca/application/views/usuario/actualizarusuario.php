@@ -29,13 +29,13 @@
           
        <br><br>
         <label for="email">Correo electronico:</label>
-        <input type="text" name="email" value="<?=$usuario -> email?>">
+        <input type="text" name="email" value="<?=$usuario -> email?>" />
         <br><br>
         <label for="telefono">Telefono:</label>
-        <input type="text" name="telefono" value="<?=$usuario ->telefono?>">
+        <input type="text" name="telefono" value="<?=$usuario ->telefono?>"/>
         <br><br>
         <label for="contraseña">Contraseña:</label>
-        <input type="password" name="password" value="<?=$usuario -> contrasena?>">
+        <input type="password" name="password" value="<?=$usuario -> contrasena?>"/>
         <br><br>
         <label for="comprobacion">Confirma su contraseña:</label>
         <input type="password" name="comprobacion" value="<?=$usuario -> confirmar_contrasena?>">
@@ -65,11 +65,11 @@
         </form>
         <br><br><br>
     -->  
-       
+       <body class="cuadroActualizar">
         
-        <div class="card mx-auto border border-primary bg-dark mt-3" style="max-width:395px; ">
-                <div class="mx-auto mt-1 text-white" style="font-family:Lucida Console, Courier New, monospace;">
-                    <h3 style="font-size:15px">Actualizar perfil</h3>
+        <div class="card mx-auto border border-primary mt-3 mb-5" style="max-width:395px;background-color:#00a3d1;opacity:80%;">
+                <div class="mx-auto mt-3 mb-3 text-white" style="font-family:Lucida Console, Courier New, monospace;">
+                    <h3 class="tituloEditar">Actualizar perfil</h3>
                     
                 </div>
                 <div class="card-body "style="max-width:395px; margin-top:-25px">
@@ -81,28 +81,28 @@
                             </div>
                             <!-- TextBox - Correo -->
                              <input type="hidden" name="id" value="<?=$usuario ->id?>">
-                            <input type="text" name="nombre" class="form-control" placeholder="<?=$usuario ->nombre?>" required>
+                            <input type="text" name="nombre" class="form-control" value="<?=$usuario ->nombre?>" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="primer_apellido" class="form-control" placeholder="<?=$usuario -> primer_apellido?>" required>
+                            <input type="text" name="primer_apellido" class="form-control" value="<?=$usuario -> primer_apellido?>" required>
                         </div>
                       <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="segundo_apellido" class="form-control" placeholder="<?=$usuario -> segundo_apellido?>" required>
+                            <input type="text" name="segundo_apellido" class="form-control" value="<?=$usuario -> segundo_apellido?>" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-calendar" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input style="width:310px; " type="date" name="ano" placeholder="<?=$usuario ->fecha_nacimiento?>" required>
+                             <input style="width:310px; " type="date" name="ano" value="<?=$usuario ->fecha_nacimiento?>" required>
                             
                         </div>
                         
@@ -112,37 +112,37 @@
                                 <span class="input-group-text"><i class="fa fa-envelope" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="email" name="email" class="form-control" placeholder="<?=$usuario ->email?>" required>
+                            <input type="email" name="email" class="form-control" value="<?=$usuario ->email?>" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-tty" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="telefono" class="form-control " placeholder="<?=$usuario ->telefono?>" required>
+                            <input type="text" name="telefono" class="form-control " value="<?=$usuario ->telefono?>" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-key" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="password" name="password" class="form-control" placeholder="<?=$usuario ->contrasena?>" required>
+                            <input type="password" name="password" class="form-control" value="<?=$usuario ->contrasena?>" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-key" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="password" name="comprobacion" class="form-control" placeholder="<?=$usuario ->confirmar_contrasena?>" required>
+                            <input type="password" name="comprobacion" class="form-control" value="<?=$usuario ->confirmar_contrasena?>" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="alias" class="form-control" placeholder="<?=$usuario ->alias?>" required>
+                            <input type="text" name="alias" class="form-control" value="<?=$usuario ->alias?>" required>
                         </div>
-                        <p>foto antigua</p> 
+                        <p class="textoFoto">Foto antigua</p> 
         			  <?php 
             $sustitutuirespaciosblancos = str_replace(" ","_",$_SESSION['nombre'])?>
           <?php if (is_file("assets/fotosperfil/usuario-". $sustitutuirespaciosblancos.".png" )):?>
@@ -155,14 +155,14 @@
                     
 			  <br><br>
         
-		<input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
+		<input class="text-white"  id="idp-fo" type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
-                            <input type="submit" value="actualizar" class="btn float-right login_btn btn btn-primary" ">
+                            <input type="submit" value="Actualizar" class="boton_actualizar float-right login_btn">
                         </div>
                     </form>
                     <!-- FORMULARIO -->
                 </div>
                 
             </div>
-    
+    </body>

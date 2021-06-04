@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
-                            <input type="submit" value="Ingresar" class="btn float-right login_btn btn btn-primary">
+                            <input type="submit" value="Ingresar" class="botonIngresar float-right login_btn">
                         </div>
                     </form>
                     <!-- FORMULARIO -->

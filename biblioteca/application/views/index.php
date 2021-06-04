@@ -2,9 +2,9 @@
 
 
 <div class="row linea " style="height:500px;">
-	<div class="card boton_generos col-8 m-1" style="width:80%; margin-top:15px; background: #eee;">
+	<div class="card boton_generos col-8" style="width:80%;">
 		
-			<h4 class="text-center">Nuestro catálogo:</h4>
+			<h2 class="titulo text-center">Nuestro catálogo:</h2>
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
 				<button class="boton col m-1">Estilo de vida</button><button class="boton1 col m-1">Novela contemporanea</button>
 				<button class="boton col m-1">Historia</button><button class="boton1 col m-1">Juvenil</button>
@@ -37,12 +37,12 @@
 			</div>
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
 			
-			<button class="boton1 col m-1">Poesía</button><button class="boton col m-1">Autoayuda</button>
-			<button class="boton1 col m-1">Para padres</button><button class="boton col m-1">Novela literaria</button>
+			<button class="boton col m-1">Poesía</button><button class="boton1 col m-1">Autoayuda</button>
+			<button class="boton col m-1">Para padres</button><button class="boton1 col m-1">Novela literaria</button>
 			</div>
 	</div>
 	
-	<div class="card col m-1" style="width:80%; margin-top:15px; background: #eee;">
+	<div class="card col m-1" style="width:80%; margin-top:15px;">
 		
 			
 		<div class="calendar mt-4" data-color="normal" >
@@ -58,18 +58,18 @@
 </div>
 <div class="row linea2 m-3 mt-5" style="height:500px;">
 
-	<div class="card col-sm m-1" style="width:80%; margin-top:15px; background: #eee;">
+	<div class="col-sm m-1" style="width:80%; margin-top:15px;">
 		
-			<h4 class="mx-auto mt-3">Los origenes de la escritura</h4>
+			<h2 class="mx-auto titulo mt-3">Los origenes de la escritura</h2>
 		<div class="row">
-			<div class="col-4 mx-auto border mt-3 m1" style="height: 350px;">
+			<div class="col-4 mx-auto  mt-3 m1" style="height: 350px;">
 				<figure>
 					<img class="card-img mx-auto mt-4" style="height: 300px;width: auto;display:flex;justify-content:center;"  src="<?=base_url()?>assets/imagenes/foto_origen.jpg"/>
-					<figcaption style="text-align:center;">Figura representativa de un escriba del antiguo Egipto</figcaption>
+					<figcaption style="text-align:center;">Figura representativa de un escriba del antiguo Egipto.Elaborado en piedra caliza.Los ojos son de cuarzo blanco,ébano y cristal de roca</figcaption>
 				</figure>
 			</div>
 		
-			<div class="card col-8 mx-auto mt-3 m1" style="height: 350px;">
+			<div class="col-8 mx-auto mt-3 m1" style="height: 350px;">
 				<p>Para unos estudiosos, ésta nació en Mesopotamia; para otros, apareció en varios pueblos al mismo tiempo. ¿Quién lleva razón?</p>
 		
 				<p>Ocurrió hace 5.500 años, al sur de Irak. Un contable, para controlar las ovejas que salían con cada pastor, introducía bolitas y conos de diferentes tamaños –calculi–
@@ -101,32 +101,56 @@
  
  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1278.4405110018042!2d-3.5271329995765837!3d40.349863301062506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd423b91835b1ae1%3A0x57a425b84f8528a1!2sCalle%20Jovellanos%2C%2030%2C%2028521%20Rivas-Vaciamadrid%2C%20Madrid!5e0!3m2!1ses!2ses!4v1622571104537!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
  
- <a href="https://goo.gl/maps/rd7MzR54UsJrkhhm7" class="mt-4" style="background-color:#00a3d1; color:white;width:200px;text-align:center;padding:15px;">Ver en Google maps</a>
+ <a href="https://goo.gl/maps/rd7MzR54UsJrkhhm7" class="mt-4 boton_mapa" style="background-color:#00a3d1; color:white;width:200px;text-align:center;padding:15px;">Ver en Google maps</a>
  
  </div>
  
  
- <footer style="height:500px; width:100%;">
+ <!--<footer class="pie_pagina">
  <div class="row linea_pie" >
  		<div class=" pie_1 col m-1">
  
- 			TuBiblioteca
+ 			<h1>TuBiblioteca</h1>
  
  		</div>
  		<div class=" pie_2 col m-1">
  
- 			TuBiblioteca
+ 			<a href="<?=base_url()?>usuario/Usuarios/registro">Suscribete a nuestra comunidad</a>
+ 			<hr>
+ 			<a href="">Politica de privacidad</a>
+ 			<br><br>
+ 			<input type=text placeholder="email">
+ 			<br><br>
+ 			<button>Conocenos</</button>
  
  		</div>
  		<div class=" pie_3 col m-1">
  
- 			TuBiblioteca
+ 			<a href="dpgtriatlon@hotmail.com">dpgtriatlon@hotmail.com</a>
+ 			<p>Tel: 91-698-96-52</p>
+ 			<p>Movil: 689-45-21-75</p>
+ 			
+ 			<h5>Siguenos:</h5>
+ 			<div class="redes-container">
+ 				<ul>
+ 				
+ 					<li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+ 					<li><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
+ 					<li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>	
+ 				</ul>
+ 			</div>
  
  		</div>
  </div>
+ <div class="row linea_pie_1">
  
  
- </footer>
+ <b><p>&#169;2021 TuBiblioteca</p></b>
+ 
+ </div>
+ 
+ 
+ </footer>-->
  
  
  
