@@ -5,41 +5,43 @@
 	<div class="card boton_generos col-8" style="width:80%;">
 		
 			<h2 class="titulo text-center">Nuestro catálogo:</h2>
+			<form action="<?=base_url()?>Home/searcher" method="POST">
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton col m-1">Estilo de vida</button><button class="boton1 col m-1">Novela contemporanea</button>
-				<button class="boton col m-1">Historia</button><button class="boton1 col m-1">Juvenil</button>
+				<button class="boton col m-1" value="Estilo de vida" name="search">Estilo de vida</button><button class="boton1 col m-1" value="Novela contemporanea" name="search">Novela contemporanea</button>
+				<button class="boton col m-1" value="Historia" name="search">Historia</button><button class="boton1 col m-1" value="Juvenil" name="search">Juvenil</button>
 				
 			</div>
 			<div class="row " style="display: flex; justify-content: space-around; width:100%;">
-				<button class=" boton col  m-1">Ciencia Ficción</button><button class="boton1 col  m-1">Infantil</button>
-				<button class=" boton col  m-1">Novela romántica</button><button class="boton1 col m-1">Comics</button>
+				<button class=" boton col  m-1" value="Ciencia Ficcion" name="search">Ciencia Ficción</button><button class="boton1 col  m-1" value="Infantil" name="search">Infantil</button>
+				<button class=" boton col  m-1" value="Novela romantica" name="search">Novela romántica</button><button class="boton1 col m-1" value="Comics" name="search">Comics</button>
 				
 			</div>
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton1 col m-1">Historia de la música</button><button class="boton col m-1">Humor</button>
-				<button class="boton1 col m-1">Filosofía</button><button class="boton col m-1">Empresa</button>
+				<button class="boton1 col m-1" value="Historia de la musica" name="search">Historia de la música</button><button class="boton col m-1" value="Humor" name="search">Humor</button>
+				<button class="boton1 col m-1" value="Filosofia" name="search">Filosofía</button><button class="boton col m-1" value="Empresa" name="search">Empresa</button>
 				
 			</div>
 			
 			
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton1 col m-1">Periodístico</button><button class="boton col m-1">Novela</button>
-				<button class="boton1 col m-1">Novela picaresca</button><button class="boton col m-1">Poética actual</button>
+				<button class="boton1 col m-1" name="search">Periodístico</button><button class="boton col m-1" name="search">Novela</button>
+				<button class="boton1 col m-1" name="search">Novela picaresca</button><button class="boton col m-1" name="search">Poética actual</button>
 				
 			</div>
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
 			
-				<button class="boton col m-1">Narrativa</button><button class="boton1 col m-1">Novela urbana</button>
-				<button class=" boton col  m-1">Novela negra</button><button class="boton1 col m-1">Fantasía</button>
+				<button class="boton col m-1" value="narrativa" name="search">Narrativa</button><button class="boton1 col m-1" value="Novela urbana" name="search">Novela urbana</button>
+				<button class=" boton col  m-1" value="Novela negra" name="search">Novela negra</button><button class="boton1 col m-1" value="Fantasia" name="search">Fantasía</button>
 			</div>
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
 			
-			<button class="boton col m-1">Poesía</button><button class="boton1 col m-1">Autoayuda</button>
-			<button class="boton col m-1">Para padres</button><button class="boton1 col m-1">Novela literaria</button>
+			<button class="boton col m-1" value="poesia" name="search">Poesía</button><button class="boton1 col m-1" value="Autoayuda" name="search">Autoayuda</button>
+			<button class="boton col m-1" value="Para padres" name="search">Para padres</button><button class="boton1 col m-1" value="Novela Literaria" name="search">Novela literaria</button>
 			</div>
+			</form>
 	</div>
 	
 	<div class="card col m-1" style="width:80%; margin-top:15px;">
