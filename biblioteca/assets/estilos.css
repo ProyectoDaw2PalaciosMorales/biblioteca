@@ -373,6 +373,40 @@ figcaption{
 }
 
 
+/* estilo barra paginacion*/
+ 
+
+	  .ulbarrapaginacion{
+	  	margin-left: 0px;
+	  	    padding: 0px;
+	  } 
+      .ulbarrapaginacion > li{
+      	list-style: none;
+      	display: inline-block;
+      	margin-right:7px;
+      	border-style: solid;
+      
+      }
+      .ulbarrapaginacion > li > a {
+      
+      	text-decoration: none;
+      	padding: 5px 10px 5px 10px;
+        display: block;
+		/* Old browsers */
 
 
+      }
+      .ulbarrapaginacion > a{
+      	padding: 2px;
+		
+		
+		 text-align: center;
+		 width:30px;
+      }
+      .flechas{
+      background:#ffffff; 
+     border-style: double
+      }
+ 
+      
 
