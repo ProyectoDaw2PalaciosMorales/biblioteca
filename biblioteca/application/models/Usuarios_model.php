@@ -163,7 +163,7 @@ class Usuarios_model extends CI_Model{
             return   $usuario;
         }
         // recibe las variables id,nombre,primer_apellido,segundo_apellido,ano,email,telefono,password,comprobacion,alias,foto del controlador usuarios.php linea 56
-        public function actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto)
+        public function actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$password,$comprobacion,$alias,$foto)
         {
             
             //busca en la tabla usuarios los campos donde el id  sea el que le ha pasado el controlador
@@ -173,7 +173,7 @@ class Usuarios_model extends CI_Model{
             $usuarios->nombre=$nombre;
             $usuarios->primer_apellido=$primer_apellido;
             $usuarios->segundo_apellido=$segundo_apellido;
-            $usuarios-> fecha_nacimiento=$ano;
+            $usuarios-> fecha_nacimiento=$fechanacimento;
             $usuarios->email=$email;
             $usuarios->telefono=$telefono;
             $usuarios->contrasena=password_hash($password, PASSWORD_DEFAULT);

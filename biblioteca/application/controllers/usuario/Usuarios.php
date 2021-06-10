@@ -98,6 +98,9 @@ class Usuarios extends CI_Controller {
         $primer_apellido =  isset($_POST['primer_apellido']) ? $_POST['primer_apellido'] : null;
         $segundo_apellido =  isset($_POST['segundo_apellido']) ? $_POST['segundo_apellido'] : null;
         $ano =  isset($_POST['ano']) ? $_POST['ano'] : null;
+        $mes =  isset($_POST['mes']) ? $_POST['mes'] : null;
+        $dia =  isset($_POST['dia']) ? $_POST['dia'] : null;
+        $fechanacimento=$ano."/".$mes."/".$dia;
         
      
         $email =  isset($_POST['email']) ? $_POST['email'] : null;
@@ -127,7 +130,7 @@ class Usuarios extends CI_Controller {
         }
            //se carga la funccion actualizarperfil linea 163 del modelo usuarios_model.php
         
-        $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$ano,$email,$telefono,$password,$comprobacion,$alias,$foto);
+        $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$password,$comprobacion,$alias,$foto);
         
        
         }else{ $this->load->view('errorurl');}}

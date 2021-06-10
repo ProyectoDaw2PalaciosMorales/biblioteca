@@ -7,13 +7,13 @@
 			<h2 class="titulo text-center">Nuestro catálogo:</h2>
 			<form action="<?=base_url()?>Home/searcher" method="POST">
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton col m-1" value="Estilo de vida" name="search">Estilo de vida</button><button class="boton1 col m-1" value="Novela contemporanea" name="search">Novela contemporanea</button>
+				<button class="boton col m-1" value="Estilo de vida" name="search">Estilo de vida</button><button class="boton1 col m-1" value="Novela contemporania" name="search">Novela contemporanea</button>
 				<button class="boton col m-1" value="Historia" name="search">Historia</button><button class="boton1 col m-1" value="Juvenil" name="search">Juvenil</button>
 				
 			</div>
 			<div class="row " style="display: flex; justify-content: space-around; width:100%;">
 				<button class=" boton col  m-1" value="Ciencia Ficcion" name="search">Ciencia Ficción</button><button class="boton1 col  m-1" value="Infantil" name="search">Infantil</button>
-				<button class=" boton col  m-1" value="Novela romantica" name="search">Novela romántica</button><button class="boton1 col m-1" value="Comics" name="search">Comics</button>
+				<button class=" boton col  m-1" value="Novela romantica" name="search">Novela romántica</button><button class="boton1 col m-1" value="Comic y manga" name="search">Comics</button>
 				
 			</div>
 			
@@ -26,8 +26,8 @@
 			
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton1 col m-1" name="search">Periodístico</button><button class="boton col m-1" name="search">Novela</button>
-				<button class="boton1 col m-1" name="search">Novela picaresca</button><button class="boton col m-1" name="search">Poética actual</button>
+				<button class="boton1 col m-1" name="search" value="Periodístico">Periodístico</button><button class="boton col m-1" name="search" value="Novela">Novela</button>
+				<button class="boton1 col m-1" name="search" value="Novela picaresca">Novela picaresca</button><button class="boton col m-1" name="search" value="Poética actual">Poética actual</button>
 				
 			</div>
 			

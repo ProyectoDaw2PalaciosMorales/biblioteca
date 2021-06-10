@@ -3,7 +3,7 @@
     <head>
         <title>Tu biblioteca</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <meta charset="utf-8">
          
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="<?=base_url()?>assets/calendario/calendar.min.js"></script>

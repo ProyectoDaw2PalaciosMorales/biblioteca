@@ -9,7 +9,7 @@
 				
 			
 				
-  <h1>	<?=$usuario -> nombre?> <?=$usuario ->primer_apellido ?> <?=$usuario -> segundo_apellido?>.</h1>
+  <h1 	style=" text-transform: capitalize"><?=$usuario -> nombre?> <?=$usuario ->primer_apellido ?> <?=$usuario -> segundo_apellido?>.</h1>
   
   <ul>
        <li>

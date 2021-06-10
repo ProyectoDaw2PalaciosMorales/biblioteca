@@ -20,10 +20,10 @@
        
       
     
-
+          
       
         <label for="ano">Año:</label>
-        <input " type="text" name="ano" value="<?=$usuario -> fecha_nacimiento?>">
+        <input " type="text" name="ano" value="<?=$usuario ->fecha_nacimiento?>">
      
          
           
@@ -102,8 +102,10 @@
                                 <span class="input-group-text"><i class="fa fa-calendar" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input style="width:310px; " type="date" name="ano" value="<?=$usuario ->fecha_nacimiento?>" required>
-                            
+                            <?php $fecha=explode("/", $usuario ->fecha_nacimiento);?>
+                           <input style="width:100px; " type="number" name="ano" value="<?=$fecha[0]?>" required><span class="text-white"> /</span>
+                             <input style="width:100px; " type="number" name="mes" value="<?=$fecha[1]?>" required><span class="text-white"> /</span>
+                              <input style="width:100px; " type="number" name="dia" value="<?=$fecha[2]?>" required>
                         </div>
                         
                     
@@ -126,14 +128,14 @@
                                 <span class="input-group-text"><i class="fa fa-key" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="password" name="password" class="form-control" value="<?=$usuario ->contrasena?>" required>
+                            <input type="password" name="password" class="form-control" value="" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-key" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="password" name="comprobacion" class="form-control" value="<?=$usuario ->confirmar_contrasena?>" required>
+                            <input type="password" name="comprobacion" class="form-control" value="" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
