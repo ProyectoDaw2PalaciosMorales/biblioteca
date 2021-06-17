@@ -1,9 +1,10 @@
 
 
+<h1 class="encabezado">Tabla  de  libros</h1>
 
-<table border="1" class="table table-dark" >
-<h1 style="text-align:center">TABLA DE LIBROS</h1>
-<tr style="text-align:center">
+<table border="1" class="table" >
+
+<tr style="text-align:center" class="tablas">
 
 <th>TÍTULO</th>
 <th>AÑO DE EDICIÓN</th>
@@ -17,7 +18,7 @@
 
 <?php  foreach ($libros as $libro): ?>
 		
-		<tr>
+		<tr class="tablas1">
 		    
 			
 			<td style="vertical-align: middle;text-align:center"><?=
@@ -68,7 +69,8 @@
 		<?php endforeach;?>
 </table>
 
-   <a href="<?=base_url()?>libro/Libros/panel_administrativo">&ltAtras</a>  
+	<button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>libro/Libros/panel_administrativo'"> Volver</button>
+    
   
         
   

@@ -1,5 +1,6 @@
-
-         <h1 align="center">Genero deseado</h1>
+<body>
+<div class="cubo"> 
+         <h1 class="encabezado">Genero deseado</h1>
         <form  onchange="generoselegidos(this.value)" method="post">           
             
            <label for="genero_literario">Genero literario preferido:</label>
@@ -24,6 +25,8 @@
      
         <br><br><br>
        
-    <a href="<?=base_url()?>">Home</a>
-  
+   
+  <button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>usuario/Usuarios/Bienvenidos_x'"> Volver</button>
 
+</div>
+</body>

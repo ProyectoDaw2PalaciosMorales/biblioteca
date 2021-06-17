@@ -76,11 +76,11 @@ class Autores_model extends CI_Model{
         if (mysqli_num_rows($datos) > 0){
             echo "<div id='tabla'>";
             
-            echo"<table class='table table-dark' border=1>";
-            echo"<tr style='text-align:center'>";
+            echo"<table class='table' border=1>";
+            echo"<tr class='tablas' style='text-align:center'>";
             echo"<th  >Nombre Autor</th><th>Titulo</th>";
             while($row = mysqli_fetch_assoc($datos)){
-                echo"<tr>";
+                echo"<tr class='tablas1'>";
                 echo "<td  style='vertical-align: middle;text-align:center'>";
                 echo $row["nombre_autor"]."</td>";
                 

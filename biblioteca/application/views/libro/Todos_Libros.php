@@ -1,5 +1,8 @@
 <?php
- 
+
+//header('Content-Type: text/html; charset=ISO-8859-1');
+
+
 $CantidadMostrar=5;
 //Conexion  al servidor mysql
 $conetar = new mysqli("localhost", "root", "", "autores_y_libros");
@@ -26,7 +29,8 @@ if ($conetar->connect_errno) {
 	while ($lista=$consulta->fetch_row()) {  
 		$sustitutuirespaciosblancos = str_replace(" ","_",$lista[1]);
 		$resumendescricion = explode(".",$lista[7]);
-	  
+		
+		
 
 echo '  <div class="card mb-3 mx-auto cuerpo"style="background-color: #eee;">';
 echo '   <div class="row" >';
@@ -69,7 +73,7 @@ echo '</div> ';
 	$IncrimentNum =(($compag +1)<=$TotalRegistro)?($compag +1):1;
 	$DecrementNum =(($compag -1))<1?1:($compag -1);
 	
-	echo "<ul class='ulbarrapaginacion'><li><a class=\"flechas\" href=\"?pag=".$DecrementNum."\">◀</a></li>";
+	echo "<ul class='paginacion'><li><a class=\"flechas\" href=\"?pag=".$DecrementNum."\">Anterior</a></li>";
 	//Se resta y suma con el numero de pag actual con el cantidad de
 	//numeros  a mostrar
 	$Desde=$compag-(ceil($CantidadMostrar/2)-1);
@@ -82,6 +86,7 @@ echo '</div> ';
 	for($i=$Desde; $i<=$Hasta;$i++){
 	    //Se valida la paginacion total
 	    //de registros
+	    
 	    if($i<=$TotalRegistro){
 	        //Validamos la pag activo
 	        if($i==$compag){
@@ -91,8 +96,10 @@ echo '</div> ';
 	        }
 	    }
 	}
-	echo "<li ><a class=\"flechas\" href=\"?pag=".$IncrimentNum."\">▶</a></li></ul>";
+	echo "<li ><a class=\"flechas\" href=\"?pag=".$IncrimentNum."\">Siguiente</a></li></ul>";
 	
 }
 ?>
+
+
  

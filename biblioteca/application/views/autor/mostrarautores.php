@@ -1,10 +1,10 @@
 
 
+<h1 class="encabezado">Tabla de autores</h1>
 
+<table class="table" border="1" >
 
-<table class="table table-dark" border="1" >
-<h1 style="text-align:center">TABLA DE AUTORES</h1>
-<tr style="text-align:center">
+<tr style="text-align:center" class="tablas">
 
 <th>NOMBRE AUTOR</th>
 
@@ -16,7 +16,7 @@
 
 <?php  foreach ($autores as $autor): ?>
 	
-		       
+		   <tr class="tablas1">    
 			
 			<td style="vertical-align: middle;text-align:center" ><?=
 			$autor->nombre_autor;
@@ -51,7 +51,9 @@
 			
 </table>
 
-   <a href="<?=base_url()?>libro/Libros/panel_administrativo">&ltAtras</a>  
+
+		<button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>libro/Libros/panel_administrativo'"> Volver</button>
+   
  
         
   

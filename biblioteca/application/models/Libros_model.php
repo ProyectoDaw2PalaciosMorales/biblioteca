@@ -6,6 +6,14 @@ class Libros_model extends CI_Model{
         return R::load('libros', $id);
         
     }
+    public function  getResIdUsuario($id_usuario)
+    {
+        
+        return  R::getAll('SELECT * FROM reservas WHERE usuario_id=? ', [$id_usuario]);
+        
+        
+        
+    }
     //esta funcion recoje todos los campos de la tabla libros de la base de datos y lo ordena por el campo titulo
     public function getBo_libros()
     {
@@ -13,15 +21,15 @@ class Libros_model extends CI_Model{
     }
     public function get_AutoresNombre($search)
     {
-       
-       
+        
+        
         return  R::getAll('SELECT * FROM libros WHERE autor LIKE :autor  OR titulo LIKE :titulo OR genero_literario LIKE :genero',
-        array(':autor' => '%'.$search.'%' ,':titulo' => '%'.$search.'%' ,':genero' => '%'.$search.'%' )
-      );
+            array(':autor' => '%'.$search.'%' ,':titulo' => '%'.$search.'%' ,':genero' => '%'.$search.'%' )
+            );
         
     }
     // esta funcion una vez ha recibido por el campo genero del controlador libros.php linea 52
-    // realiza una busqueda y genera un codigo html que mostrara esta funcion se realiza por ajax 
+    // realiza una busqueda y genera un codigo html que mostrara esta funcion se realiza por ajax
     // esta funcion esta en head.php linea 40 dentro de la carpeta _templates
     public  function filtro($genero){
         
@@ -41,11 +49,11 @@ class Libros_model extends CI_Model{
         if (mysqli_num_rows($datos) > 0){
             echo "<div id='tabla'>";
             
-            echo"<table  class='table table-dark' border=1>";
-            echo"<tr style='text-align:center'>";
+            echo"<table  class='table' border=1>";
+            echo"<tr class='tablas'>";
             echo"<th>Nombre</th><th>Titulo</th><th>Genero literario</th><th>Año edicion</th><th>Editorial</th><th>Autor</th><th>Ejemplares</th>";
             while($row = mysqli_fetch_assoc($datos)){
-                echo"<tr>";
+                echo"<tr class='tablas1'>";
                 echo "<td style='vertical-align: middle;text-align:center'>";
                 echo $row["autor"]."</td>";
                 echo "<td style='vertical-align: middle;text-align:center'>".$row["titulo"]."</td>";
@@ -69,20 +77,20 @@ class Libros_model extends CI_Model{
     
     
     
- 
+    
     
     
     //recibe las variables del controlador  libros.php linea 97
-    public function  insertarlibros($titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto)
+    public function  insertarlibros($titulo,$fechalibro,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto)
     
     {
-          // esta sesion ha sido creada para ala hora de mostrar la vista  mostrarlibrosinsercion.php se cambie el color
-          // cuando se inserte y se pueda comparar con el propio titulo y en caso  de que sean igueles cambie el color
-       
-            $_SESSION['idcolorinsercion'] =$titulo;
+        // esta sesion ha sido creada para ala hora de mostrar la vista  mostrarlibrosinsercion.php se cambie el color
+        // cuando se inserte y se pueda comparar con el propio titulo y en caso  de que sean igueles cambie el color
         
-          
-            ////busca en la tabla libros los campos donde el titulo sea igual al campo que reciba del controlador  si no encuentra nada devuelve null
+        $_SESSION['idcolorinsercion'] =$titulo;
+        
+        
+        ////busca en la tabla libros los campos donde el titulo sea igual al campo que reciba del controlador  si no encuentra nada devuelve null
         $libros = R::findOne('libros', 'titulo=?', [
             $titulo
         ]);
@@ -90,29 +98,29 @@ class Libros_model extends CI_Model{
         $autores = R::findOne('autores', 'nombre_autor=?', [
             $autor
         ]);
-   
+        
         // ok es igual a true siempre y cuando libros sea distinto de null
         
-       $ok = ($libros == null );
+        $ok = ($libros == null );
         if ($ok) {
-           
-          // se crea la tabla libros
+            
+            // se crea la tabla libros
             $libros = R::dispense('libros');
             //se crean los campos de la tabla libros
             $libros->titulo=$titulo;
-            $libros->autor=$autor;   
+            $libros->autor=$autor;
             $libros->genero_literario=$genero_literario;
-            $libros->ano_edicion=$ano;
+            $libros->ano_edicion=$fechalibro;
             $libros->editorial=$editorial;
             $libros->ejemplares=$ejemplares;
             $libros->descricion=$descricion;
             //verifico si las fotos exiten en el directorio assets/fotoslibros
             $sustitutuirespaciosblancos = str_replace(" ","_",$titulo);
             $directorio = "assets/fotoslibros/".$sustitutuirespaciosblancos.".png";
-           
+            
             $existefichero = is_file( $directorio );
             //si la foto exite se guarda en la base de datos se guarda el campo extension como png si la foto no exite se guarda como null
-           if($foto!=null){
+            if($foto!=null){
                 
                 if ( $existefichero==true ){
                     $extension="png";
@@ -126,28 +134,28 @@ class Libros_model extends CI_Model{
                     
                 }}
                 $libros->foto = $extension;
-                 
-      
-            // se almacenan los datos en la tabla libros de la base de datos
-            R::store($libros);
-            //si el autor  no exite en la tabla autor autor en caso de exita no hace nada
-            if($autores->nombre_autor!=$libros->autor){
-                // se crea la tabla autores
-                $autores = R::dispense('autores');
-                $autores->nombre_autor=$autor;
                 
-                R::store($autores);
-            }
-           
-         
-            //rdirege al controlador libros/mostrar
-         
-            redirect(base_url()."libro/libros/mostrar");
-          
-            
-            
-           
-           
+                
+                // se almacenan los datos en la tabla libros de la base de datos
+                R::store($libros);
+                //si el autor  no exite en la tabla autor autor en caso de exita no hace nada
+                if($autores->nombre_autor!=$libros->autor){
+                    // se crea la tabla autores
+                    $autores = R::dispense('autores');
+                    $autores->nombre_autor=$autor;
+                    
+                    R::store($autores);
+                }
+                
+                
+                //rdirege al controlador libros/mostrar
+                
+                redirect(base_url()."libro/libros/mostrar");
+                
+                
+                
+                
+                
         }else{
             redirect(base_url()."/errorcamporepitidos/errorlibro");
         }
@@ -160,43 +168,43 @@ class Libros_model extends CI_Model{
         redirect(base_url()."libro/Libros/mostrar_libros");
         
     }
-   
-    //esta funcion recoje todos los campos genero_literario de la tabla libros 
+    
+    //esta funcion recoje todos los campos genero_literario de la tabla libros
     // y los añade a una array para luego poder usarlo en el controlador libros.php
     public function getBo_categoria()
     
-    { 
+    {
         //se crea una array vacia
         $generos=[];
-        // me conecto ala base de datos 
-    $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
-    // verifico que todo ha ido bien
-    if (mysqli_connect_errno()) {
-        printf("Conexion fallida: %s\n", mysqli_connect_error());
-        exit();
-    }
-    //busco en la tabla libros todos los generos_literaios y los recojo pero en este caso se descartar los campos repetidos
-    $consulta= "SELECT DISTINCT(genero_literario) FROM libros
+        // me conecto ala base de datos
+        $conexion = mysqli_connect("localhost", "root", "", "autores_y_libros");
+        // verifico que todo ha ido bien
+        if (mysqli_connect_errno()) {
+            printf("Conexion fallida: %s\n", mysqli_connect_error());
+            exit();
+        }
+        //busco en la tabla libros todos los generos_literaios y los recojo pero en este caso se descartar los campos repetidos
+        $consulta= "SELECT DISTINCT(genero_literario) FROM libros
         ";
-    $datos= mysqli_query($conexion, $consulta);
-    $row = mysqli_fetch_assoc($datos);
-    while($row = mysqli_fetch_assoc($datos)){
-        $row["genero_literario"];
-        array_push($generos, $row["genero_literario"]);
-    }
-    
-    return $generos;
-    
+        $datos= mysqli_query($conexion, $consulta);
+        $row = mysqli_fetch_assoc($datos);
+        while($row = mysqli_fetch_assoc($datos)){
+            $row["genero_literario"];
+            array_push($generos, $row["genero_literario"]);
+        }
+        
+        return $generos;
+        
     }
     //recibe las variables del controlador  libros.php linea 97
-    public function  actualizarlibros($id,$titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto)
+    public function  actualizarlibros($id,$titulo,$fechalibro,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto)
     
     {
         //busca en la tabla libros los campos donde el titulo sea igual al campo que reciba del controlador  si no encuentra nada devuelve null
         $libros = R::findOne('libros', 'titulo=?', [
             $titulo
         ]);
-   
+        
         
         
         
@@ -206,7 +214,7 @@ class Libros_model extends CI_Model{
         $libros->titulo=$titulo;
         $libros->autor=$autor;
         $libros->genero_literario=$genero_literario;
-        $libros->ano_edicion=$ano;
+        $libros->ano_edicion=$fechalibro;
         $libros->editorial=$editorial;
         $libros->ejemplares=$ejemplares;
         $libros->descricion=$descricion;
@@ -230,64 +238,66 @@ class Libros_model extends CI_Model{
                 
             }}
             $libros->foto = $extension;
-     
-        
-        
-        //almaceno lo datos en la tabla libros
-        R::store($libros);
-        
-        
-        //rdirege al controlador libros/mostraractualizacion
-        
-        redirect(base_url()."libro/Libros/mostraractualizacion");
-        
+            
+            
+            
+            //almaceno lo datos en la tabla libros
+            R::store($libros);
+            
+            
+            //rdirege al controlador libros/mostraractualizacion
+            
+            redirect(base_url()."libro/Libros/mostraractualizacion");
+            
     }
-        
-        
-        
-        
-     // recibe las variables del controlador libros.php linea 275   
-      // esta funcion lo que hace es qeu cuando se pulse sobre el boton
-      // reste una unidad a los ejempleres del libro
-      // y crea una nueva tabla llamada reservas
+    
+    
+    
+    
+    // recibe las variables del controlador libros.php linea 275
+    // esta funcion lo que hace es qeu cuando se pulse sobre el boton
+    // reste una unidad a los ejempleres del libro
+    // y crea una nueva tabla llamada reservas
     public function  reservalibros($id_usuario,$id,$cantidad,$titulo)
     
     {  // busca todos los campos de la tabla reservas por el campo libros_id cuyo id es el que recibe del controlador
-      $reservado = R::findOne('reservas', 'libros_id=?', [
-          $id
-     ]);
-       
+        $reservado = R::findOne('reservas', 'libros_id=?', [
+            $id
+        ]);
+        
         // ok es igual a true siempre y cuando reservas sea distinto de null
-   
-     $ok = ($reservado == null  );
+        
+        $ok = ($reservado == null  );
         if ($ok) {
             //creo la tabla reservas
             $reservas = R::dispense('reservas');
             //busco el id del usuario para luego poder relacionarlo
             $usuario = R::load('usuarios', $id_usuario);
             //busco el id del libro para luego poder relacionarlo
-              $libros= R::load('libros', $id);
+            $libros= R::load('libros', $id);
             // creo un campo en el que se relaciona el id de usario con la tabla reservas
-            $reservas->reserva=$usuario;
+            $reservas->usuario=$usuario;
             //creo un campo en el que se relaciona el id de libro con la tabla reservas
             $reservas->libros=$libros;
-                    // recoje la fecha del sistema
+            // recoje la fecha del sistema
             $reservas->fecha=date('Y-m-d');
             //almaceno los datos en la tabla reservas de la base de datos
+            $reservas->estado=0;
+            $reservas->fecha_limite=date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 5, date('Y')));
             R::store($reservas);
             //se resta la cantidad de ejemplares
             $libros->ejemplares=$cantidad-1;
-            // almceno los datos en la tabla libros 
+            // almceno los datos en la tabla libros
             R::store($libros);
-           
+            
             //-------------------------------------------//
             
         }
         //erdirege al controlador libros/mostrarlibrosusuarios
         //---------------------------------------------//
         //dias sumados descartaria fines de semana
-      
-    redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
+        
+        redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
         
         
         
@@ -347,62 +357,94 @@ class Libros_model extends CI_Model{
     }
     
     public function  anulacion($id){
-       
+        
         $reservado = R::findOne('reservas', 'libros_id=?', [
             $id
         ]);
         
         
+        
         // ok es igual a true siempre y cuando reservas sea distinto de null
         $ok = ($reservado!= null  );
         if ($ok) {
-        if($reservado->confirmacion=="no"){
-       
-        if ($ok) {
-           //descarta fines de semana
-            $sumarDias=2;
-           
-            //fecha de la reserva
-            $datestart= strtotime(date($reservado->fecha));
-            $datesuma = 15 * 86400;
-            $diasemana = date('N',$datestart);
-            $totaldias = $diasemana+$sumarDias;
-            $findesemana = intval( $totaldias/5) *2 ;
-            $diasabado = $totaldias % 5 ;
-            if ($diasabado==6) $findesemana++;
-            if ($diasabado==0) $findesemana=$findesemana-2;
-            
-            $total = (($sumarDias+$findesemana) * 86400)+$datestart ;
-            $fechafinal = date('Y-m-d', $total);
-          
-            
-            $fecha_actual = strtotime(date("Y-m-d"));
-            $fecha_entrada = strtotime($fechafinal);
-          
-           
-            //se cuneta aptr del dia siguente es decir si se reserva un dia 19 la reserva se anula el dia 22
-           if($fecha_actual >$fecha_entrada){
-            
-                R::trash(R::load('reservas',$reservado->id));
+            if($reservado->confirmacion=="no"){
                 
-            }    
-            
-        
-           
-    
-        }}}}
-public function  confirmar($id, $confimacion){
-
-$reservas= R::findOne('reservas', 'libros_id=?', [
-        $id
-    ]);
-
-    $reservas = R::load('reservas',$reservas->id);
-    $reservas->confirmacion=$confimacion;
-    R::store($reservas);
-    redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
+                if ($ok) {
+                    //descarta fines de semana
+                    $sumarDias=2;
+                    
+                    //fecha de la reserva
+                    $datestart= strtotime(date($reservado->fecha));
+                    $datesuma = 15 * 86400;
+                    $diasemana = date('N',$datestart);
+                    $totaldias = $diasemana+$sumarDias;
+                    $findesemana = intval( $totaldias/5) *2 ;
+                    $diasabado = $totaldias % 5 ;
+                    if ($diasabado==6) $findesemana++;
+                    if ($diasabado==0) $findesemana=$findesemana-2;
+                    
+                    $total = (($sumarDias+$findesemana) * 86400)+$datestart ;
+                    $fechafinal = date('Y-m-d', $total);
+                    
+                    
+                    $fecha_actual = strtotime(date("Y-m-d"));
+                    $fecha_entrada = strtotime($fechafinal);
+                    
+                    
+                    //se cuneta aptr del dia siguente es decir si se reserva un dia 19 la reserva se anula el dia 22
+                    if($fecha_actual >$fecha_entrada){
+                        
+                        R::trash(R::load('reservas',$reservado->id));
+                        
+                    }
+                    
+                    
+                    
+                    
+                }}}}
+                public function reservaId($id_reserva,$estado){
+                    $reserva= R::findOne('reservas', 'id=?', [ $id_reserva]);
+                    if($estado==1){
+                        $reserva->fecha_limite=date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 15, date('Y')));
+                        $reserva->estado=$estado;
+                    }
+                    if($estado==3){
+                        $reserva->estado=$estado;
+                    }
+                    R::store($reserva);
+                }
+                public function fueraFecha(){
+                    $reservas=R::findAll('reservas','estado=1');
+                    
+                    foreach($reservas as $reserva){
+                        
+                        $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
+                        $fecha_entrada = $reserva->fecha_limite;
+                        
+                        if($fecha_actual > $fecha_entrada)
+                        {
+                            $mod=R::findOne('reservas','id=?',[$reserva->id]);
+                            $mod->estado='2';
+                            R::store($mod);
+                        }
+                    }
+                }
+                
+                
+                
+                
+                public function  confirmar($id, $confimacion){
+                    
+                    $reservas= R::findOne('reservas', 'libros_id=?', [
+                        $id
+                    ]);
+                    
+                    $reservas = R::load('reservas',$reservas->id);
+                    $reservas->confirmacion=$confimacion;
+                    R::store($reservas);
+                    redirect(base_url()."libro/Libros/mostrarlibrosusuarios");
+                }
+                
 }
-
-    }
 
 ?>

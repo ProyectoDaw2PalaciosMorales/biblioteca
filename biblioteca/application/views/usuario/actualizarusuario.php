@@ -80,22 +80,25 @@
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
                             <!-- TextBox - Correo -->
-                             <input type="hidden" name="id" value="<?=$usuario ->id?>">
+                             <input type="hidden" id="nombre" name="id" value="<?=$usuario ->id?>">
                             <input type="text" name="nombre" class="form-control" value="<?=$usuario ->nombre?>" required>
+                            <span id="nom"></span>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="primer_apellido" class="form-control" value="<?=$usuario -> primer_apellido?>" required>
+                            <input type="text" id="primer_apellido" name="primer_apellido" class="form-control" value="<?=$usuario -> primer_apellido?>" required>
+                              <span id="primer"></span>
                         </div>
                       <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="segundo_apellido" class="form-control" value="<?=$usuario -> segundo_apellido?>" required>
+                            <input type="text" id="segundo_apellido" name="segundo_apellido" class="form-control" value="<?=$usuario -> segundo_apellido?>" required>
+                              <span id="segundo"></span>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
@@ -103,9 +106,10 @@
                             </div>
                             <!-- TextBox - Contraseña -->
                             <?php $fecha=explode("/", $usuario ->fecha_nacimiento);?>
-                           <input style="width:100px; " type="number" name="ano" value="<?=$fecha[0]?>" required><span class="text-white"> /</span>
-                             <input style="width:100px; " type="number" name="mes" value="<?=$fecha[1]?>" required><span class="text-white"> /</span>
-                              <input style="width:100px; " type="number" name="dia" value="<?=$fecha[2]?>" required>
+                           <input style="width:100px; " type="number" id="ano" name="ano" value="<?=$fecha[0]?>" required><span class="text-white"> /</span>
+                             <input style="width:100px; " type="number" id="mes" name="mes" value="<?=$fecha[1]?>" required><span class="text-white"> /</span>
+                              <input style="width:100px; " type="number" id="dia" name="dia" value="<?=$fecha[2]?>" required>
+                                <span id="fe1"></span>  <span id="fe2"></span>  <span id="fe3"></span>
                         </div>
                         
                     
@@ -114,35 +118,26 @@
                                 <span class="input-group-text"><i class="fa fa-envelope" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="email" name="email" class="form-control" value="<?=$usuario ->email?>" required>
+                            <input type="email" id="email" name="email" class="form-control" value="<?=$usuario ->email?>" required>
+                              <span id="em"></span>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-tty" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="telefono" class="form-control " value="<?=$usuario ->telefono?>" required>
+                            <input type="text" id="telefono" name="telefono" class="form-control " value="<?=$usuario ->telefono?>" required>
+                              <span id="tlf"></span>
                         </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend" style="background-color: #00BDF7">
-                                <span class="input-group-text"><i class="fa fa-key" ></i></span>
-                            </div>
-                            <!-- TextBox - Contraseña -->
-                            <input type="password" name="password" class="form-control" value="" required>
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend" style="background-color: #00BDF7">
-                                <span class="input-group-text"><i class="fa fa-key" ></i></span>
-                            </div>
-                            <!-- TextBox - Contraseña -->
-                            <input type="password" name="comprobacion" class="form-control" value="" required>
-                        </div>
+                        
+                            
                         <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                            <input type="text" name="alias" class="form-control" value="<?=$usuario ->alias?>" required>
+                            <input type="text" id="alias" name="alias" class="form-control" value="<?=$usuario ->alias?>" required>
+                              <span id="ali"></span>
                         </div>
                         <p class="textoFoto">Foto antigua</p> 
         			  <?php 
@@ -160,11 +155,14 @@
 		<input class="text-white"  id="idp-fo" type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
-                            <input type="submit" value="Actualizar" class="boton_actualizar float-right login_btn">
+                         <input type="submit" onclick="actualizar();" value="Actualizar" class="boton_actualizar float-right login_btn">
                         </div>
                     </form>
                     <!-- FORMULARIO -->
                 </div>
-                
+              
             </div>
-    </body>
+           <div class="row boton_atras">
+           <button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>usuario/Usuarios/perfil_usuario'"> Volver</button>
+           </div>
+          

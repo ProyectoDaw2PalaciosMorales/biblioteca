@@ -77,14 +77,14 @@ class Comentarios extends CI_Controller {
             
             $id =  isset($_POST['id_coment']) ? $_POST['id_coment'] : null;
             $comentario =  isset($_POST['comentario']) ? $_POST['comentario'] : null;
-            
+            $id_libro =  isset($_POST['id_libro']) ? $_POST['id_libro'] : null;
           // se carga el modelo usuarios_model
             $this->load->model('In_comentarios');
             
             
             
               
-            $this->In_comentarios->editar($id,$comentario);
+            $this->In_comentarios->editar($id,$comentario,$id_libro);
             
            
             }else{ $this->load->view('errorurl');}}
@@ -107,10 +107,10 @@ class Comentarios extends CI_Controller {
                 // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
                     
                     $id =  isset($_POST['id_coment']) ? $_POST['id_coment'] : null;
-                   
+                    $id_libro =  isset($_POST['id_libro']) ? $_POST['id_libro'] : null;
                     $this->load->model('In_comentarios');
                     // se carga la funcion borrar linea 210 del modelo_usuraio.php 
-                    $this->In_comentarios->borrar($id);
+                    $this->In_comentarios->borrar($id,$id_libro);
                    
                 }else{ $this->load->view('errorurl');}}    
 }

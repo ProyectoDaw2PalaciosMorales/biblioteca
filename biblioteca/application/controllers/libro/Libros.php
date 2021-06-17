@@ -17,6 +17,44 @@ class Libros extends CI_Controller {
         frame($this,'libro/mostrardatoslibro',$datos);
         }  
         
+        public function panel_reservas(){   //inicio sesion
+            session_start();
+            //no se permte el accseo desde la url sin estar registrado
+            if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+                // se carga la vista Reservas.php
+                //En esta vista se podrá cambiar el estado de la reserva.
+                $this->load->model('Libros_model');
+                $this->load->model('Usuarios_model');
+                $datos['libros']=$this->Libros_model->getBo_libros();
+                $datos['reservas']=$this->Libros_model->mostrarboton();
+                $datos['usuarios']=$this->Usuarios_model->getUsuarios();
+                frame($this,'libro/Reservas',$datos);}
+                
+                else{ $this->load->view('errorurl');}
+                
+        }
+        public function actualizarEstado()
+        {   //inicio sesion
+            session_start();
+            //no se permte el accseo desde la url sin estar registrado
+            if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+                // se carga la vista Reservas.php
+                //En esta vista se podrá cambiar el estado de la reserva.
+                $id_reserva=  isset($_POST['id']) ? $_POST['id'] : null;;
+                $estado=  isset($_POST['estado']) ? $_POST['estado'] : null;
+                
+                
+                $this->load->model('Libros_model');
+                $this->load->model('Usuarios_model');
+                $datos['reserva']=$this->Libros_model->reservaId( $id_reserva,$estado);
+                $datos['libros']=$this->Libros_model->getBo_libros();
+                $datos['reservas']=$this->Libros_model->mostrarboton();
+                $datos['usuarios']=$this->Usuarios_model->getUsuarios();
+                frame($this,'libro/Reservas',$datos);}
+                
+                else{ $this->load->view('errorurl');}
+                
+        }
         // cuando se pincha sobre el boton "mostrar libros" de la vista bienvenidos.php
     public function mostrarlibrosusuarios()
     
@@ -99,6 +137,10 @@ class Libros extends CI_Controller {
             // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
             $titulo =  isset($_POST['titulo']) ? $_POST['titulo'] : null;
             $ano =  isset($_POST['ano']) ? $_POST['ano'] : null;
+            $mes =  isset($_POST['mes']) ? $_POST['mes'] : null;
+            $dia =  isset($_POST['dia']) ? $_POST['dia'] : null;
+            $fechalibro=$ano."-".$mes."-".$dia;
+           
             $editorial =  isset($_POST['editorial']) ? $_POST['editorial'] : null;
             $autor =  isset($_POST['autor']) ? $_POST['autor'] : null;
             $ejemplares =  isset($_POST['ejemplares']) ? $_POST['ejemplares'] : null;
@@ -116,7 +158,7 @@ class Libros extends CI_Controller {
             //se carga el modelo Libros_model
             $this->load->model('Libros_model');
             //se carga la funcion insertarlibros 62 del modelo Libros_model
-         $this->Libros_model-> insertarlibros($titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto);
+         $this->Libros_model-> insertarlibros($titulo,$fechalibro,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto);
            
         }
         else{ $this->load->view('errorurl');}
@@ -192,6 +234,9 @@ class Libros extends CI_Controller {
             $id =  isset($_POST['id']) ? $_POST['id'] : null;
             $titulo =  isset($_POST['titulo']) ? $_POST['titulo'] : null;
             $ano =  isset($_POST['ano']) ? $_POST['ano'] : null;
+            $mes =  isset($_POST['mes']) ? $_POST['mes'] : null;
+            $dia =  isset($_POST['dia']) ? $_POST['dia'] : null;
+            $fechalibro=$ano."-".$mes."-".$dia;
             $editorial =  isset($_POST['editorial']) ? $_POST['editorial'] : null;
             $autor =  isset($_POST['autor']) ? $_POST['autor'] : null;
             $ejemplares =  isset($_POST['ejemplares']) ? $_POST['ejemplares'] : null;
@@ -216,7 +261,7 @@ class Libros extends CI_Controller {
                $_SESSION['idcolor'] =$id;
            }
            // se carga la funcion actualizarlibros linea 180 del model libros_model.php
-           $this->Libros_model-> actualizarlibros($id,$titulo,$ano,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto);}
+           $this->Libros_model-> actualizarlibros($id,$titulo,$fechalibro,$editorial,$autor,$ejemplares,$genero_literario,$descricion,$foto);}
             else{ $this->load->view('errorurl');
         }
        

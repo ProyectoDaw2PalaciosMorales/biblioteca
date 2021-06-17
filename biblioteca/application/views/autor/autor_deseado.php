@@ -1,7 +1,8 @@
 
-
+<body>
+<div class="cubo"> 
   
-         <h1 align="center">Autor deseado</h1>
+         <h1  class="encabezado">Autor deseado</h1>
         <form  method="post">           
             
             <label for="autor">Autor:</label>
@@ -16,8 +17,11 @@
       
        
        
-        <br><br><br>
+        
        
-    <a href="<?=base_url()?>">Home</a>
+   
+    <button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>usuario/Usuarios/Bienvenidos_x'"> Volver</button>
 
 
+</div>
+</body>

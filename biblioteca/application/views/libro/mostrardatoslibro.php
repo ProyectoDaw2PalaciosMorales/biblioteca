@@ -1,6 +1,8 @@
+
+
 <body style=" font-family: 'open sans';overflow-x: hidden;">
 	<div class="container">
-		<div class="card" style=" margin-top: 50px;background: #eee; padding: 3em;line-height: 1.5em;">
+		<div class="card datos_libro" style=" margin-top: 85px;background: #eee; padding: 3em;line-height: 1.5em;">
 			<div class="container-fliud">
 				<div class="row" style="display: flex;">
 					<div class="col-sm" style=" flex-grow: 1;  overflow: hidden;">
@@ -12,8 +14,8 @@
                       	<?php endif;?>	  
 					</div>
 
-					<div class=" col-sm">
-              			<h3 class="product-title" style="text-transform: UPPERCASE; font-weight: bold;  margin-bottom: 15px;  margin-top: 0;"><?=$libro -> titulo?> ,  <?=$libro -> autor?></h3>
+					<div class=" col-sm titulo_libro">
+              			<h4 class="product-title" style="text-transform: CAPITALICE; font-weight: bold;  margin-bottom: 15px;  margin-top: 0;"><?=$libro -> titulo?> ,  <?=$libro -> autor?></h4>
               			<p style="margin-bottom: 15px;"> <?=$libro -> descricion?></p>
 						<form action="<?=base_url()?>libro/Libros/reserva" method="post">
 							<input type="hidden" name="id" value="<?=$libro->id?>">
@@ -27,7 +29,7 @@
 							
 						  	<?php if (isset( $_SESSION['nombre'])!=null):?>  
 						  
-							<button class="btn btn-primary" onclick="submit()">Reserva</button>	
+							<button class="boton3" onclick="submit()">Reserva</button>	
 							<?php  else:?>
 							<?php endif;?>
 						</form>
@@ -38,9 +40,9 @@
 											<textarea placeholder="¿Qué te ha parecido este libro?" name="comentarios"></textarea>
 											<input type="hidden" name="id" value="<?=$_SESSION['idusuario']?>">
 										
-											<input type="hidden" name="id_libro" value="<?=$libro->id?>">
+											<input type="hidden" name="id_libro" value="<?=$libro->id?>"required>
 											<br>
-											<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+											<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Publicar</button>
 										</form>
 									</div><!-- Status Upload  -->
 							</div><!-- Widget Area -->
@@ -68,10 +70,25 @@
 							  <p class="float-right"><small><?=$coment->fecha?></small></p>
 							  <br>
                               <?=$coment->comentario?>
-                              <?php if ($coment->usuario_id==$usuario->id):?>
-							 <?php if((isset( $_SESSION['nombre'])!=null)==($usuario->nombre)):?>
-                              <form method="POST" action="<?=base_url()?>comentario/Comentarios/editar"><input type="text" hidden name="id_coment" value="<?=$coment->id?>"><button class="btn btn-info">Editar</button></form><form method="POST" action="<?=base_url()?>comentario/Comentarios/borrar"><input type="text" hidden name="id_coment" value="<?=$coment->id?>"><button class="btn btn-danger">Eliminar</button></form>
-								<?php endif;endif;?>
+							  <!--
+                             <?php if ($coment->usuario_id==$usuario->id):?>
+
+                             <?php if((isset( $_SESSION['nombre'])!=null)==($usuario->nombre)):?>
+
+                              <form method="POST" action="<?=base_url()?>comentario/Comentarios/editar">
+                              
+                              <input type="text" hidden name="id_coment" value="<?=$coment->id?>">
+                              <input type="text" hidden name="id_libro" value="<?=$libro->id?>">
+                              <button class="btn btn-info">Editar</button>
+                              </form>
+                              <form method="POST" action="<?=base_url()?>comentario/Comentarios/borrar">
+                              
+                              <input type="text" hidden name="id_coment" value="<?=$coment->id?>">
+                              <input type="text" hidden name="id_libro" value="<?=$libro->id?>">
+                              <button class="btn btn-danger">Eliminar</button>
+                              </form>
+
+                                <?php endif;endif;?>-->
 							</div>
                           </div>
               <?php endif;?>
@@ -87,5 +104,8 @@
 		</div>
 	</div>
 </body>
-<button type="button" class="btn btn-dark" onclick="window.location.href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'"> Volver</button>
+<form class="form-inline" method="post" action="<?=base_url()?>Home/searcher">
+      <input type="hidden"   placeholder="buscar" name="search" value="<?=$libro['genero_literario']?>">
+    <button type="submit" class="volver">Volver</button>
+    </form>
  

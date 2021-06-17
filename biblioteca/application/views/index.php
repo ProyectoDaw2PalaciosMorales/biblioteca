@@ -1,45 +1,45 @@
 
 
 
-<div class="row linea " style="height:500px;">
+<div class="row linea " style="height:500px;width:100%;">
 	<div class="card boton_generos col-8" style="width:80%;">
 		
 			<h2 class="titulo text-center">Nuestro catálogo:</h2>
 			<form action="<?=base_url()?>Home/searcher" method="POST">
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton col m-1" value="Estilo de vida" name="search">Estilo de vida</button><button class="boton1 col m-1" value="Novela contemporania" name="search">Novela contemporanea</button>
-				<button class="boton col m-1" value="Historia" name="search">Historia</button><button class="boton1 col m-1" value="Juvenil" name="search">Juvenil</button>
+				<button class="boton col m-3" value="Estilo de vida" name="search">Estilo de vida</button><button class="boton1 col m-3" value="Novela contemporania" name="search">Novela contemporanea</button>
+				<button class="boton col m-3" value="Historia" name="search">Historia</button><button class="boton1 col m-3" value="Juvenil" name="search">Juvenil</button>
 				
 			</div>
 			<div class="row " style="display: flex; justify-content: space-around; width:100%;">
-				<button class=" boton col  m-1" value="Ciencia Ficcion" name="search">Ciencia Ficción</button><button class="boton1 col  m-1" value="Infantil" name="search">Infantil</button>
-				<button class=" boton col  m-1" value="Novela romantica" name="search">Novela romántica</button><button class="boton1 col m-1" value="Comic y manga" name="search">Comics</button>
+				<button class=" boton col  m-3" value="Ciencia Ficcion" name="search">Ciencia Ficción</button><button class="boton1 col  m-3" value="Infantil" name="search">Infantil</button>
+				<button class=" boton col  m-3" value="Novela romantica" name="search">Novela romántica</button><button class="boton1 col m-3" value="Comic y manga" name="search">Comics</button>
 				
 			</div>
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton1 col m-1" value="Historia de la musica" name="search">Historia de la música</button><button class="boton col m-1" value="Humor" name="search">Humor</button>
-				<button class="boton1 col m-1" value="Filosofia" name="search">Filosofía</button><button class="boton col m-1" value="Empresa" name="search">Empresa</button>
+				<button class="boton1 col m-3" value="Historia de la musica" name="search">Historia de la música</button><button class="boton col m-3" value="Humor" name="search">Humor</button>
+				<button class="boton1 col m-3" value="Filosofia" name="search">Filosofía</button><button class="boton col m-3" value="Empresa" name="search">Empresa</button>
 				
 			</div>
 			
 			
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
-				<button class="boton1 col m-1" name="search" value="Periodístico">Periodístico</button><button class="boton col m-1" name="search" value="Novela">Novela</button>
-				<button class="boton1 col m-1" name="search" value="Novela picaresca">Novela picaresca</button><button class="boton col m-1" name="search" value="Poética actual">Poética actual</button>
+				<button class="boton1 col m-3" name="search" value="Periodístico">Periodístico</button><button class="boton col m-3" name="search" value="Novela">Novela</button>
+				<button class="boton1 col m-3" name="search" value="Novela picaresca">Novela picaresca</button><button class="boton col m-3" name="search" value="Poética actual">Poética actual</button>
 				
 			</div>
 			
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
 			
-				<button class="boton col m-1" value="narrativa" name="search">Narrativa</button><button class="boton1 col m-1" value="Novela urbana" name="search">Novela urbana</button>
-				<button class=" boton col  m-1" value="Novela negra" name="search">Novela negra</button><button class="boton1 col m-1" value="Fantasia" name="search">Fantasía</button>
+				<button class="boton col m-3" value="narrativa" name="search">Narrativa</button><button class="boton1 col m-3" value="Novela urbana" name="search">Novela urbana</button>
+				<button class=" boton col  m-3" value="Novela negra" name="search">Novela negra</button><button class="boton1 col m-3" value="Fantasia" name="search">Fantasía</button>
 			</div>
 			<div class="row" style="display: flex; justify-content: space-around; width:100%;">
 			
-			<button class="boton col m-1" value="poesia" name="search">Poesía</button><button class="boton1 col m-1" value="Autoayuda" name="search">Autoayuda</button>
-			<button class="boton col m-1" value="Para padres" name="search">Para padres</button><button class="boton1 col m-1" value="Novela Literaria" name="search">Novela literaria</button>
+			<button class="boton col m-3" value="poesia" name="search">Poesía</button><button class="boton1 col m-3" value="Autoayuda" name="search">Autoayuda</button>
+			<button class="boton col m-3" value="Para padres" name="search">Para padres</button><button class="boton1 col m-3" value="Novela Literaria" name="search">Novela literaria</button>
 			</div>
 			</form>
 	</div>
@@ -48,17 +48,25 @@
 		
 			
 		<div class="calendar mt-4" data-color="normal" >
-		<div data-role="day" data-day="<?php echo date("Ynd",mktime(0,0,0,date("m"),date("d")+1,date("Y"))); ?>">
-		<div data-role="event" data-name="Soy un evento que siempre saldr&eacute; ma&ntilde;ana" data-start="9.00" data-end="9.30" data-location="martiniglesias.eu">
+			<div data-role="day" data-day="<?php echo date("Ynd",mktime(0,0,0,date("m"),date("d"),date("Y"))); ?>">
+				<div data-role="event" data-name="Talller cuenta-cuentos" data-start="17.00" data-end="18.30" data-location="Sala infantil">
+				</div>
+			</div>
+			<div data-role="day" data-day="<?php echo date("Ynd",mktime(0,0,0,date("m"),date("d")+7,date("Y"))); ?>">
+				<div data-role="event" data-name="Talller cuenta-cuentos" data-start="17.00" data-end="18.30" data-location="Sala infantil">
+				</div>
+			</div>
+			<div data-role="day" data-day="<?php echo date("Ynd",mktime(0,0,0,date("m"),date("d")+14,date("Y"))); ?>">
+				<div data-role="event" data-name="Talller cuenta-cuentos" data-start="17.00" data-end="18.30" data-location="Sala infantil">
+				</div>
+			</div>
 		</div>
-		</div>
-	</div>
 	</div>
 	
 	
 	
 </div>
-<div class="row linea2 m-3 mt-5" style="height:500px;">
+<div class="row linea2 m-3 mt-5" style="height:500px;width:95%;">
 
 	<div class="col-sm m-1" style="width:80%; margin-top:15px;">
 		
@@ -71,7 +79,7 @@
 				</figure>
 			</div>
 		
-			<div class="col-8 mx-auto mt-3 m1" style="height: 350px;">
+			<div class="col-8 mx-auto mt-3 m1" style="height: 350px">
 				<p>Para unos estudiosos, ésta nació en Mesopotamia; para otros, apareció en varios pueblos al mismo tiempo. ¿Quién lleva razón?</p>
 		
 				<p>Ocurrió hace 5.500 años, al sur de Irak. Un contable, para controlar las ovejas que salían con cada pastor, introducía bolitas y conos de diferentes tamaños –calculi–
@@ -84,8 +92,15 @@
  				<p>Esta teoría, la más veraz hasta el momento, surge a raíz del hallazgo, entre 1920 y 1930, en la antigua ciudad de Ur, de los restos arqueológicos más viejos en esta materia:
  		 		unas tablillas de escritura cuneiforme -de cuneus,’cuña’ en latín-. Pero las raíces de este descubrimiento, como las de otros que revolucionaron nuestra historia,
  		  		como el dominio del fuego o la agricultura, se hunden en un pasado remoto.</p>
- 		  
- 		  	<a href="https://www.xlsemanal.com/conocer/historia/20170810/historia-origen-escritura.html" target="_blank">Más información...</a>
+ 		  		
+ 		  		
+ 		  		<div class="boton_docu mt-3">
+ 		  		
+ 		  			<button><a href="https://www.xlsemanal.com/conocer/historia/20170810/historia-origen-escritura.html" target="_blank">Más información...</a></button>
+ 		  	
+ 		  			<button><i class="corre fa fa-play" aria-hidden="true"></i>
+ 		  			<a href="https://www.youtube.com/watch?v=1N_RNtdhBBI" target="_blank">Documental</a></button>
+ 		  		</div> 
 		   </div>
 	
 	
@@ -96,14 +111,14 @@
  
  
  
- <div class="row mapa  m-3 mt-5 mb-5" style="height:500px; width:100%; display:flex;justify-content:center; ">
+ <div class="row mapa  m-3 mt-5 mb-5" style="height:500px; display:flex;justify-content:center; ">
  
  
  
  
  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1278.4405110018042!2d-3.5271329995765837!3d40.349863301062506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd423b91835b1ae1%3A0x57a425b84f8528a1!2sCalle%20Jovellanos%2C%2030%2C%2028521%20Rivas-Vaciamadrid%2C%20Madrid!5e0!3m2!1ses!2ses!4v1622571104537!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
  
- <a href="https://goo.gl/maps/rd7MzR54UsJrkhhm7" class="mt-4 boton_mapa" style="background-color:#00a3d1; color:white;width:200px;text-align:center;padding:15px;">Ver en Google maps</a>
+ <a href="https://goo.gl/maps/rd7MzR54UsJrkhhm7" class="mt-4 boton_mapa" style="background-color:#00a3d1; color:white;width:200px;text-align:center;padding:15px;" target="_blank">Ver en Google maps</a>
  
  </div>
  

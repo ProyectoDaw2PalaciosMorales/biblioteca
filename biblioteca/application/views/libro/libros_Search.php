@@ -1,6 +1,7 @@
 
+</script>
 <?php foreach ($libros as $libro): ?>
-<div class="card mb-3 mx-auto" style="width:80%; margin-top:15px; background: #eee;">
+<div class="card mb-3 mx-auto cuerpo" style="width:80%; margin-top:85px; background: #eee;">
   <div class="row ">
     <div class="col-md-3 offset-md-3 mx-auto">
       <?php if ($libro['foto']!=null):?>
@@ -39,10 +40,11 @@
       	 <form action="<?=base_url()?>libro/Libros/mostrarlibrosampliacion" method="post">
 				<input type="hidden" name="id" value="<?=$libro['id']?>">
 				
-				  <button class="btn btn-primary stretched-link" onclick="submit()">
-					Ver mas
+				  <input type="button" class="boton3 mx-auto stretched-link" onclick="submit()" value="Ver mas">
+					
 						
-				 </button>				
+				 
+				 			
 				
 			</form>    	     
         
@@ -52,3 +54,5 @@
 </div>
  			
 		<?php endforeach;?>
+		
+		<button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>'"> Volver</button>

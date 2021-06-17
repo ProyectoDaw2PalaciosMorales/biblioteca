@@ -1,6 +1,21 @@
 <?php 
         
 class Usuarios extends CI_Controller {
+    public function  cambiarcontrasena(){
+        frame($this,'usuario/cambiarcontrasena');
+        
+        
+    }
+    
+    public function  cambiarcontrasenapost(){
+        
+        $antigua =  isset($_POST['antigua']) ? $_POST['antigua'] : null;
+        $nueva =  isset($_POST['nueva']) ? $_POST['nueva'] : null;
+        $this->load->model('Usuarios_model');
+        $this->Usuarios_model->obtener($antigua,$nueva);
+        
+        
+    }
     //cuando se pinca sobre "¿Olvidaste tu contraseña?" de la vista login.php
     public function  recuperarcontrasena(){
         frame($this,'usuario/enviocontrasena');
@@ -20,27 +35,28 @@ class Usuarios extends CI_Controller {
     }
     // cuando se pincha sobre el boton "perfil dentro de la imagen del la barra de navegacion" de la vista nav dentro de la carpeta _templates
     public function perfil_usuario(){
-         
-           //inicio sesion
-           session_start();
+        
+        //inicio sesion
+        session_start();
         //no se permte el accseo desde la url sin estar registrado
         if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
-        //recojo los datos del campo name de el formulario  oculto de la vista bienvenidos.php
-        
-        // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
-        $id =  isset($_POST['id']) ? $_POST['id'] : null;
-        //se carga el modelo usuario_model
-        $this->load->model('Usuarios_model');
-        // se crea la array usuario y se se asina la funcion getusuaiosById linea 16  del modelo usuarios_model.php ala que se le añade la variable id
-        $datos['usuario']=$this->Usuarios_model->getusuaiosById($_SESSION['idusuario']);
-        // se crea la array reservas y se se asina la funcion getusuaiosreserva linea 10  del modelo usuarios_model.php 
-        $datos['reservas']=$this->Usuarios_model->getusuaiosreservas();
-        // se carga la vista perfil usuario y se le añaden los datos
-        frame($this,'usuario/Perfilusuario',$datos);
-        
-        
+            //recojo los datos del campo name de el formulario  oculto de la vista bienvenidos.php
+            
+            // verifico que si los campos tienen datos los guarde en las variables en caso de que reciba campos vacios estos campos cojeran el valor null
+            $id =  isset($_POST['id']) ? $_POST['id'] : null;
+            //se carga el modelo usuario_model
+            $this->load->model('Usuarios_model');
+            $this->load->model('Libros_model');
+            // se crea la array usuario y se se asina la funcion getusuaiosById linea 16  del modelo usuarios_model.php ala que se le añade la variable id
+            $datos['usuario']=$this->Usuarios_model->getusuaiosById($_SESSION['idusuario']);
+            // se crea la array reservas y se se asina la funcion getusuaiosreserva linea 10  del modelo usuarios_model.php
+            $datos['reservas'] =$this->Libros_model->getResIdUsuario($_SESSION['idusuario']);
+            $datos['nombre_libros']=$this->Libros_model->getBo_libros();
+            // se carga la vista perfil usuario y se le añaden los datos
+            frame($this,'usuario/Perfilusuario',$datos);
+            
+            
         }  else{ $this->load->view('errorurl');}}
-    
     // cuando se pincha sobre el boton "mostrar usuarios " de la vista bienvenidos.php
     public function mostrar(){
         //inicio sesion
@@ -105,8 +121,7 @@ class Usuarios extends CI_Controller {
      
         $email =  isset($_POST['email']) ? $_POST['email'] : null;
         $telefono =  isset($_POST['telefono']) ? $_POST['telefono'] : null;
-        $password =  isset($_POST['password']) ? $_POST['password'] : null;
-        $comprobacion =  isset($_POST['comprobacion']) ? $_POST['comprobacion'] : null;
+       
         $alias =  isset($_POST['alias']) ? $_POST['alias'] : null;
         $foto = $_FILES['foto']['name'];
       // se carga el modelo usuarios_model
@@ -130,7 +145,7 @@ class Usuarios extends CI_Controller {
         }
            //se carga la funccion actualizarperfil linea 163 del modelo usuarios_model.php
         
-        $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$password,$comprobacion,$alias,$foto);
+        $this->Usuarios_model->actualizarperfil($id,$nombre,$primer_apellido,$segundo_apellido,$fechanacimento,$email,$telefono,$alias,$foto);
         
        
         }else{ $this->load->view('errorurl');}}
@@ -210,6 +225,8 @@ class Usuarios extends CI_Controller {
                 $_SESSION['password'] =$password;}
              //se carga el modelo usuarios_model   
                 $this->load->model('Usuarios_model');
+                $this->load->model('Libros_model');
+                $this->Libros_model->fueraFecha();
               //se carga la funcion del modelo verificarlogin del modelo usuarios_model linea 116
               // y se le pasa la sesiones de nombre y password como parametros
              $this->Usuarios_model->verificarLogin($_SESSION['nombre'], $_SESSION['password']);
@@ -247,6 +264,29 @@ class Usuarios extends CI_Controller {
                
                 
             }else{ $this->load->view('errorurl');}}
+            public function Bienvenidos_x()
+            {//no se permte el accseo desde la url sin estar registrado
+                //inicio sesion
+                session_start();
+                if(isset( $_SESSION['nombre']) &&  $_SESSION['password']){
+                    
+                    
+                    // se carga el modelo usuarios_model
+                    $this->load->model('Usuarios_model');
+                    $this->load->model('Libros_model');
+                    //se asigna la sesion nombre a la variable nombre
+                    $nombre= $_SESSION['nombre'];
+                    
+                    // se crea la array usuario y se se asina la funcion idperfil linea 154  del modelo usuarios_model.php ala que se le añade la variable nombre
+                    $datos['usuario'] = $this->Usuarios_model->idperfil($nombre);
+                    
+                    // se carga la vista bienvenidos y se le añaden la array datos
+                    frame($this,'usuario/bienvenidos',$datos);
+                    
+                 
+                    
+                }else{ $this->load->view('errorurl');}}
+                
             
             // cuando se pincha sobre el boton "eliminar tu cuenta" de la vista perfilusuario.php 
             public function borrar(){

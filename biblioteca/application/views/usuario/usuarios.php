@@ -1,8 +1,8 @@
 
-<h1 style="text-align:center">Tabla de usuarios</h1>
+<h1 class="encabezado">Tabla de usuarios</h1>
 
-<table class="table table-dark" border="1">
-	<tr style="text-align:center">
+<table class="table">
+	<tr  class="tablas">
 		
 		
        	<th>NOMBRE</th>  
@@ -12,7 +12,7 @@
        <th>CORREO ELECTRONICO</th>   
        <th>TELEFONO</th>
        <th>ALIAS</th>       
-  	 <th>ELIMINAR</th>  
+  		<th>ELIMINAR</th>  
        
 		
 		
@@ -20,7 +20,7 @@
 	
 	<?php foreach ($usuarios as $usuario): ?>
 		 <?php if ($usuario ->nombre!="admin"):?>
-		<tr >
+		<tr class="tablas1">
 		    
 			
 			<td style="vertical-align: middle;text-align:center"><?=
@@ -75,9 +75,8 @@
 			<?php endforeach;?>		
 		
 </table>
-
-      <a href="<?=base_url()?>usuario/Usuarios/acceso">Home</a>    
-        
+		<button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>usuario/Usuarios/Bienvenidos_x'"> Volver</button>
+       
     
 
 

@@ -1,10 +1,13 @@
-<div class="profile">
+
+<body class="cuadro_perfil">
+
+<div class="profile border-primary mt-5">
 				  <?php 
             $sustitutuirespaciosblancos = str_replace(" ","_",$_SESSION['nombre'])?>
           <?php if (is_file("assets/fotosperfil/usuario-". $sustitutuirespaciosblancos.".png" )):?>
-        <img  src="<?=base_url()?>assets/fotosperfil/usuario-<?= $sustitutuirespaciosblancos?>.png"style="width: 100%;">
+        <img  src="<?=base_url()?>assets/fotosperfil/usuario-<?= $sustitutuirespaciosblancos?>.png"style="width: 100%;border-radius:10px;">
          <?php  else:?>
-         <img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"style="width:100%;">
+         <img src="<?=base_url()?>assets/fotosperfil/noimagen.jpg"style="width:100%;border-radius:10px;">
                     <?php endif;?>
 				
 			
@@ -40,9 +43,13 @@
 						
  	<li><p><a><i class="fas fa-book"></i> Reservas</a></p></li>
 	 <li>
-	 
-       AddREs
-          
+	 <ul class="list-group">
+       <?php foreach($reservas as $reserva):?>
+	   <?php foreach($nombre_libros as $libro):?>
+	  <?php if(($reserva['libros_id']) == ($libro->id)):?>
+ 		<li style=font-family:"Times New Roman", Times, serif; ><?=$libro->titulo?></li>
+          <?php endif; endforeach;endforeach;?>
+		</ul>	
 	 </li>
 	
   <li><p><form action="<?=base_url()?>usuario/Usuarios/borrar" method="post">
@@ -51,12 +58,14 @@
 				  <button onclick="submit()" class="btn btn-danger  btn-lg ">
 				   Eliminar tu cuenta
 							
-				 </button>				
+				 </button>	
+				 <a  class="contrasena" href="<?=base_url()?>usuario/Usuarios/recuperarcontrasena">Recupera tu contraseña</a>			
 				
-			</form>    	</p></li></ul>
+			</form>    	</p></li><a  class="contrasena1" href="<?=base_url()?>usuario/Usuarios/cambiarcontrasena">Recupera tu contraseña</a></ul>
+			 	
 </div>
-<button type="button" class="btn btn-dark" onclick="window.location.href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'"> Volver</button>
+<button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>'"> Volver</button>
 
-
+</body>
 
   

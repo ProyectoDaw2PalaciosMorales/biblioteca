@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //Puerto de Lucia, para vosotros quitar este base url porque vuestro puerto es el 8080
 //http://localhost:81/biblioteca/biblioteca
-$config['base_url'] = '';
+$config['base_url'] = 'http://localhost:81/biblioteca/biblioteca';
 
 
 /*

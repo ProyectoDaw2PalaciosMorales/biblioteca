@@ -1,24 +1,22 @@
+
 <footer class="pie_pagina">
  <div class="row linea_pie" >
  		<div class=" pie_1 col m-1">
  
- 			<h1>TuBiblioteca</h1>
+ 			<a href="<?=base_url()?>">TuBiblioteca</a>
  
  		</div>
  		<div class=" pie_2 col m-1">
  
  			<a href="<?=base_url()?>usuario/Usuarios/registro">Suscribete a nuestra comunidad</a>
  			<hr>
- 			<a href="<?=base_url()?>privado/privacidad">Politica de privacidad</a>
- 			<br><br>
- 			<input type=text placeholder="email">
- 			<br><br>
- 			<button>Conocenos</</button>
+ 			<a href="https://www.boe.es/buscar/pdf/2018/BOE-A-2018-16673-consolidado.pdf" target="_blank" >Politica de privacidad</a>
+ 			
  
  		</div>
  		<div class=" pie_3 col m-1">
  
- 			<a href="dpgtriatlon@hotmail.com">dpgtriatlon@hotmail.com</a>
+ 			<a href="mailto:proyectodaw2palaciosmorales@gmail.com">proyectodaw2palaciosmorales@gmail.com</a>
  			<p>Tel: 91-698-96-52</p>
  			<p>Movil: 689-45-21-75</p>
  			

@@ -1,31 +1,59 @@
 <?php
 class In_comentarios extends CI_Model{
     
-  
-   
     public function  escribircomentario($id,$comentarios,$id_libro)
     
+    
+    
     {
-        $comentario = R::dispense('comentarios');
-        $usuario = R::load('usuarios', $id);
-        $libros = R::load('libros', $id_libro);
-        $comentario->comentario=$comentarios;
-        $comentario->usuario=$usuario;
-        $comentario->libros=$libros;
-        $comentario->fecha=  new DateTime('NOW');
-        R::store($comentario);
-        $this->load->model('Libros_model');
-        $this->load->model('Usuarios_model');
-        $this->load->model('In_comentarios');
-        $datos['libro'] = $this->Libros_model->getlibrosById($id_libro);
-        $datos['usuarios'] = $this->Usuarios_model->getUsuarios();
-        $datos['comentarios']=$this->In_comentarios-> findByIdLibro();
-        $this->Libros_model->anulacion($id);
-        frame($this,'libro/mostrardatoslibro',$datos);
-            
         
+        if($comentarios!= "" ||$comentarios!=null){
+            
+            $comentario = R::dispense('comentarios');
+            
+            $usuario = R::load('usuarios', $id);
+            
+            $libros = R::load('libros', $id_libro);
+            
+            $comentario->comentario=$comentarios;
+            
+            $comentario->usuario=$usuario;
+            
+            $comentario->libros=$libros;
+            
+            $comentario->fecha=  new DateTime('NOW');
+            
+            R::store($comentario);
             
         }
+        
+        $this->load->model('Libros_model');
+        
+        $this->load->model('Usuarios_model');
+        
+        $this->load->model('In_comentarios');
+        
+        $datos['libro'] = $this->Libros_model->getlibrosById($id_libro);
+        
+        $datos['usuarios'] = $this->Usuarios_model->getUsuarios();
+        
+        $datos['comentarios']=$this->In_comentarios-> findByIdLibro();
+        
+        $this->Libros_model->anulacion($id);
+        
+        frame($this,'libro/mostrardatoslibro',$datos);
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+   
+    
     public function findByIdLibro(){
        return R::findAll('comentarios');
         
@@ -36,15 +64,30 @@ class In_comentarios extends CI_Model{
         return R::load('comentarios', $id);
     }
   
-    public function borrar($id){
+    public function borrar($id, $id_libro){
         //borra todos los campos cuyo id recibe del controlador
         R::trash(R::load('comentarios',$id));
         //redirigo al controlador autor/Autores/mostrar_autoresadninistrador
+        $this->load->model('Libros_model');
         
-        redirect(base_url());
+        $this->load->model('Usuarios_model');
+        
+        $this->load->model('In_comentarios');
+        
+        $datos['libro'] = $this->Libros_model->getlibrosById($id_libro);
+        
+        $datos['usuarios'] = $this->Usuarios_model->getUsuarios();
+        
+        $datos['comentarios']=$this->In_comentarios-> findByIdLibro();
+        
+        $this->Libros_model->anulacion($id);
+        
+        frame($this,'libro/mostrardatoslibro',$datos);
+        
+        
         
     }
-    public function  editar($id,$comentario)
+    public function  editar($id,$comentario,$id_libro)
     
     {
         //busca en la tabla autores todos los campos y los busca por el id que recibe del controlador
@@ -58,7 +101,23 @@ class In_comentarios extends CI_Model{
         R::store($coment);
         
         //redirigo al controlador autor/Autores/mostraractualizacionautores
-        redirect(base_url());
+        $this->load->model('Libros_model');
+        
+        $this->load->model('Usuarios_model');
+        
+        $this->load->model('In_comentarios');
+        
+        $datos['libro'] = $this->Libros_model->getlibrosById($id_libro);
+        
+        $datos['usuarios'] = $this->Usuarios_model->getUsuarios();
+        
+        $datos['comentarios']=$this->In_comentarios-> findByIdLibro();
+        
+        $this->Libros_model->anulacion($id);
+        
+        frame($this,'libro/mostrardatoslibro',$datos);
+        
+        
         
     }  
     

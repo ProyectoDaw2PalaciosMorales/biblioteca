@@ -55,21 +55,24 @@
             <button><a href="<?=base_url()?>libro/Libros/panel_administrativo">Atras</a></button>
         </form>
         <br><br><br> -->
+    <body class="nuevosLi">
+    <h1 class="mx-auto mb-5 tituInser">Inserción de libros</h1>
     
-  <div class="card mx-auto border border-primary bg-dark" style="max-width:395px; margin-top:25px">
-                <div class="mx-auto mt-3 text-white" style="font-family:Lucida Console, Courier New, monospace;">
-                    <h3 >Insertar libros</h3>
+  <div class="card mx-auto insertar" >
+                <div class="mx-auto mt-3 tituSecun">
+                    <h3 >Datos del libro</h3>
                    
                 </div>
                 <div class="card-body">
                     <!-- FORMULARIO -->
-                    <form action="<?=base_url()?>libro/Libros/insertarlibrospost" method="post" enctype="multipart/form-data">
+                    <form  class="form_registr" action="<?=base_url()?>libro/Libros/insertarlibrospost" method="post" enctype="multipart/form-data">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-book"></i></span>
                             </div>
                             <!-- TextBox - Correo -->
-                            <input type="text" name="titulo" class="form-control" placeholder="Titulo" required>
+                            <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo" required>
+                            <span id="tit"></span>
                         </div>
                         
                         <div class="input-group form-group">
@@ -77,21 +80,29 @@
                                 <span class="input-group-text"><i class="fa fa-calendar" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input type="date" name="ano" class="form-control" placeholder="Año" required>
+                               <input style="width:100px; " type="number" id="ano" name="ano" placeholder="año" required><span class="text-white"> /</span>
+                            
+                             <input style="width:100px; " type="number" id="mes" name="mes" placeholder="mes" required><span class="text-white"> /</span>
+                    
+                              <input style="width:100px; " type="number" id="dia" name="dia" placeholder="dia" required>
+                            <span  id="fe1"></span> <span id="fe2"></span> <span id="fe3"></span>
+                            
                         </div>
                          <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-book" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input type="text" name="editorial" class="form-control" placeholder="Editorial" required>
+                             <input type="text"  id="editorial" name="editorial" class="form-control" placeholder="Editorial" required>
+                             <span id="edi"></span>
                         </div>
                          <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
                                 <span class="input-group-text"><i class="fa fa-user" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input type="text" name="autor" class="form-control" placeholder="Autor" required>
+                             <input type="text" id="autor" name="autor" class="form-control" placeholder="Autor" required>
+                             <span id="aut"></span>
                         </div>
                          <div class="input-group form-group">
                             <div class="input-group-prepend" style="background-color: #00BDF7">
@@ -135,19 +146,27 @@
                                 <span class="input-group-text"><i class="fa fa-book" ></i></span>
                             </div>
                             <!-- TextBox - Contraseña -->
-                             <input type="text" name="ejemplares" class="form-control" placeholder="Ejemplares" required>
+                             <input type="text" id="ejemplares" name="ejemplares" class="form-control" placeholder="Ejemplares" required>
+                             <span id="eje"></span>
                         </div>
                                         <label class="mx-auto  text-white" >Introduce la descricion</label>
                                        <textarea rows="10" cols="40" name="descricion"  style="width:350px"></textarea>
                        
-                        <input id="idp-fo"   type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
+                        <input id="idp-fo"  class="text-white" type="file"  name="foto" accept="image/x-png,image/gif,image/jpeg" />
                         <div class="form-group">
                             <!-- Submit - Ingresar -->
-                            <input type="submit" value="Ingresar" class="btn float-right login_btn btn btn-primary">
+                            <input type="submit" onclick="libros();" value="Ingresar" class="btn float-right login_btn btn btn-primary botoninsertar">
                         </div>
                     </form>
                     
-                
+              
             </div>
         </div>
-  <button><a href="<?=base_url()?>libro/Libros/panel_administrativo">Atras</a></button>
+  
+  <button type="button" class="volver mx-auto" onclick="window.location.href='<?=base_url()?>libro/Libros/panel_administrativo'"> Volver</button>
+  
+  
+  </body>
+  
+  
+  

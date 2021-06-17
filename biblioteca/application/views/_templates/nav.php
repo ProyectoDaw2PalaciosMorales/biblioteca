@@ -1,8 +1,10 @@
+
   
-<nav class="navbar navbar-expand-md  navbar-dark p-1 mb-5" style="background-color:#00a3d1; opacity: 80%;" >
+<nav class="navbar navbar-expand-md   navbar-dark p-1  " style="background-color:#00a3d1; opacity: 80%;width:100%;">
+
 
  
- <div style="font-family:'Pattaya', sans-serif;"><a class="navbar-brand pl-3"  style="margin-top:-20px; width:300px; font-size:40px;"  href='<?=base_url()?>'>TuBiblioteca</a></div>
+ <div style="font-family:'Pattaya', sans-serif;"><a class="navbar-brand  pl-3"  style="margin-top:-20px; width:300px; font-size:40px;"  href='<?=base_url()?>'>TuBiblioteca</a></div>
       
     
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -11,12 +13,13 @@
   <div class="collapse navbar-collapse bg-dark"  id="collapsibleNavbar" >
   
     <ul class="navbar-nav " style="display: flex; justify-content: space-around; width:100%;">
-    <li class="nav-item"><a class="text-white nav-link" style="font-size: 15px;margin-top:25px ;" href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'>Todos los libros</a></li>
+    <li class="nav-item"><a class="text-white nav-link" style="font-size: 20px;margin-top:25px;font-family:'Times New Roman', Times, serif;" href='<?=base_url()?>libro/Libros/mostrarlibrosusuarios'>Todos los libros</a></li>
        
-          <?php if (isset( $_SESSION['nombre'])!=null):?>    
-                <li class="nav-item"><a class="text-white nav-link" style="font-size: 15px;margin-top:25px ;" href='<?=base_url()?>usuario/Usuarios/Bienvenidos_u'>Menu principal</a></li>
-                 <?php  else:?>
-                  <?php endif;?>
+          <?php if (isset( $_SESSION['nombre'])!=null):?>
+          <?php if($_SESSION['nombre']=='admin'):?>    
+                <li class="nav-item"><a class="text-white nav-link" style="font-size: 20px;margin-top:25px ; font-family:'Times New Roman', Times, serif;" href='<?=base_url()?>usuario/Usuarios/Bienvenidos_x'>Panel de administración</a></li>
+                 
+                  <?php endif; endif;?>
        
     
           <li class="form-group">
@@ -74,6 +77,8 @@
     </ul>
   </div>  
 </nav>
+
+
 <!--    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
